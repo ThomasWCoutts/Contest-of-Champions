@@ -3487,7 +3487,7 @@ JButton p2b3 = new JButton();
         supportPanelLabel = new JLabel();
         tankPanelLabel = new JLabel();
 
-        helpButton = new JButton();
+        helpButton = new JButton("?");
         assaultb = new JButton();
         assassinb = new JButton();
         healerb = new JButton();
@@ -10888,6 +10888,7 @@ p23d.setOpaque(true);
         helpButton.setEnabled(true);
         helpButton.setVisible(true);
         helpButton.addActionListener(this);
+        helpButton.setFont(new Font("Comic Sans", Font.PLAIN,16));
         helpButton.setBounds(1400, 40, 40, 40);  
 	    fightPane.add(helpButton,JLayeredPane.DRAG_LAYER); 
         helpButton.addActionListener(new ActionListener() {
@@ -10915,7 +10916,8 @@ p23d.setOpaque(true);
         });
 
 
-        JButton helpButton1 = new JButton();
+        JButton helpButton1 = new JButton("?");
+        helpButton1.setFont(new Font("Comic Sans", Font.PLAIN,16));
         helpButton1.setFocusable(false);
         //helpButton.setIcon(cIcon);
         helpButton1.setVisible(true);
@@ -11444,7 +11446,7 @@ p23d.setOpaque(true);
 
 	    supportb.setVisible(true);
         supportb.setEnabled(true);
-        supportb.setBounds(400, 410, 700, 100);
+        supportb.setBounds(400, 450, 700, 100);
         supportb.addActionListener(this);
         supportb.setText("support");
         supportb.setFocusable(false);
@@ -11980,7 +11982,7 @@ p23d.setOpaque(true);
 
 	    supportb1.setVisible(true);
         supportb1.setEnabled(true);
-        supportb1.setBounds(400, 410, 700, 100);
+        supportb1.setBounds(400, 450, 700, 100);
         supportb1.addActionListener(this);
         supportb1.setText("support");
         supportb1.setFocusable(false);
@@ -12083,7 +12085,7 @@ pauseLabel.setForeground(Color.white);
 pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
 
 
-		JButton pauseButton = new JButton();
+		JButton pauseButton = new JButton("||");
 	    pauseButton.setFocusable(false);
         //pauseButton.setIcon(cIcon);
         pauseButton.setVisible(true);
