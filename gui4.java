@@ -5249,7 +5249,7 @@ p11d.setBackground(Color.WHITE);
             }
         });
 
-        sI.setBounds(950, 250, 150, 150);
+        sI.setBounds(800, 250, 150, 150);
         pane3.add(sI,JLayeredPane.DRAG_LAYER);
         sI.setBackground(null);
         sI.setOpaque(false);
