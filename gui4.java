@@ -535,7 +535,7 @@ public class gui4 extends JFrame implements ActionListener {
                     System.out.println("Player 1 " + D1 + " has " +m1.get(D1).HP + " HP");
                     killp1(computer.getAt().Class, D1);
                     p1.alive--;
-                    if (m1.get(fa1.getText()).HP>0){
+                    if (m1.get(HA1.getText()).HP>0){
                         p1d1.setEnabled(true);
                         charha1.setBackground(Color.WHITE);
                     }
@@ -543,7 +543,7 @@ public class gui4 extends JFrame implements ActionListener {
                         p1d1.setEnabled(false);
                         charha1.setBackground(null);
                     }
-                    if (m1.get(fa2.getText()).HP>0){
+                    if (m1.get(HA2.getText()).HP>0){
                         p1d2.setEnabled(true);
                         charha2.setBackground(Color.WHITE);
                     }
@@ -551,7 +551,7 @@ public class gui4 extends JFrame implements ActionListener {
                         p1d2.setEnabled(false);
                         charha2.setBackground(null);
                     }
-                    if (m1.get(fa3.getText()).HP>0){
+                    if (m1.get(HA3.getText()).HP>0){
                         p1d3.setEnabled(true);
                         charha3.setBackground(Color.WHITE);
                     }
@@ -584,12 +584,12 @@ public class gui4 extends JFrame implements ActionListener {
                 p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                 p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
             }
-            p2e1.setText("Energy: "+ m2.get(fb1.getText()).Energy);
-            p2attack1.setText("Attack Strength: "+ m2.get(fb1.getText()).Attack);
-            p2e2.setText("Energy: "+ m2.get(fb2.getText()).Energy);
-            p2attack2.setText("Attack Strength: "+ m2.get(fb2.getText()).Attack);
-            p2e3.setText("Energy: "+ m2.get(fb3.getText()).Energy);
-            p2attack3.setText("Attack Strength: "+ m2.get(fb3.getText()).Attack);
+            p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
+            p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
+            p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
+            p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
+            p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
+            p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
             if (computer.FindSupport() && computer.getSupport().Skips>0){
                 System.out.println(("Player 1 was frozen"));
                 freezep1();
@@ -662,19 +662,19 @@ public class gui4 extends JFrame implements ActionListener {
                 computer.support.nerfs--;
                 //p2reset();
             }
-            if (m1.get(fa1.getText()).HP>0){
+            if (m1.get(HA1.getText()).HP>0){
                 fa1.setEnabled(true);
             }
             else{
                 fa1.setEnabled(false);
             }
-            if (m1.get(fa2.getText()).HP>0){
+            if (m1.get(HA2.getText()).HP>0){
                 fa2.setEnabled(true);
             }
             else{
                 fa2.setEnabled(false);
             }
-            if (m1.get(fa3.getText()).HP>0){
+            if (m1.get(HA3.getText()).HP>0){
                 fa3.setEnabled(true);
             }
             else{
@@ -2298,7 +2298,7 @@ public class gui4 extends JFrame implements ActionListener {
     public  void p1hit(String A1)throws UnsupportedAudioFileException,IOException,LineUnavailableException{  
         playHit();
         if(A1.equals(p1.chosen[0].Class)){
-            p11f.setBounds(700,350,100,100);
+            p11f.setBounds(850,350,100,100);
             switch(p1.chosen[0].Class){
                 case "assault":
                     p11f.setIcon(p1aa);
@@ -2326,7 +2326,7 @@ public class gui4 extends JFrame implements ActionListener {
         }
         
         else if(A1.equals(p1.chosen[1].Class)){
-            p12f.setBounds(700,350,100,100);
+            p12f.setBounds(850,350,100,100);
             switch(p1.chosen[1].Class){
                 case "assault":
                     p12f.setIcon(p1aa);
@@ -2353,7 +2353,7 @@ public class gui4 extends JFrame implements ActionListener {
             
         }
         else{
-            p13f.setBounds(700,350,100,100);
+            p13f.setBounds(850,350,100,100);
             switch(p1.chosen[2].Class){
                 case "assault":
                     p13f.setIcon(p1aa);
@@ -2385,7 +2385,7 @@ public class gui4 extends JFrame implements ActionListener {
         playHit();
         if(pvp){
             if(A2.equals(p2.chosen[0].Class)){
-            p21f.setBounds(510,350,100,100);
+            p21f.setBounds(610,350,100,100);
             switch(p2.chosen[0].Class){
                 case "assault":
                     p21f.setIcon(p2aa);
@@ -2413,7 +2413,7 @@ public class gui4 extends JFrame implements ActionListener {
         }
         
         else if(A2.equals(p2.chosen[1].Class)){
-            p22f.setBounds(510,350,100,100);
+            p22f.setBounds(610,350,100,100);
             switch(p2.chosen[1].Class){
                 case "assault":
                     p22f.setIcon(p2aa);
@@ -2440,7 +2440,7 @@ public class gui4 extends JFrame implements ActionListener {
             
         }
         else{
-            p23f.setBounds(510,350,100,100);
+            p23f.setBounds(610,350,100,100);
             switch(p2.chosen[2].Class){
                 case "assault":
                     p23f.setIcon(p2aa);
@@ -3601,7 +3601,7 @@ side1l.setVisible(true);
 side1l.setOpaque(false);
 side1l.setBackground(null);
 pane1.add(side1l,JLayeredPane.DRAG_LAYER);
-side1l.setBounds(320, 500, 400, 50);
+side1l.setBounds(320, 500, 400, 60);
 side1l.setFont(new Font("Comic Sans", Font.BOLD,50));
 side1l.setForeground(Color.BLUE);
 
@@ -3609,7 +3609,7 @@ side2l.setVisible(true);
 side2l.setOpaque(false);
 side2l.setBackground(null);
 pane1.add(side2l,JLayeredPane.DRAG_LAYER);
-side2l.setBounds(700, 500, 400, 50);
+side2l.setBounds(700, 500, 400, 60);
 side2l.setForeground(Color.RED);
             side2l.setFont(new Font("Comic Sans", Font.BOLD,50));
 
@@ -4106,22 +4106,26 @@ side2l.setForeground(Color.RED);
         pane21.setEnabled(false);
         pane21.setVisible(false);
 
+        pane21.add(NextB1,JLayeredPane.DRAG_LAYER);
+        pane21.add(panel3Textbox,JLayeredPane.DRAG_LAYER);
+        pane21.add(bgm3,JLayeredPane.DEFAULT_LAYER);
         panel3Label.setText("How many rounds do you want to play?");
         panel3Label.setBounds(80, 150, 1600, 100);
         panel3Label.setFont(new Font("Press Start 2P", Font.BOLD, 70));
         panel3Label.setForeground(new Color(255, 30, 0));
         panel3Label.setVisible(true);
         pane21.add(panel3Label,JLayeredPane.DRAG_LAYER);
+        
+
         //panel3.add();
 
         panel3Textbox.setBounds(500, 310, 400, 50);
         panel3Textbox.setFont(new Font("Press Start 2P", Font.BOLD, 50));
         panel3Textbox.setVisible(true);
         panel3Textbox.setEnabled(true);
-        pane21.add(panel3Textbox,JLayeredPane.DRAG_LAYER);
+        
 
         NextB1.setBounds(500, 500, 400, 130);
-        pane21.add(NextB1);
         NextB1.addActionListener(this);
         NextB1.setText("Next");
         NextB1.setFocusable(false);
@@ -4147,8 +4151,8 @@ side2l.setForeground(Color.RED);
                     } 
                     rounds = Integer.parseInt(panel3Textbox.getText());
                     System.out.println(rounds +" rounds");
-                    pane3.setVisible(false);
-                    pane3.setEnabled(false);
+                    pane21.setVisible(false);
+                    pane21.setEnabled(false);
                     pane3.setVisible(true);
                     pane3.setEnabled(true);
                     aI.setOpaque(false);
@@ -4207,9 +4211,9 @@ side2l.setForeground(Color.RED);
                     charda3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
 
 
-                    p1life1l.setBounds(270,400,300,50);
-                    p1life2l.setBounds(420,480,300,50);
-                    p1life3l.setBounds(270,550,300,50);
+                    p1life1l.setBounds(420,400,300,50);
+                    p1life2l.setBounds(570,480,300,50);
+                    p1life3l.setBounds(420,550,300,50);
 
 
                     if (pvp){
@@ -4309,8 +4313,8 @@ side2l.setForeground(Color.RED);
                     p2health3l.setBounds(1100,550,300,50);
 
                     
-                    p1e1.setText("Energy: "+ m1.get(fa1.getText()).Energy);
-                    p1attack1.setText("Attack Strength: "+ m1.get(fa1.getText()).Attack);
+                    p1e1.setText("Energy: "+ m1.get(HA1.getText()).Energy);
+                    p1attack1.setText("Attack Strength: "+ m1.get(HA1.getText()).Attack);
                     if(fa1.getText().equals("tank")){
                         p1spec1.setText("Shield Strength: "+ m1.get("tank").Shield);
                     }
@@ -4321,8 +4325,8 @@ side2l.setForeground(Color.RED);
                         p1spec1.setText("");
                     }
 
-                    p1e2.setText("Energy: "+ m1.get(fa2.getText()).Energy);
-                    p1attack2.setText("Attack Strength: "+ m1.get(fa2.getText()).Attack);
+                    p1e2.setText("Energy: "+ m1.get(HA2.getText()).Energy);
+                    p1attack2.setText("Attack Strength: "+ m1.get(HA2.getText()).Attack);
                     if(fa2.getText().equals("tank")){
                         p1spec2.setText("Shield Strength: "+ m1.get("tank").Shield);
                     }
@@ -4334,8 +4338,8 @@ side2l.setForeground(Color.RED);
                     }
 
 
-                    p1e3.setText("Energy: "+ m1.get(fa3.getText()).Energy);
-                    p1attack3.setText("Attack Strength: "+ m1.get(fa3.getText()).Attack);
+                    p1e3.setText("Energy: "+ m1.get(HA3.getText()).Energy);
+                    p1attack3.setText("Attack Strength: "+ m1.get(HA3.getText()).Attack);
                     if(fa3.getText().equals("tank")){
                         p1spec3.setText("Shield Strength: "+ m1.get("tank").Shield);
                     }
@@ -4348,8 +4352,8 @@ side2l.setForeground(Color.RED);
 
 
 
-                    p2e1.setText("Energy: "+ m2.get(fb1.getText()).Energy);
-                    p2attack1.setText("Attack Strength: "+ m2.get(fb1.getText()).Attack);
+                    p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
+                    p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
                     if(fb1.getText().equals("tank")){
                         p2spec1.setText("Shield Strength: "+ m2.get("tank").Shield);
                     }
@@ -4360,8 +4364,8 @@ side2l.setForeground(Color.RED);
                         p2spec1.setText("");
                     }
 
-                    p2e2.setText("Energy: "+ m2.get(fb2.getText()).Energy);
-                    p2attack2.setText("Attack Strength: "+ m2.get(fb2.getText()).Attack);
+                    p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
+                    p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
                     if(fb2.getText().equals("tank")){
                         p2spec2.setText("Shield Strength: "+ m2.get("tank").Shield);
                     }
@@ -4372,8 +4376,8 @@ side2l.setForeground(Color.RED);
                         p2spec2.setText("");
                     }
 
-                    p2e3.setText("Energy: "+ m2.get(fb3.getText()).Energy);
-                    p2attack3.setText("Attack Strength: "+ m2.get(fb3.getText()).Attack);
+                    p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
+                    p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
                     if(fb3.getText().equals("tank")){
                         p2spec3.setText("Shield Strength: "+ m2.get("tank").Shield);
                     }
@@ -4779,9 +4783,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s1.setText("assault");
                                 fb1.setText(p2.chosen[selected].Class);
                                 HB1.setText(p2.chosen[selected].Class);
-                                p2a1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
+                                p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                                 Player21.setText("assault");
                                 Player21.setVisible(true);
                                 p21d.setIcon(p2ai);
@@ -4796,9 +4800,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s2.setText("assault");
                                 fb2.setText(p2.chosen[selected].Class);
                                 HB2.setText(p2.chosen[selected].Class);
-                                p2a2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
+                                p2a2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
                                 Player22.setText("assault");
                                 Player22.setVisible(true);
                                 p22d.setIcon(p2ai);
@@ -4813,9 +4817,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s3.setText("assault");
                                 fb3.setText(p2.chosen[selected].Class);
                                 HB3.setText(p2.chosen[selected].Class);
-                                p2a3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
                                 Player23.setText("assault");
                                 Player23.setVisible(true);
                                 p23d.setIcon(p2ai);
@@ -4888,9 +4892,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s1.setText("assassin");
                                 fa1.setText(p1.chosen[selected].Class);
                                 HA1.setText(p1.chosen[selected].Class);
-                                p1a1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1life1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1health1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
+                                p1a1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1life1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1health1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
                                 Player11.setText("assassin");
                                 Player11.setVisible(true);
                                 p11d.setIcon(p1asi);
@@ -4907,9 +4911,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s2.setText("assassin");
                                 fa2.setText(p1.chosen[selected].Class);
                                 HA2.setText(p1.chosen[selected].Class);
-                                p1a2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                                p1life2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                                p1health2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
+                                p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                                p1life2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                                p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                                 Player12.setText("assassin");
                                 Player12.setVisible(true);
                                 p12d.setIcon(p1asi);
@@ -4925,9 +4929,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s3.setText("assassin");
                                 fa3.setText(p1.chosen[selected].Class);
                                 HA3.setText(p1.chosen[selected].Class);
-                                p1a3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1life3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1health3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                                p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
                                 Player13.setText("assassin");
                                 Player13.setVisible(true);
                                 p13d.setIcon(p1asi);
@@ -4988,9 +4992,9 @@ p11d.setBackground(Color.WHITE);
                                 p2d1.setText(p2.chosen[selected].Class);
                                 fb1.setText(p2.chosen[selected].Class);
                                 HB1.setText(p2.chosen[selected].Class);
-                                p2a1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
+                                p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                                 Player21.setText("assassin");
                                 Player21.setVisible(true);
                                 chardb1.setText("assassin");
@@ -5002,9 +5006,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s2.setText("assassin");
                                 fb2.setText(p2.chosen[selected].Class);
                                 HB2.setText(p2.chosen[selected].Class);
-                                p2a2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
+                                p2a2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
                                 Player22.setText("assassin");
                                 Player22.setVisible(true);
                                 p22d.setIcon(p2asi);
@@ -5019,9 +5023,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s3.setText("assassin");
                                 fb3.setText(p2.chosen[selected].Class);
                                 HB3.setText(p2.chosen[selected].Class);
-                                p2a3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
                                 Player23.setText("assassin");
                                 Player23.setVisible(true);
                                 p23d.setIcon(p2asi);
@@ -5094,9 +5098,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s1.setText("healer");
                                 fa1.setText(p1.chosen[selected].Class);
                                 HA1.setText(p1.chosen[selected].Class);
-                                p1a1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1life1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1health1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
+                                p1a1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1life1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1health1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
                                 Player11.setText("healer");
                                 Player11.setVisible(true);
                                 p11d.setIcon(p1hi);
@@ -5111,9 +5115,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s2.setText("healer");
                                 fa2.setText(p1.chosen[selected].Class);
                                 HA2.setText(p1.chosen[selected].Class);
-                                p1a2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                                p1life2l.setText(String.valueOf(m1.get(fa2.getText()).HP));  
-                                p1health2l.setText(String.valueOf(m1.get(fa2.getText()).HP));  
+                                p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                                p1life2l.setText(String.valueOf(m1.get(HA2.getText()).HP));  
+                                p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));  
                                 Player12.setText("healer");
                                 Player12.setVisible(true);
                                 p12d.setIcon(p1hi);
@@ -5128,9 +5132,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s3.setText("healer");
                                 fa3.setText(p1.chosen[selected].Class);
                                 HA3.setText(p1.chosen[selected].Class);
-                                p1a3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1life3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1health3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                                p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
                                 Player13.setText("healer");
                                 Player13.setVisible(true);
                                 p13d.setIcon(p1hi);
@@ -5186,9 +5190,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s1.setText("healer");
                                 fb1.setText(p2.chosen[selected].Class);
                                 HB1.setText(p2.chosen[selected].Class);
-                                p2a1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
+                                p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                                 Player21.setText("healer");
                                 Player21.setVisible(true);
                                 p21d.setIcon(p2hi);
@@ -5203,9 +5207,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s2.setText("healer");
                                 fb2.setText(p2.chosen[selected].Class);
                                 HB2.setText(p2.chosen[selected].Class);
-                                p2a2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
+                                p2a2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
                                 Player22.setText("healer");
                                 Player22.setVisible(true);
                                 p22d.setIcon(p2hi);
@@ -5221,9 +5225,9 @@ p11d.setBackground(Color.WHITE);
                                 fb3.setText(p2.chosen[selected].Class);
                                 p2s3.setText("healer");
                                 HB3.setText(p2.chosen[selected].Class);
-                                p2a3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
                                 Player23.setText("healer");
                                 Player23.setVisible(true);
                                 p23d.setIcon(p2hi);
@@ -5257,7 +5261,7 @@ p11d.setBackground(Color.WHITE);
 
         sb.setVisible(true);
         sb.setEnabled(true);
-        sb.setBounds(950, 250, 150, 150);
+        sb.setBounds(800, 250, 150, 150);
         sb.addActionListener(this);
         sb.setText("Support");
         sb.setFocusable(false);
@@ -5296,9 +5300,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s1.setText("support");
                                 fa1.setText(p1.chosen[selected].Class);
                                 HA1.setText(p1.chosen[selected].Class);
-                                p1a1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1life1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1health1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
+                                p1a1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1life1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1health1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
                                 Player11.setText("support");
                                 Player11.setVisible(true);
                                 p11d.setIcon(p1si);
@@ -5313,9 +5317,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s2.setText("support");
                                 fa2.setText(p1.chosen[selected].Class);
                                 HA2.setText(p1.chosen[selected].Class);
-                                p1a2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                                p1life2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                                p1health2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
+                                p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                                p1life2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                                p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                                 Player12.setText("support");
                                 Player12.setVisible(true);
                                 p12d.setIcon(p1si);
@@ -5331,9 +5335,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s3.setText("support");
                                 fa3.setText(p1.chosen[selected].Class);
                                 HA3.setText(p1.chosen[selected].Class);
-                                p1a3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1life3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1health3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                                p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
                                 Player13.setText("support");
                                 Player13.setVisible(true);
                                 p13d.setIcon(p1si);
@@ -5389,9 +5393,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s1.setText("support");
                                 fb1.setText(p2.chosen[selected].Class);
                                 HB1.setText(p2.chosen[selected].Class);
-                                p2a1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
+                                p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                                 Player21.setText("support");
                                 Player21.setVisible(true);
                                 p21d.setIcon(p2si);
@@ -5406,9 +5410,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s2.setText("support");
                                 fb2.setText(p2.chosen[selected].Class);
                                 HB2.setText(p2.chosen[selected].Class);
-                                p2a2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
+                                p2a2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
                                 Player22.setText("support");
                                 Player22.setVisible(true);
                                 p22d.setIcon(p2si);
@@ -5423,9 +5427,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s3.setText("support");
                                 fb3.setText(p2.chosen[selected].Class);
                                 HB3.setText(p2.chosen[selected].Class);
-                                p2a3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
                                 Player23.setText("support");
                                 Player23.setVisible(true);
                                 p23d.setIcon(p2si);
@@ -5498,9 +5502,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s1.setText("tank");
                                 fa1.setText(p1.chosen[selected].Class);
                                 HA1.setText(p1.chosen[selected].Class);
-                                p1a1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1life1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                                p1health1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
+                                p1a1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1life1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                                p1health1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
                                 Player11.setText("tank");
                                 Player11.setVisible(true);
                                 p11d.setIcon(p1ti);
@@ -5515,9 +5519,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s2.setText("tank");
                                 fa2.setText(p1.chosen[selected].Class);
                                 HA2.setText(p1.chosen[selected].Class);
-                                p1a2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                                p1life2l.setText(String.valueOf(m1.get(fa2.getText()).HP)); 
-                                p1health2l.setText(String.valueOf(m1.get(fa2.getText()).HP));         
+                                p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                                p1life2l.setText(String.valueOf(m1.get(HA2.getText()).HP)); 
+                                p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));         
                                 Player12.setText("tank");
                                 Player12.setVisible(true);
                                 p12d.setIcon(p1ti);
@@ -5532,9 +5536,9 @@ p11d.setBackground(Color.WHITE);
                                 p1s3.setText("tank");
                                 fa3.setText(p1.chosen[selected].Class);
                                 HA3.setText(p1.chosen[selected].Class);
-                                p1a3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1life3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
-                                p1health3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                                p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
+                                p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
                                 Player13.setText("tank");
                                 Player13.setVisible(true);
                                 p13d.setIcon(p1ti);
@@ -5591,9 +5595,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s1.setText("tank");
                                 fb1.setText(p2.chosen[selected].Class);
                                 HB1.setText(p2.chosen[selected].Class);
-                                p2a1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
+                                p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                                 Player21.setText("tank");
                                 Player21.setVisible(true);
                                 p21d.setIcon(p2ti);
@@ -5608,9 +5612,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s2.setText("tank");
                                 fb2.setText(p2.chosen[selected].Class);
                                 HB2.setText(p2.chosen[selected].Class);
-                                p2a2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
+                                p2a2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
                                 Player22.setText("tank");
                                 Player22.setVisible(true);
                                 p22d.setIcon(p2ti);
@@ -5625,9 +5629,9 @@ p11d.setBackground(Color.WHITE);
                                 p2s3.setText("tank");
                                 fb3.setText(p2.chosen[selected].Class);
                                 HB3.setText(p2.chosen[selected].Class);
-                                p2a3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
-                                p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
+                                p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
                                 Player23.setText("tank");
                                 Player23.setVisible(true);
                                 p23d.setIcon(p2ti);
@@ -5761,7 +5765,7 @@ p11d.setBackground(Color.WHITE);
         defendPane.setEnabled(false);
 
         defendPanelLabel.setVisible(true);
-        defendPanelLabel.setBounds(200, 150, 1200, 100);
+        defendPanelLabel.setBounds(200, 100, 1200, 100);
         defendPanelLabel.setFont(new Font("Press Start 2P", Font.BOLD, 60));
         defendPanelLabel.setForeground(new Color(255, 30, 0));
         
@@ -5856,21 +5860,21 @@ p11d.setBackground(Color.WHITE);
                     HA2.setBounds(410,270,100,100);
                     HA3.setBounds(410,430,100,100);
 
-                    p1d1l.setBounds(420, 295,300,50);
-                    p1d2l.setBounds(420, 295,300,50);
-                    p1d3l.setBounds(420, 295,300,50);
+                    p1d1l.setBounds(570, 295,300,50);
+                    p1d2l.setBounds(570, 295,300,50);
+                    p1d3l.setBounds(570, 295,300,50);
 
-                    p1a1l.setBounds(420,480,300,50);
-                    p1a2l.setBounds(270,400,300,50);
-                    p1a3l.setBounds(270,550,300,50);
+                    p1a1l.setBounds(570,480,300,50);
+                    p1a2l.setBounds(420,400,300,50);
+                    p1a3l.setBounds(420,550,300,50);
 
-                    p1life1l.setBounds(420,480,300,50);
-                    p1life2l.setBounds(270,400,300,50);
-                    p1life3l.setBounds(270,550,300,50);
+                    p1life1l.setBounds(570,480,300,50);
+                    p1life2l.setBounds(420,400,300,50);
+                    p1life3l.setBounds(420,550,300,50);
 
-                    p1health1l.setBounds(420,480,300,50);
-                    p1health2l.setBounds(270,400,300,50);
-                    p1health3l.setBounds(270,550,300,50);
+                    p1health1l.setBounds(570,480,300,50);
+                    p1health2l.setBounds(420,400,300,50);
+                    p1health3l.setBounds(420,550,300,50);
 
                     p1d1.setEnabled(false);
                     p1d2.setEnabled(false);
@@ -5891,10 +5895,13 @@ p13d.setOpaque(false);
                         p21d.setBackground(Color.WHITE);
                         p22d.setBackground(Color.WHITE);
                         p23d.setBackground(Color.WHITE);
+                        p21d.setOpaque(true);
+p22d.setOpaque(true);
+p23d.setOpaque(true);
                     }
                     else {
                             if(turn == 2){
-                                if (pvp && m2.get(fb1.getText()).HP>0){
+                                if (pvp && m2.get(HB1.getText()).HP>0){
                                 fb1.setEnabled(true);
                                 p21d.setBackground(Color.WHITE);
                             }
@@ -5902,7 +5909,7 @@ p13d.setOpaque(false);
                                 fb1.setEnabled(false);
                                 p21d.setBackground(null);
                             }
-                            if (m2.get(fb2.getText()).HP>0){
+                            if (m2.get(HB2.getText()).HP>0){
                                 fb2.setEnabled(true);
                                 p22d.setBackground(Color.WHITE);
                             }
@@ -5910,7 +5917,7 @@ p13d.setOpaque(false);
                                 fb2.setEnabled(false);
                                 p22d.setBackground(null);
                             }
-                            if (m2.get(fb3.getText()).HP>0){
+                            if (m2.get(HB3.getText()).HP>0){
                                 fb3.setEnabled(true);
                                 p23d.setBackground(Color.WHITE);
                             }
@@ -5994,21 +6001,21 @@ p13d.setOpaque(false);
                     HA2.setBounds(560,350,100,100);
                     HA3.setBounds(410,430,100,100);
 
-                    p1d1l.setBounds(420, 295,300,50);
-                    p1d2l.setBounds(420, 295,300,50);
-                    p1d3l.setBounds(420, 295,300,50);
+                    p1d1l.setBounds(570, 295,300,50);
+                    p1d2l.setBounds(570, 295,300,50);
+                    p1d3l.setBounds(570, 295,300,50);
 
-                    p1a1l.setBounds(270,400,300,50);
-                    p1a2l.setBounds(420,480,300,50);
-                    p1a3l.setBounds(270,550,300,50);
+                    p1a1l.setBounds(420,400,300,50);
+                    p1a2l.setBounds(570,480,300,50);
+                    p1a3l.setBounds(420,550,300,50);
 
-                    p1life1l.setBounds(270,400,300,50);
-                    p1life2l.setBounds(420,480,300,50);
-                    p1life3l.setBounds(270,550,300,50);
+                    p1life1l.setBounds(420,400,300,50);
+                    p1life2l.setBounds(570,480,300,50);
+                    p1life3l.setBounds(420,550,300,50);
 
-                    p1health1l.setBounds(270,400,300,50);
-                    p1health2l.setBounds(420,480,300,50);
-                    p1health3l.setBounds(270,550,300,50);
+                    p1health1l.setBounds(420,400,300,50);
+                    p1health2l.setBounds(570,480,300,50);
+                    p1health3l.setBounds(420,550,300,50);
 
                     p1d1.setEnabled(false);
                     p1d2.setEnabled(false);
@@ -6028,10 +6035,13 @@ p13d.setOpaque(false);
                         p21d.setBackground(Color.WHITE);
                         p22d.setBackground(Color.WHITE);
                         p23d.setBackground(Color.WHITE);
+                        p21d.setOpaque(true);
+p22d.setOpaque(true);
+p23d.setOpaque(true);
                     }
                     else {
                         if(pvp && turn == 2){
-                            if (m2.get(fb1.getText()).HP>0){
+                            if (m2.get(HB1.getText()).HP>0){
                                 fb1.setEnabled(true);
                                 p21d.setBackground(Color.WHITE);
                             }
@@ -6039,7 +6049,7 @@ p13d.setOpaque(false);
                                 fb1.setEnabled(false);
                                 p21d.setBackground(null);
                             }
-                            if (m2.get(fb2.getText()).HP>0){
+                            if (m2.get(HB2.getText()).HP>0){
                                 fb2.setEnabled(true);
                                 p22d.setBackground(Color.WHITE);
                             }
@@ -6047,7 +6057,7 @@ p13d.setOpaque(false);
                                 fb2.setEnabled(false);
                                 p22d.setBackground(null);
                             }
-                            if (m2.get(fb3.getText()).HP>0){
+                            if (m2.get(HB3.getText()).HP>0){
                                 fb3.setEnabled(true);
                                 p23d.setBackground(Color.WHITE);
                             }
@@ -6137,21 +6147,21 @@ p13d.setOpaque(false);
                     HA2.setBounds(410,430,100,100);
                     HA3.setBounds(560,350,100,100);
 
-                    p1d1l.setBounds(420, 295,300,50);
-                    p1d2l.setBounds(420, 295,300,50);
-                    p1d3l.setBounds(420, 295,300,50);
+                    p1d1l.setBounds(570, 295,300,50);
+                    p1d2l.setBounds(570, 295,300,50);
+                    p1d3l.setBounds(570, 295,300,50);
 
-                    p1a1l.setBounds(270,400,300,50);
-                    p1a2l.setBounds(270,550,300,50);
-                    p1a3l.setBounds(420,480,300,50);
+                    p1a1l.setBounds(420,400,300,50);
+                    p1a2l.setBounds(420,550,300,50);
+                    p1a3l.setBounds(570,480,300,50);
 
-                    p1life1l.setBounds(270,400,300,50);
-                    p1life2l.setBounds(270,550,300,50);
-                    p1life3l.setBounds(420,480,300,50);
+                    p1life1l.setBounds(420,400,300,50);
+                    p1life2l.setBounds(420,550,300,50);
+                    p1life3l.setBounds(570,480,300,50);
 
-                    p1health1l.setBounds(270,400,300,50);
-                    p1health2l.setBounds(270,550,300,50);
-                    p1health3l.setBounds(420,480,300,50);;
+                    p1health1l.setBounds(420,400,300,50);
+                    p1health2l.setBounds(420,550,300,50);
+                    p1health3l.setBounds(570,480,300,50);;
 
                     p1d1.setEnabled(false);
                     p1d2.setEnabled(false);
@@ -6172,10 +6182,13 @@ p13d.setOpaque(false);
                         p21d.setBackground(Color.WHITE);
                         p22d.setBackground(Color.WHITE);
                         p23d.setBackground(Color.WHITE);
+                        p21d.setOpaque(true);
+p22d.setOpaque(true);
+p23d.setOpaque(true);
                     }
                     else {
                         if(pvp && turn == 2){
-                            if (m2.get(fb1.getText()).HP>0){
+                            if (m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
                             p21d.setBackground(Color.WHITE);
                             }
@@ -6183,7 +6196,7 @@ p13d.setOpaque(false);
                                 fb1.setEnabled(false);
                                 p21d.setBackground(null);
                             }
-                            if (m2.get(fb2.getText()).HP>0){
+                            if (m2.get(HB2.getText()).HP>0){
                                 fb2.setEnabled(true);
                                 p22d.setBackground(Color.WHITE);
                             }
@@ -6191,7 +6204,7 @@ p13d.setOpaque(false);
                                 fb2.setEnabled(false);
                                 p22d.setBackground(null);
                             }
-                            if (m2.get(fb3.getText()).HP>0){
+                            if (m2.get(HB3.getText()).HP>0){
                                 fb3.setEnabled(true);
                                 p23d.setBackground(Color.WHITE);
                             }
@@ -6301,19 +6314,19 @@ p13d.setOpaque(false);
                     fightPane.setEnabled(true);
                     fightPane.setVisible(true);
                     if (turn ==2&& pvp){
-                        if (m2.get(fb1.getText()).HP>0){
+                        if (m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
                         }
                         else{
                             fb1.setEnabled(false);
                         }
-                        if (m2.get(fb2.getText()).HP>0){
+                        if (m2.get(HB2.getText()).HP>0){
                             fb2.setEnabled(true);
                         }
                         else{
                             fb2.setEnabled(false);
                         }
-                        if (m2.get(fb3.getText()).HP>0){
+                        if (m2.get(HB3.getText()).HP>0){
                             fb3.setEnabled(true);
                         }
                         else{
@@ -6421,19 +6434,19 @@ p13d.setOpaque(false);
                     fightPane.setEnabled(true);
                     fightPane.setVisible(true);
                     if (turn ==2 && pvp){
-                        if (m2.get(fb1.getText()).HP>0){
+                        if (m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
                         }
                         else{
                             fb1.setEnabled(false);
                         }
-                        if (m2.get(fb2.getText()).HP>0){
+                        if (m2.get(HB2.getText()).HP>0){
                             fb2.setEnabled(true);
                         }
                         else{
                             fb2.setEnabled(false);
                         }
-                        if (m2.get(fb3.getText()).HP>0){
+                        if (m2.get(HB3.getText()).HP>0){
                             fb3.setEnabled(true);
                         }
                         else{
@@ -6539,19 +6552,19 @@ p13d.setOpaque(false);
                     fightPane.setEnabled(true);
                     fightPane.setVisible(true);
                     if (turn ==2 && pvp){
-                        if (m2.get(fb1.getText()).HP>0){
+                        if (m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
                         }
                         else{
                             fb1.setEnabled(false);
                         }
-                        if (m2.get(fb2.getText()).HP>0){
+                        if (m2.get(HB2.getText()).HP>0){
                             fb2.setEnabled(true);
                         }
                         else{
                             fb2.setEnabled(false);
                         }
-                        if (m2.get(fb3.getText()).HP>0){
+                        if (m2.get(HB3.getText()).HP>0){
                             fb3.setEnabled(true);
                         }
                         else{
@@ -6707,12 +6720,12 @@ p13d.setOpaque(false);
                     }
                     if(fa1.getText().equals("healer")){
                         if (r%2==0){
-                            if((m1.get(fa1.getText()).HP == 0 || m1.get(fa1.getText()).HP == m1.get(fa1.getText()).cHP)&&(m1.get(fa2.getText()).HP == 0 || m1.get(fa2.getText()).HP == m1.get(fa2.getText()).cHP)&&(m1.get(fa3.getText()).HP == 0 || m1.get(fa3.getText()).HP == m1.get(fa3.getText()).cHP)){
+                            if((m1.get(HA1.getText()).HP == 0 || m1.get(HA1.getText()).HP == m1.get(HA1.getText()).cHP)&&(m1.get(HA2.getText()).HP == 0 || m1.get(HA2.getText()).HP == m1.get(HA2.getText()).cHP)&&(m1.get(HA3.getText()).HP == 0 || m1.get(HA3.getText()).HP == m1.get(HA3.getText()).cHP)){
                                 s.setEnabled(false);
                             }
                         }
-                        if(m1.get(fa1.getText()).Energy>=100){
-                            if(m1.get(fa1.getText()).HP == m1.get(fa1.getText()).cHP&& m1.get(fa2.getText()).HP == m1.get(fa2.getText()).cHP && m1.get(fa3.getText()).HP == m1.get(fa3.getText()).cHP){
+                        if(m1.get(HA1.getText()).Energy>=100){
+                            if(m1.get(HA1.getText()).HP == m1.get(HA1.getText()).cHP&& m1.get(HA2.getText()).HP == m1.get(HA2.getText()).cHP && m1.get(HA3.getText()).HP == m1.get(HA3.getText()).cHP){
                                 S.setEnabled(false);
                             }
                         }
@@ -6805,12 +6818,12 @@ p13d.setOpaque(false);
                     }
                     if(fa2.getText().equals("healer")){
                         if (r%2==0){
-                            if((m1.get(fa1.getText()).HP == 0 || m1.get(fa1.getText()).HP == m1.get(fa1.getText()).cHP)&&(m1.get(fa2.getText()).HP == 0 || m1.get(fa2.getText()).HP == m1.get(fa2.getText()).cHP)&&(m1.get(fa3.getText()).HP == 0 || m1.get(fa3.getText()).HP == m1.get(fa3.getText()).cHP)){
+                            if((m1.get(HA1.getText()).HP == 0 || m1.get(HA1.getText()).HP == m1.get(HA1.getText()).cHP)&&(m1.get(HA2.getText()).HP == 0 || m1.get(HA2.getText()).HP == m1.get(HA2.getText()).cHP)&&(m1.get(HA3.getText()).HP == 0 || m1.get(HA3.getText()).HP == m1.get(HA3.getText()).cHP)){
                                 s.setEnabled(false);
                             }
                         }
-                        if(m1.get(fa2.getText()).Energy>=100){
-                            if(m1.get(fa1.getText()).HP == m1.get(fa1.getText()).cHP&& m1.get(fa2.getText()).HP == m1.get(fa2.getText()).cHP && m1.get(fa3.getText()).HP == m1.get(fa3.getText()).cHP){
+                        if(m1.get(HA2.getText()).Energy>=100){
+                            if(m1.get(HA1.getText()).HP == m1.get(HA1.getText()).cHP&& m1.get(HA2.getText()).HP == m1.get(HA2.getText()).cHP && m1.get(HA3.getText()).HP == m1.get(HA3.getText()).cHP){
                                 S.setEnabled(false);
                             }
                         }
@@ -6905,12 +6918,12 @@ p13d.setOpaque(false);
                     }
                     if(fa3.getText().equals("healer")){
                         if (r%2==0){
-                            if((m1.get(fa1.getText()).HP == 0 || m1.get(fa1.getText()).HP == m1.get(fa1.getText()).cHP)&&(m1.get(fa2.getText()).HP == 0 || m1.get(fa2.getText()).HP == m1.get(fa2.getText()).cHP)&&(m1.get(fa3.getText()).HP == 0 || m1.get(fa3.getText()).HP == m1.get(fa3.getText()).cHP)){
+                            if((m1.get(HA1.getText()).HP == 0 || m1.get(HA1.getText()).HP == m1.get(HA1.getText()).cHP)&&(m1.get(HA2.getText()).HP == 0 || m1.get(HA2.getText()).HP == m1.get(HA2.getText()).cHP)&&(m1.get(HA3.getText()).HP == 0 || m1.get(HA3.getText()).HP == m1.get(HA3.getText()).cHP)){
                                 s.setEnabled(false);
                             }
                         }
-                        if(m1.get(fa3.getText()).Energy>=100){
-                            if(m1.get(fa1.getText()).HP == m1.get(fa1.getText()).cHP&& m1.get(fa2.getText()).HP == m1.get(fa2.getText()).cHP && m1.get(fa3.getText()).HP == m1.get(fa3.getText()).cHP){
+                        if(m1.get(HA3.getText()).Energy>=100){
+                            if(m1.get(HA1.getText()).HP == m1.get(HA1.getText()).cHP&& m1.get(HA2.getText()).HP == m1.get(HA2.getText()).cHP && m1.get(HA3.getText()).HP == m1.get(HA3.getText()).cHP){
                                 S.setEnabled(false);
                             }
                         }
@@ -7005,12 +7018,12 @@ p13d.setOpaque(false);
                     }
                     if(fb1.getText().equals("healer")){
                         if (r%2==0){
-                            if((m2.get(fb1.getText()).HP == 0 || m2.get(fb1.getText()).HP == m2.get(fb1.getText()).cHP)&&(m2.get(fb2.getText()).HP == 0 || m2.get(fb2.getText()).HP == m2.get(fb2.getText()).cHP)&&(m2.get(fb3.getText()).HP == 0 || m2.get(fb3.getText()).HP == m2.get(fb3.getText()).cHP)){
+                            if((m2.get(HB1.getText()).HP == 0 || m2.get(HB1.getText()).HP == m2.get(HB1.getText()).cHP)&&(m2.get(HB2.getText()).HP == 0 || m2.get(HB2.getText()).HP == m2.get(HB2.getText()).cHP)&&(m2.get(HB3.getText()).HP == 0 || m2.get(HB3.getText()).HP == m2.get(HB3.getText()).cHP)){
                                 s.setEnabled(false);
                             }
                         }
-                        if(m2.get(fb1.getText()).Energy>=100){
-                            if(m2.get(fb1.getText()).HP == m2.get(fb1.getText()).cHP&& m2.get(fb2.getText()).HP == m2.get(fb2.getText()).cHP && m2.get(fb3.getText()).HP == m2.get(fb3.getText()).cHP){
+                        if(m2.get(HB1.getText()).Energy>=100){
+                            if(m2.get(HB1.getText()).HP == m2.get(HB1.getText()).cHP&& m2.get(HB2.getText()).HP == m2.get(HB2.getText()).cHP && m2.get(HB3.getText()).HP == m2.get(HB3.getText()).cHP){
                                 S.setEnabled(false);
                             }
                         }
@@ -7106,12 +7119,12 @@ p13d.setOpaque(false);
                     }
                     if(fb2.getText().equals("healer")){
                         if (r%2==0){
-                            if((m2.get(fb1.getText()).HP == 0 || m2.get(fb1.getText()).HP == m2.get(fb1.getText()).cHP)&&(m2.get(fb2.getText()).HP == 0 || m2.get(fb2.getText()).HP == m2.get(fb2.getText()).cHP)&&(m2.get(fb3.getText()).HP == 0 || m2.get(fb3.getText()).HP == m2.get(fb3.getText()).cHP)){
+                            if((m2.get(HB1.getText()).HP == 0 || m2.get(HB1.getText()).HP == m2.get(HB1.getText()).cHP)&&(m2.get(HB2.getText()).HP == 0 || m2.get(HB2.getText()).HP == m2.get(HB2.getText()).cHP)&&(m2.get(HB3.getText()).HP == 0 || m2.get(HB3.getText()).HP == m2.get(HB3.getText()).cHP)){
                                 s.setEnabled(false);
                             }
                         }
-                        if(m2.get(fb2.getText()).Energy>=100){
-                            if(m2.get(fb1.getText()).HP == m2.get(fb1.getText()).cHP&& m2.get(fb2.getText()).HP == m2.get(fb2.getText()).cHP && m2.get(fb3.getText()).HP == m2.get(fb3.getText()).cHP){
+                        if(m2.get(HB2.getText()).Energy>=100){
+                            if(m2.get(HB1.getText()).HP == m2.get(HB1.getText()).cHP&& m2.get(HB2.getText()).HP == m2.get(HB2.getText()).cHP && m2.get(HB3.getText()).HP == m2.get(HB3.getText()).cHP){
                                 S.setEnabled(false);
                             }
                         }
@@ -7207,12 +7220,12 @@ p13d.setOpaque(false);
                     }
                     if(fb3.getText().equals("healer")){
                         if (r%2==0){
-                            if((m2.get(fb1.getText()).HP == 0 || m2.get(fb1.getText()).HP == m2.get(fb1.getText()).cHP)&&(m2.get(fb2.getText()).HP == 0 || m2.get(fb2.getText()).HP == m2.get(fb2.getText()).cHP)&&(m2.get(fb3.getText()).HP == 0 || m2.get(fb3.getText()).HP == m2.get(fb3.getText()).cHP)){
+                            if((m2.get(HB1.getText()).HP == 0 || m2.get(HB1.getText()).HP == m2.get(HB1.getText()).cHP)&&(m2.get(HB2.getText()).HP == 0 || m2.get(HB2.getText()).HP == m2.get(HB2.getText()).cHP)&&(m2.get(HB3.getText()).HP == 0 || m2.get(HB3.getText()).HP == m2.get(HB3.getText()).cHP)){
                                 s.setEnabled(false);
                             }
                         }
-                        if(m2.get(fb3.getText()).Energy>=100){
-                            if(m2.get(fb1.getText()).HP == m2.get(fb1.getText()).cHP&& m2.get(fb2.getText()).HP == m2.get(fb2.getText()).cHP && m2.get(fb3.getText()).HP == m2.get(fb3.getText()).cHP){
+                        if(m2.get(HB3.getText()).Energy>=100){
+                            if(m2.get(HB1.getText()).HP == m2.get(HB1.getText()).cHP&& m2.get(HB2.getText()).HP == m2.get(HB2.getText()).cHP && m2.get(HB3.getText()).HP == m2.get(HB3.getText()).cHP){
                                 S.setEnabled(false);
                             }
                         }
@@ -7263,7 +7276,7 @@ p13d.setOpaque(false);
         p2a3l.setVisible(true);
 
         p1d1l.setForeground(Color.RED);
-        p1d1l.setBounds(420, 295,300,50);
+        p1d1l.setBounds(570, 295,300,50);
         p1d1l.setFont(new Font("Comic Sans", Font.PLAIN,35));
         fightPane.add(p1d1l,JLayeredPane.DRAG_LAYER);
         p1d1l.setVisible(false);
@@ -7545,13 +7558,13 @@ p13d.setOpaque(false);
                             p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                             p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                            p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                            p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                            p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                            p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                            p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                            p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                            p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                            p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                            p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                            p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                            p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                            p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                             System.out.println("Player 2 " + D2 + " has " +m2.get(D2).HP + " HP");   
                         }
@@ -7618,13 +7631,13 @@ p13d.setOpaque(false);
                             p2a2l.setText(String.valueOf(computer.chosen[1].HP));
                             p2a3l.setText(String.valueOf(computer.chosen[2].HP));
 
-                            p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                            p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                            p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                            p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                            p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                            p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                            p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                            p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                            p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                            p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                            p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                            p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                             System.out.println("Computer " +computer.getDef().Class  + " has " +computer.getDef().HP + " HP");
                             turn = 2;
@@ -7634,30 +7647,30 @@ p13d.setOpaque(false);
                         if(pvp){
                             fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                         }
-                        if (pvp && m2.get(fb1.getText()).HP>0){
+                        if (pvp && m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
                         }
                         else{
                             fb1.setEnabled(false);
                         }
-                        if (pvp && m2.get(fb2.getText()).HP>0){
+                        if (pvp && m2.get(HB2.getText()).HP>0){
                             fb2.setEnabled(true);
                         }
                         else{
                             fb2.setEnabled(false);
                         }
-                        if (pvp && m2.get(fb3.getText()).HP>0){
+                        if (pvp && m2.get(HB3.getText()).HP>0){
                             fb3.setEnabled(true);
                         }
                         else{
                             fb3.setEnabled(false);
                         }
-                        p1e1.setText("Energy: "+ m1.get(fa1.getText()).Energy);
-                        p1attack1.setText("Attack Strength: "+ m1.get(fa1.getText()).Attack);
-                        p1e2.setText("Energy: "+ m1.get(fa2.getText()).Energy);
-                        p1attack2.setText("Attack Strength: "+ m1.get(fa2.getText()).Attack);
-                        p1e3.setText("Energy: "+ m1.get(fa3.getText()).Energy);
-                        p1attack3.setText("Attack Strength: "+ m1.get(fa3.getText()).Attack);
+                        p1e1.setText("Energy: "+ m1.get(HA1.getText()).Energy);
+                        p1attack1.setText("Attack Strength: "+ m1.get(HA1.getText()).Attack);
+                        p1e2.setText("Energy: "+ m1.get(HA2.getText()).Energy);
+                        p1attack2.setText("Attack Strength: "+ m1.get(HA2.getText()).Attack);
+                        p1e3.setText("Energy: "+ m1.get(HA3.getText()).Energy);
+                        p1attack3.setText("Attack Strength: "+ m1.get(HA3.getText()).Attack);
 
                     }
                     else{
@@ -7742,19 +7755,19 @@ p13d.setOpaque(false);
                             m1.get(D1).HP -= damage;
                         }
                         
-                        if (m1.get(fa1.getText()).HP>0){
+                        if (m1.get(HA1.getText()).HP>0){
                             fa1.setEnabled(true);
                         }
                         else{
                             fa1.setEnabled(false);
                         }
-                        if (m1.get(fa2.getText()).HP>0){
+                        if (m1.get(HA2.getText()).HP>0){
                             fa2.setEnabled(true);
                         }
                         else{
                             fa2.setEnabled(false);
                         }
-                        if (m1.get(fa3.getText()).HP>0){
+                        if (m1.get(HA3.getText()).HP>0){
                             fa3.setEnabled(true);
                         }
                         else{
@@ -7832,24 +7845,24 @@ p13d.setOpaque(false);
                         p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                         p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
-                        p1life1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                        p1life2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                        p1life3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                        p1life1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                        p1life2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                        p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
-                        p1health1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-                        p1health2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-                        p1health3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                        p1health1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+                        p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+                        p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
                         System.out.println("Player 1 " + D1 + " has " +m1.get(D1).HP + " HP");
                         r++;
                         fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
 
-                        p2e1.setText("Energy: "+ m2.get(fb1.getText()).Energy);
-                        p2attack1.setText("Attack Strength: "+ m2.get(fb1.getText()).Attack);
-                        p2e2.setText("Energy: "+ m2.get(fb2.getText()).Energy);
-                        p2attack2.setText("Attack Strength: "+ m2.get(fb2.getText()).Attack);
-                        p2e3.setText("Energy: "+ m2.get(fb3.getText()).Energy);
-                        p2attack3.setText("Attack Strength: "+ m2.get(fb3.getText()).Attack);
+                        p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
+                        p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
+                        p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
+                        p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
+                        p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
+                        p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
                     }
                     
                     if (pvp&& limited && r == rounds+1){
@@ -8148,29 +8161,29 @@ p13d.setOpaque(false);
                                 p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                                 p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-						        p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-						        p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+						        p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+						        p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-						        p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-						        p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+						        p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+						        p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                                 System.out.println("Player 2 " + D2 + " has " +m2.get(D2).HP + " HP");
                                 if(turn ==2){
-                                    if (m2.get(fb1.getText()).HP>0){
+                                    if (m2.get(HB1.getText()).HP>0){
                                         fb1.setEnabled(true);
                                     }
                                     else{
                                         fb1.setEnabled(false);
                                     }
-                                    if (m2.get(fb2.getText()).HP>0){
+                                    if (m2.get(HB2.getText()).HP>0){
                                         fb2.setEnabled(true);
                                     }
                                     else{
                                         fb2.setEnabled(false);
                                     }
-                                    if (m2.get(fb3.getText()).HP>0){
+                                    if (m2.get(HB3.getText()).HP>0){
                                         fb3.setEnabled(true);
                                     }
                                     else{
@@ -8247,13 +8260,13 @@ p13d.setOpaque(false);
                                 p2a2l.setText(String.valueOf(computer.chosen[1].HP));
                                 p2a3l.setText(String.valueOf(computer.chosen[2].HP));
 
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-                                p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-                                p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+                                p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+                                p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                                 System.out.println("Computer " + computer.getDef().Class + " has " +computer.getDef().HP + " HP");
                                 if (p1.FindSupport() && p1.support.nerfs > 0) {
@@ -8366,12 +8379,12 @@ p13d.setOpaque(false);
                             fa3.setEnabled(false);
                             fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                         }
-                        p1e1.setText("Energy: "+ m1.get(fa1.getText()).Energy);
-                        p1attack1.setText("Attack Strength: "+ m1.get(fa1.getText()).Attack);
-                        p1e2.setText("Energy: "+ m1.get(fa2.getText()).Energy);
-                        p1attack2.setText("Attack Strength: "+ m1.get(fa2.getText()).Attack);
-                        p1e3.setText("Energy: "+ m1.get(fa3.getText()).Energy);
-                        p1attack3.setText("Attack Strength: "+ m1.get(fa3.getText()).Attack);
+                        p1e1.setText("Energy: "+ m1.get(HA1.getText()).Energy);
+                        p1attack1.setText("Attack Strength: "+ m1.get(HA1.getText()).Attack);
+                        p1e2.setText("Energy: "+ m1.get(HA2.getText()).Energy);
+                        p1attack2.setText("Attack Strength: "+ m1.get(HA2.getText()).Attack);
+                        p1e3.setText("Energy: "+ m1.get(HA3.getText()).Energy);
+                        p1attack3.setText("Attack Strength: "+ m1.get(HA3.getText()).Attack);
                     }
                     else{
                         n.setEnabled(false);
@@ -8529,13 +8542,13 @@ p13d.setOpaque(false);
                             p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                             p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
-                            p1life1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-							p1life2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-							p1life3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                            p1life1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+							p1life2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+							p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
-                            p1health1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-							p1health2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-							p1health3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                            p1health1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+							p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+							p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
                             System.out.println("Player 1 " + D1 + " has " +m1.get(D1).HP + " HP");
                             if (p2.support!= null && p2.support.Skips>0){
@@ -8579,7 +8592,7 @@ p13d.setOpaque(false);
                                     bleed2.setVisible(false);
                                 }
                             }
-                            else if(p1.FindSupport()&&p1.support.up>0){
+                            if(p2.FindSupport()&&p1.support.up>0){
                                 try{
                                     buffp2();
                                 }
@@ -8600,20 +8613,20 @@ p13d.setOpaque(false);
                                 fb1.setEnabled(false);
                                 fb2.setEnabled(false);
                                 fb3.setEnabled(false);
-                                if (m1.get(fa1.getText()).HP>0){
+                                if (m1.get(HA1.getText()).HP>0){
                                     fa1.setEnabled(true);
                                     
                                 }
                                 else{
                                     fa1.setEnabled(false);
                                 }
-                                if (m1.get(fa2.getText()).HP>0){
+                                if (m1.get(HA2.getText()).HP>0){
                                     fa2.setEnabled(true);
                                 }
                                 else{
                                     fa2.setEnabled(false);
                                 }
-                                if (m1.get(fa3.getText()).HP>0){
+                                if (m1.get(HA3.getText()).HP>0){
                                     fa3.setEnabled(true);
                                 }
                                 else{
@@ -8663,19 +8676,19 @@ p13d.setOpaque(false);
                             fb1.setEnabled(false);
                             fb2.setEnabled(false);
                             fb3.setEnabled(false);
-                            if (m1.get(fa1.getText()).HP==0){
+                            if (m1.get(HA1.getText()).HP==0){
                                 fa1.setEnabled(false);
                             }
                             else{
                                 fa1.setEnabled(true);
                             }
-                            if (m1.get(fa2.getText()).HP== 0){
+                            if (m1.get(HA2.getText()).HP== 0){
                                 fa2.setEnabled(false);
                             }
                             else{
                                 fa2.setEnabled(true);
                             }
-                            if (m1.get(fa3.getText()).HP== 0){
+                            if (m1.get(HA3.getText()).HP== 0){
                                 fa3.setEnabled(false);
                             }
                             else{
@@ -8691,12 +8704,12 @@ p13d.setOpaque(false);
                             freeze2.setVisible(true);
                         }
                         
-                        p2e1.setText("Energy: "+ m2.get(fb1.getText()).Energy);
-                        p2attack1.setText("Attack Strength: "+ m2.get(fb1.getText()).Attack);
-                        p2e2.setText("Energy: "+ m2.get(fb2.getText()).Energy);
-                        p2attack2.setText("Attack Strength: "+ m2.get(fb2.getText()).Attack);
-                        p2e3.setText("Energy: "+ m2.get(fb3.getText()).Energy);
-                        p2attack3.setText("Attack Strength: "+ m2.get(fb3.getText()).Attack);
+                        p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
+                        p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
+                        p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
+                        p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
+                        p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
+                        p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
                     }
                     if (pvp){
                         fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
@@ -8920,13 +8933,13 @@ p13d.setOpaque(false);
                                 p2a1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
                                 p2a3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-								p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-								p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+								p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+								p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-								p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-								p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+								p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+								p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                                 System.out.println("Player 2 " + D2 + " has " +m2.get(D2).HP + " HP");
                                 if (p1.support != null && p1.support.Skips>0){
@@ -8975,7 +8988,7 @@ p13d.setOpaque(false);
                                         bleed1.setVisible(false);
                                     }
                                 }
-                                else if(p1.FindSupport()&&p1.support.up>0){
+                                if(p1.FindSupport()&&p1.support.up>0){
                                     try{
                                         buffp1();
                                     }
@@ -8993,21 +9006,21 @@ p13d.setOpaque(false);
                                     freeze1.setVisible(true);
                                 }
                                 else{
-                                    if (m2.get(fb1.getText()).HP>0){
+                                    if (m2.get(HB1.getText()).HP>0){
                                         fb1.setEnabled(true);
                                         
                                     }
                                     else{
                                         fb1.setEnabled(false);
                                     }
-                                    if (m2.get(fb2.getText()).HP>0){
+                                    if (m2.get(HB2.getText()).HP>0){
                                         fb2.setEnabled(true);
                             
                                     }
                                     else{
                                         fb2.setEnabled(false);
                                     }
-                                    if (m2.get(fb3.getText()).HP>0){
+                                    if (m2.get(HB3.getText()).HP>0){
                                         fb3.setEnabled(true);
                             
                                     }
@@ -9075,13 +9088,13 @@ p13d.setOpaque(false);
                                 p2a2l.setText(String.valueOf(computer.chosen[1].HP));
                                 p2a3l.setText(String.valueOf(computer.chosen[2].HP));
 
-                                p2life1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-								p2life2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-								p2life3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2life1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+								p2life2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+								p2life3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
-                                p2health1l.setText(String.valueOf(m2.get(fb1.getText()).HP));
-								p2health2l.setText(String.valueOf(m2.get(fb2.getText()).HP));
-								p2health3l.setText(String.valueOf(m2.get(fb3.getText()).HP));
+                                p2health1l.setText(String.valueOf(m2.get(HB1.getText()).HP));
+								p2health2l.setText(String.valueOf(m2.get(HB2.getText()).HP));
+								p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                                 System.out.println("Computer " + computer.getDef().Class + " has " +computer.getDef().HP + " HP");
                                 if (p1.FindSupport() && p1.support.nerfs > 0) {
@@ -9210,12 +9223,12 @@ p13d.setOpaque(false);
                              p2reset();
                             fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                         }
-                        p1e1.setText("Energy: "+ m1.get(fa1.getText()).Energy);
-                        p1attack1.setText("Attack Strength: "+ m1.get(fa1.getText()).Attack);
-                        p1e2.setText("Energy: "+ m1.get(fa2.getText()).Energy);
-                        p1attack2.setText("Attack Strength: "+ m1.get(fa2.getText()).Attack);
-                        p1e3.setText("Energy: "+ m1.get(fa3.getText()).Energy);
-                        p1attack3.setText("Attack Strength: "+ m1.get(fa3.getText()).Attack);
+                        p1e1.setText("Energy: "+ m1.get(HA1.getText()).Energy);
+                        p1attack1.setText("Attack Strength: "+ m1.get(HA1.getText()).Attack);
+                        p1e2.setText("Energy: "+ m1.get(HA2.getText()).Energy);
+                        p1attack2.setText("Attack Strength: "+ m1.get(HA2.getText()).Attack);
+                        p1e3.setText("Energy: "+ m1.get(HA3.getText()).Energy);
+                        p1attack3.setText("Attack Strength: "+ m1.get(HA3.getText()).Attack);
                     }
                     else{
                         turn = 1;
@@ -9309,19 +9322,19 @@ p13d.setOpaque(false);
                                 m1.get(D1).HP -= damage;
                             }
                             
-                            if (m1.get(fa1.getText()).HP>0){
+                            if (m1.get(HA1.getText()).HP>0){
                                 fa1.setEnabled(true);
                             }
                             else{
                                 fa1.setEnabled(false);
                             }
-                            if (m1.get(fa2.getText()).HP>0){
+                            if (m1.get(HA2.getText()).HP>0){
                                 fa2.setEnabled(true);
                             }
                             else{
                                 fa2.setEnabled(false);
                             }
-                            if (m1.get(fa3.getText()).HP>0){
+                            if (m1.get(HA3.getText()).HP>0){
                                 fa3.setEnabled(true);
                             }
                             else{
@@ -9399,13 +9412,13 @@ p13d.setOpaque(false);
                             p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                             p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
-                            p1life1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-							p1life2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-							p1life3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                            p1life1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+							p1life2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+							p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
-                            p1health1l.setText(String.valueOf(m1.get(fa1.getText()).HP));
-							p1health2l.setText(String.valueOf(m1.get(fa2.getText()).HP));
-							p1health3l.setText(String.valueOf(m1.get(fa3.getText()).HP));
+                            p1health1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
+							p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
+							p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
 
                             System.out.println("Player 1 " + D1 + " has " +m1.get(D1).HP + " HP");
                             if (p2.support!= null && p2.support.Skips>0){
@@ -9450,7 +9463,7 @@ p13d.setOpaque(false);
                                     bleed2.setVisible(false);
                                 }
                             }
-                            else if(p2.FindSupport()&&p2.support.up>0){
+                            if(p2.FindSupport()&&p2.support.up>0){
                                 freeze2.setText("buffed*");
                                 freeze2.setForeground(new Color(255,95,31));
                                 freeze2.setVisible(true);
@@ -9471,19 +9484,19 @@ p13d.setOpaque(false);
                                 fb1.setEnabled(false);
                                 fb2.setEnabled(false);
                                 fb3.setEnabled(false);
-                                if (m1.get(fa1.getText()).HP>0){
+                                if (m1.get(HA1.getText()).HP>0){
                                     fa1.setEnabled(true);
                                 }
                                 else{
                                     fa1.setEnabled(false);
                                 }
-                                if (m1.get(fa2.getText()).HP>0){
+                                if (m1.get(HA2.getText()).HP>0){
                                     fa2.setEnabled(true);
                                 }
                                 else{
                                     fa2.setEnabled(false);
                                 }
-                                if (m1.get(fa3.getText()).HP>0){
+                                if (m1.get(HA3.getText()).HP>0){
                                     fa3.setEnabled(true);
                                     
                                 }
@@ -9537,31 +9550,31 @@ p13d.setOpaque(false);
                             fb1.setEnabled(false);
                             fb2.setEnabled(false);
                             fb3.setEnabled(false);
-                            if (m1.get(fa1.getText()).HP==0){
+                            if (m1.get(HA1.getText()).HP==0){
                                 fa1.setEnabled(false);
                             }
                             else{
                                 fa1.setEnabled(true);
                             }
-                            if (m1.get(fa2.getText()).HP== 0){
+                            if (m1.get(HA2.getText()).HP== 0){
                                 fa2.setEnabled(false);
                             }
                             else{
                                 fa2.setEnabled(true);
                             }
-                            if (m1.get(fa3.getText()).HP== 0){
+                            if (m1.get(HA3.getText()).HP== 0){
                                 fa3.setEnabled(false);
                             }
                             else{
                                 fa3.setEnabled(true);
                             }
                         }
-                        p2e1.setText("Energy: "+ m2.get(fb1.getText()).Energy);
-                        p2attack1.setText("Attack Strength: "+ m2.get(fb1.getText()).Attack);
-                        p2e2.setText("Energy: "+ m2.get(fb2.getText()).Energy);
-                        p2attack2.setText("Attack Strength: "+ m2.get(fb2.getText()).Attack);
-                        p2e3.setText("Energy: "+ m2.get(fb3.getText()).Energy);
-                        p2attack3.setText("Attack Strength: "+ m2.get(fb3.getText()).Attack);
+                        p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
+                        p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
+                        p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
+                        p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
+                        p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
+                        p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
                     }
                     if(pvp){
                         fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
@@ -9782,19 +9795,19 @@ p13d.setOpaque(false);
                         fa1.setEnabled(false);
                         fa2.setEnabled(false);
                         fa3.setEnabled(false);
-                        if (m2.get(fb1.getText()).HP>0){
+                        if (m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
                         }
                         else{
                             fb1.setEnabled(false);
                         }
-                        if (m2.get(fb2.getText()).HP>0){
+                        if (m2.get(HB2.getText()).HP>0){
                             fb2.setEnabled(true);
                         }
                         else{
                             fb2.setEnabled(false);
                         }
-                        if (m2.get(fb3.getText()).HP>0){
+                        if (m2.get(HB3.getText()).HP>0){
                             fb3.setEnabled(true);
                         }
                         else{
@@ -9869,19 +9882,19 @@ p13d.setOpaque(false);
                         fa1.setEnabled(false);
                         fa2.setEnabled(false);
                         fa3.setEnabled(false);
-                        if (m2.get(fb1.getText()).HP>0){
+                        if (m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
                         }
                         else{
                             fb1.setEnabled(false);
                         }
-                        if (m2.get(fb2.getText()).HP>0){
+                        if (m2.get(HB2.getText()).HP>0){
                             fb2.setEnabled(true);
                         }
                         else{
                             fb2.setEnabled(false);
                         }
-                        if (m2.get(fb3.getText()).HP>0){
+                        if (m2.get(HB3.getText()).HP>0){
                             fb3.setEnabled(true);
                         }
                         else{
@@ -9957,17 +9970,17 @@ p13d.setOpaque(false);
                         fa1.setEnabled(false);
                         fa2.setEnabled(false);
                         fa3.setEnabled(false);
-                        if (m2.get(fb1.getText()).HP > 0) {
+                        if (m2.get(HB1.getText()).HP > 0) {
                             fb1.setEnabled(true);
                         } else {
                             fb1.setEnabled(false);
                         }
-                        if (m2.get(fb2.getText()).HP > 0) {
+                        if (m2.get(HB2.getText()).HP > 0) {
                             fb2.setEnabled(true);
                         } else {
                             fb2.setEnabled(false);
                         }
-                        if (m2.get(fb3.getText()).HP > 0) {
+                        if (m2.get(HB3.getText()).HP > 0) {
                             fb3.setEnabled(true);
                         } else {
                             fb3.setEnabled(false);
@@ -10037,19 +10050,19 @@ p13d.setOpaque(false);
                     
                     healPane.setVisible(false);
                     healPane.setEnabled(false);
-                    if (m1.get(fa1.getText()).HP>0){
+                    if (m1.get(HA1.getText()).HP>0){
                         fa1.setEnabled(true);
                     }
                     else{
                         fa1.setEnabled(false);
                     }
-                    if (m1.get(fa2.getText()).HP>0){
+                    if (m1.get(HA2.getText()).HP>0){
                         fa2.setEnabled(true);
                     }
                     else{
                         fa2.setEnabled(false);
                     }
-                    if (m1.get(fa3.getText()).HP>0){
+                    if (m1.get(HA3.getText()).HP>0){
                         fa3.setEnabled(true);
                     }
                     else{
@@ -10117,19 +10130,19 @@ p13d.setOpaque(false);
                     
                     healPane.setVisible(false);
                     healPane.setEnabled(false);
-                    if (m1.get(fa1.getText()).HP>0){
+                    if (m1.get(HA1.getText()).HP>0){
                         fa1.setEnabled(true);
                     }
                     else{
                         fa1.setEnabled(false);
                     }
-                    if (m1.get(fa2.getText()).HP>0){
+                    if (m1.get(HA2.getText()).HP>0){
                         fa2.setEnabled(true);
                     }
                     else{
                         fa2.setEnabled(false);
                     }
-                    if (m1.get(fa3.getText()).HP>0){
+                    if (m1.get(HA3.getText()).HP>0){
                         fa3.setEnabled(true);
                     }
                     else{
@@ -10198,19 +10211,19 @@ p13d.setOpaque(false);
                     
                     healPane.setVisible(false);
                     healPane.setEnabled(false);
-                    if (m1.get(fa1.getText()).HP>0){
+                    if (m1.get(HA1.getText()).HP>0){
                         fa1.setEnabled(true);
                     }
                     else{
                         fa1.setEnabled(false);
                     }
-                    if (m1.get(fa2.getText()).HP>0){
+                    if (m1.get(HA2.getText()).HP>0){
                         fa2.setEnabled(true);
                     }
                     else{
                         fa2.setEnabled(false);
                     }
-                    if (m1.get(fa3.getText()).HP>0){
+                    if (m1.get(HA3.getText()).HP>0){
                         fa3.setEnabled(true);
                     }
                     else{
@@ -12313,50 +12326,50 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                         }
                     }
                     
-                    m1.get(fa1.getText()).HP = m1.get(fa1.getText()).cHP;
-                    m1.get(fa1.getText()).Energy = 0;
+                    m1.get(HA1.getText()).HP = m1.get(HA1.getText()).cHP;
+                    m1.get(HA1.getText()).Energy = 0;
                     
-                    m1.get(fa2.getText()).HP = m1.get(fa2.getText()).cHP;
-                    m1.get(fa2.getText()).Energy = 0;
+                    m1.get(HA2.getText()).HP = m1.get(HA2.getText()).cHP;
+                    m1.get(HA2.getText()).Energy = 0;
                     
-                    m1.get(fa3.getText()).HP = m1.get(fa3.getText()).cHP;
-                    m1.get(fa3.getText()).Energy = 0;
+                    m1.get(HA3.getText()).HP = m1.get(HA3.getText()).cHP;
+                    m1.get(HA3.getText()).Energy = 0;
 
                 
-                    m2.get(fb1.getText()).HP = m2.get(fb1.getText()).cHP;
-                    m2.get(fb1.getText()).Energy = 0;
-                    m2.get(fb2.getText()).HP = m2.get(fb2.getText()).cHP;
-                    m2.get(fb2.getText()).Energy = 0;    
-                    m2.get(fb3.getText()).HP = m2.get(fb3.getText()).cHP;
-                    m2.get(fb3.getText()).Energy = 0;
+                    m2.get(HB1.getText()).HP = m2.get(HB1.getText()).cHP;
+                    m2.get(HB1.getText()).Energy = 0;
+                    m2.get(HB2.getText()).HP = m2.get(HB2.getText()).cHP;
+                    m2.get(HB2.getText()).Energy = 0;    
+                    m2.get(HB3.getText()).HP = m2.get(HB3.getText()).cHP;
+                    m2.get(HB3.getText()).Energy = 0;
 
                     p1reset();
                     p2reset();
                     p1resetd();
                     p2resetd();
 
-                    p1a1l.setText(String.valueOf(m1.get(fa1.getText()).cHP));
-                    p1a2l.setText(String.valueOf(m1.get(fa2.getText()).cHP));
-                    p1a3l.setText(String.valueOf(m1.get(fa3.getText()).cHP));
+                    p1a1l.setText(String.valueOf(m1.get(HA1.getText()).cHP));
+                    p1a2l.setText(String.valueOf(m1.get(HA2.getText()).cHP));
+                    p1a3l.setText(String.valueOf(m1.get(HA3.getText()).cHP));
 
-                    p1life1l.setText(String.valueOf(m1.get(fa1.getText()).cHP));
-                    p1life2l.setText(String.valueOf(m1.get(fa2.getText()).cHP));
-                    p1life3l.setText(String.valueOf(m1.get(fa3.getText()).cHP));
-                    p1health1l.setText(String.valueOf(m1.get(fa1.getText()).cHP));
-                    p1health2l.setText(String.valueOf(m1.get(fa2.getText()).cHP));
-                    p1health3l.setText(String.valueOf(m1.get(fa3.getText()).cHP));
+                    p1life1l.setText(String.valueOf(m1.get(HA1.getText()).cHP));
+                    p1life2l.setText(String.valueOf(m1.get(HA2.getText()).cHP));
+                    p1life3l.setText(String.valueOf(m1.get(HA3.getText()).cHP));
+                    p1health1l.setText(String.valueOf(m1.get(HA1.getText()).cHP));
+                    p1health2l.setText(String.valueOf(m1.get(HA2.getText()).cHP));
+                    p1health3l.setText(String.valueOf(m1.get(HA3.getText()).cHP));
 
-                    p2a1l.setText(String.valueOf(m2.get(fb1.getText()).cHP));
-                    p2a2l.setText(String.valueOf(m2.get(fb2.getText()).cHP));
-                    p2a3l.setText(String.valueOf(m2.get(fb3.getText()).cHP));
+                    p2a1l.setText(String.valueOf(m2.get(HB1.getText()).cHP));
+                    p2a2l.setText(String.valueOf(m2.get(HB2.getText()).cHP));
+                    p2a3l.setText(String.valueOf(m2.get(HB3.getText()).cHP));
 
-                    p2life1l.setText(String.valueOf(m2.get(fb1.getText()).cHP));
-                    p2life2l.setText(String.valueOf(m2.get(fb2.getText()).cHP));
-                    p2life3l.setText(String.valueOf(m2.get(fb3.getText()).cHP));
+                    p2life1l.setText(String.valueOf(m2.get(HB1.getText()).cHP));
+                    p2life2l.setText(String.valueOf(m2.get(HB2.getText()).cHP));
+                    p2life3l.setText(String.valueOf(m2.get(HB3.getText()).cHP));
 
-                    p2health1l.setText(String.valueOf(m2.get(fb1.getText()).cHP));
-                    p2health2l.setText(String.valueOf(m2.get(fb2.getText()).cHP));
-                    p2health3l.setText(String.valueOf(m2.get(fb3.getText()).cHP));
+                    p2health1l.setText(String.valueOf(m2.get(HB1.getText()).cHP));
+                    p2health2l.setText(String.valueOf(m2.get(HB2.getText()).cHP));
+                    p2health3l.setText(String.valueOf(m2.get(HB3.getText()).cHP));
 
                     p1d1l.setVisible(false);
                     p1d2l.setVisible(false);
@@ -12388,21 +12401,21 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     defendPane.setEnabled(true);
                     defendPane.setVisible(true);
 
-                    p1e1.setText("Energy: "+ m1.get(fa1.getText()).Energy);
-                    p1attack1.setText("Attack Strength: "+ m1.get(fa1.getText()).Attack);
-                    p1e2.setText("Energy: "+ m1.get(fa2.getText()).Energy);
-                    p1attack2.setText("Attack Strength: "+ m1.get(fa2.getText()).Attack);
-                    p1e3.setText("Energy: "+ m1.get(fa3.getText()).Energy);
-                    p1attack3.setText("Attack Strength: "+ m1.get(fa3.getText()).Attack);
+                    p1e1.setText("Energy: "+ m1.get(HA1.getText()).Energy);
+                    p1attack1.setText("Attack Strength: "+ m1.get(HA1.getText()).Attack);
+                    p1e2.setText("Energy: "+ m1.get(HA2.getText()).Energy);
+                    p1attack2.setText("Attack Strength: "+ m1.get(HA2.getText()).Attack);
+                    p1e3.setText("Energy: "+ m1.get(HA3.getText()).Energy);
+                    p1attack3.setText("Attack Strength: "+ m1.get(HA3.getText()).Attack);
 
 
 
-                    p2e1.setText("Energy: "+ m2.get(fb1.getText()).Energy);
-                    p2attack1.setText("Attack Strength: "+ m2.get(fb1.getText()).Attack);
-                    p2e2.setText("Energy: "+ m2.get(fb2.getText()).Energy);
-                    p2attack2.setText("Attack Strength: "+ m2.get(fb2.getText()).Attack);
-                    p2e3.setText("Energy: "+ m2.get(fb3.getText()).Energy);
-                    p2attack3.setText("Attack Strength: "+ m2.get(fb3.getText()).Attack);
+                    p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
+                    p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
+                    p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
+                    p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
+                    p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
+                    p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
 
                     p11d.setBackground(Color.WHITE);
                     p12d.setBackground(Color.WHITE);
@@ -12449,28 +12462,21 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     HA2.setBounds(560,350,100,100);
                     HA3.setBounds(410,430,100,100);
 
-                    p1d1l.setBounds(420, 295,300,50);
-                    p1d2l.setBounds(420, 295,300,50);
-                    p1d3l.setBounds(420, 295,300,50);
+                    p1d1l.setBounds(570, 295,300,50);
+                    p1d2l.setBounds(570, 295,300,50);
+                    p1d3l.setBounds(570, 295,300,50);
 
-                    p1a1l.setBounds(270,400,300,50);
-                    p1a2l.setBounds(420,480,300,50);
-                    p1a3l.setBounds(270,550,300,50);
+                    p1a1l.setBounds(420,400,300,50);
+                    p1a2l.setBounds(570,480,300,50);
+                    p1a3l.setBounds(420,550,300,50);
 
-                    p1life1l.setBounds(270,400,300,50);
-                    p1life2l.setBounds(420,480,300,50);
-                    p1life3l.setBounds(270,550,300,50);
+                    p1life1l.setBounds(420,400,300,50);
+                    p1life2l.setBounds(570,480,300,50);
+                    p1life3l.setBounds(420,550,300,50);
 
-                    p1health1l.setBounds(270,400,300,50);
-                    p1health2l.setBounds(420,480,300,50);
-                    p1health3l.setBounds(270,550,300,50);
-
-                    p1d1.setEnabled(false);
-                    p1d2.setEnabled(false);
-                    p1d3.setEnabled(false);
-                    p11d.setBackground(null);
-                    p12d.setBackground(null);
-                    p13d.setBackground(null);
+                    p1health1l.setBounds(420,400,300,50);
+                    p1health2l.setBounds(570,480,300,50);
+                    p1health3l.setBounds(420,550,300,50);
 
                     p2d1.setBounds(1100,270,100,100);
                     p2d2.setBounds(950,350,100,100);
