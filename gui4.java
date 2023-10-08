@@ -26,9 +26,9 @@ public class gui4 extends JFrame implements ActionListener {
      HashMap<String,Hero> m1 = new HashMap<String,Hero>();
      HashMap<String,Hero> m2 = new HashMap<String,Hero>();
      JButton n,s,S,b1,b2,b3,b4, startButton, NextB1,NextB2,Undo,Undo2,Back0, Back1,Back2, Ab, ab, hb, sb, tb, p1d1, p1d2, p1d3, p2d1, p2d2, p2d3, fa1,fa2,fa3,fb1,fb2,fb3,HA1,HA2,HA3,HB1,HB2,HB3,Home,playAgain,p1b1,p1b2,p1b3,p2b1,p2b2,p2b3,helpButton,assaultb,assassinb,healerb,supportb,tankb,helpClose,apc,aspc,hpc,spc,tpc,assaultb1, assassinb1, healerb1, supportb1, tankb1, apc1, aspc1, hpc1, spc1, tpc1,Butt;
-     JLabel  startLabel,startpic,panel1Label,deathLabel,roundsLabel,panel2Label,panel3Label, pvpPanel3Label,defendPanelLabel, fightPanelLabel,healPanelLabel,winPanelLabel,p1a1l,p1a2l,p1a3l,p2a1l,p2a2l,p2a3l,p1d1l,p1d2l,p1d3l,p2d1l,p2d2l,p2d3l,freeze1,freeze2,bleed1 = new JLabel(),bleed2 = new JLabel(),p1s1,p1attack1,p1spec1,p1e1,p1s2,p1attack2,p1spec2,p1e2,p1s3,p1attack3,p1spec3,p1e3 = new JLabel(),p2s1,p2attack1 = new JLabel(),p2spec1,p2e1 = new JLabel(),p2s2,p2attack2 = new JLabel(),p2spec2,p2e2 = new JLabel(),p2s3,p2attack3 = new JLabel(),p2spec3,p2e3 = new JLabel(),p1life1l,p1life2l,p1life3l,p2life1l,p2life2l,p2life3l,Player1,Player11,Player12,Player13,Player2,Player21,Player22,Player23,assaultPanelLabel,assassinPanelLabel,healerPanelLabel,supportPanelLabel,tankPanelLabel,l1,p11,p12,p13,p21,p22,p23,aI,asI,hI,sI,tI,p11d,p12d,p13d,p21d,p22d,p23d,p11f,p12f,p13f,p21f,p22f,p23f,p11h,p12h,p13h,p21h,p22h,p23h,c1,c2,c3,c4,c5,charda1,charda2,charda3,charfa1,charfa2,charfa3,charha1,charha2,charha3,chardb1,chardb2,chardb3,charfb1,charfb2,charfb3,charhb1,charhb2,charhb3,p1health1l,p1health2l,p1health3l,p2health1l,p2health2l,p2health3l, bg3,bgop,bgs,bgh,bgd,bgc,bgm,bgm2;
-     JLayeredPane thePane, pane1, pane2,pane3,defendPane,fightPane,healPane,startPane;
-     ImageIcon sky,dIcon,rIcon,p1aa,p1ad,p1af,p1ah,p1ai,p1an,p1asa,p1asd,p1asf,p1ash,p1asi,p1asn,p1hd,p1hf,p1hh,p1hi,p1hn,p1sa,p1sd,p1sf,p1sh,p1si,p1sn,p1ta,p1td,p1tf,p1th,p1ti,p1tn,p2aa,p2ad,p2af,p2ah,p2ai,p2an,p2asa,p2asd,p2asf,p2ash,p2asi,p2asn,p2hi,p2hd,p2hf,p2hh,p2hn,p2sa,p2sd,p2sf,p2sh,p2si,p2sn,p2ta,p2td,p2tf,p2th,p2ti,p2tn,sIcon,bg3Icon;
+     JLabel  startLabel,startpic,panel1Label,deathLabel,roundsLabel,panel2Label,panel3Label, pvpPanel3Label,defendPanelLabel, fightPanelLabel,healPanelLabel,winPanelLabel,p1a1l,p1a2l,p1a3l,p2a1l,p2a2l,p2a3l,p1d1l,p1d2l,p1d3l,p2d1l,p2d2l,p2d3l,freeze1,freeze2,bleed1 = new JLabel(),bleed2 = new JLabel(),p1s1,p1attack1,p1spec1,p1e1,p1s2,p1attack2,p1spec2,p1e2,p1s3,p1attack3,p1spec3,p1e3 = new JLabel(),p2s1,p2attack1 = new JLabel(),p2spec1,p2e1 = new JLabel(),p2s2,p2attack2 = new JLabel(),p2spec2,p2e2 = new JLabel(),p2s3,p2attack3 = new JLabel(),p2spec3,p2e3 = new JLabel(),p1life1l,p1life2l,p1life3l,p2life1l,p2life2l,p2life3l,Player1,Player11,Player12,Player13,Player2,Player21,Player22,Player23,assaultPanelLabel,assassinPanelLabel,healerPanelLabel,supportPanelLabel,tankPanelLabel,l1,p11,p12,p13,p21,p22,p23,aI,asI,hI,sI,tI,p11d,p12d,p13d,p21d,p22d,p23d,p11f,p12f,p13f,p21f,p22f,p23f,p11h,p12h,p13h,p21h,p22h,p23h,c1,c2,c3,c4,c5,charda1,charda2,charda3,charfa1,charfa2,charfa3,charha1,charha2,charha3,chardb1,chardb2,chardb3,charfb1,charfb2,charfb3,charhb1,charhb2,charhb3,p1health1l,p1health2l,p1health3l,p2health1l,p2health2l,p2health3l, bg3,bgop,bgs,bgh,bgd,bgc,bgm,bgm2,side11,side12,side2;
+     JLayeredPane thePane, pane1, pane2,pane3,defendPane,fightPane,healPane,startPane,pane21, winPane;
+     ImageIcon sky,dIcon,rIcon,p1aa,p1ad,p1af,p1ah,p1ai,p1an,p1asa,p1asd,p1asf,p1ash,p1asi,p1asn,p1hd,p1hf,p1hh,p1hi,p1hn,p1sa,p1sd,p1sf,p1sh,p1si,p1sn,p1ta,p1td,p1tf,p1th,p1ti,p1tn,p2aa,p2ad,p2af,p2ah,p2ai,p2an,p2asa,p2asd,p2asf,p2ash,p2asi,p2asn,p2hi,p2hd,p2hf,p2hh,p2hn,p2sa,p2sd,p2sf,p2sh,p2si,p2sn,p2ta,p2td,p2tf,p2th,p2ti,p2tn,sIcon,bg3Icon,p1asb,p1ab,p1hb,p1sb,p1tb,p2asb,p2ab,p2hb,p2sb,p2tb;
      JPanel panel1,panel2,panel3, pvpPanel3, defendPanel, fightPanel,healPanel,winPanel,p1p1,p1p2,p1p3,p2p1,p2p2,p2p3,helpPanel,assaultPanel,assassinPanel,healerPanel,supportPanel,tankPanel, assaultPanel1, assassinPanel1, healerPanel1, supportPanel1, tankPanel1;
      JTextArea assaultText1, assassinText1, healerText, supportText1, tankText1;
      int rounds, turn = 1, selected = 0,r = 1, damage;
@@ -46,7 +46,7 @@ public class gui4 extends JFrame implements ActionListener {
         Clip clip1 = AudioSystem.getClip();
         clip1.open(a1);
         FloatControl fc = (FloatControl)clip1.getControl(FloatControl.Type.MASTER_GAIN);
-        fc.setValue(3.0f);
+        fc.setValue(-10.0f);
         clip1.loop(Clip.LOOP_CONTINUOUSLY);
         clip1.start();
     }
@@ -68,6 +68,15 @@ public class gui4 extends JFrame implements ActionListener {
         clip1.open(a1);
         clip1.start();
     }
+
+    public void playBuff()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
+        File f1 = new File("buff.wav");
+        AudioInputStream a1 = AudioSystem.getAudioInputStream(f1);
+        Clip clip1 = AudioSystem.getClip();
+        clip1.open(a1);
+        clip1.start();
+    }
+
     public void playFreeze()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
         File f1 = new File("freeze.wav");
         AudioInputStream a1 = AudioSystem.getAudioInputStream(f1);
@@ -90,6 +99,7 @@ public class gui4 extends JFrame implements ActionListener {
         AudioInputStream a1 = AudioSystem.getAudioInputStream(f1);
         Clip clip1 = AudioSystem.getClip();
         clip1.open(a1);
+        clip1.setMicrosecondPosition(3000);
         clip1.start();
     }
 
@@ -110,13 +120,6 @@ public class gui4 extends JFrame implements ActionListener {
         clip1.start();
     }
 
-    public void playBuff()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
-        File f1 = new File("buff.wav");
-        AudioInputStream a1 = AudioSystem.getAudioInputStream(f1);
-        Clip clip1 = AudioSystem.getClip();
-        clip1.open(a1);
-        clip1.start();
-    }
 
     public void playClick()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
         File f1 = new File("click.wav");
@@ -206,6 +209,18 @@ public class gui4 extends JFrame implements ActionListener {
             p2ti = new ImageIcon("P2 Tank Idle.png");
             p2tn = new ImageIcon("P2 Tank Nerf.png");
             boolean t = true;
+            p1ab = new ImageIcon("P1 Assault Buff.png");
+            p1asb = new ImageIcon("P1 Assassin Buff.png");
+            p1hb = new ImageIcon("P1 Healer Buff.png");
+            p1sb = new ImageIcon("P1 Support Buff.png");
+            p1tb = new ImageIcon("P1 Tank Buff.png");
+
+
+            p2ab = new ImageIcon("P2 Assault Buff.png");
+            p2asb = new ImageIcon("P2 Assassin Buff.png");
+            p2hb = new ImageIcon("P2 Healer Buff.png");
+            p2sb = new ImageIcon("P2 Support Buff.png");
+            p2tb = new ImageIcon("P2 Tank Buff.png");
             //sIcon = new ImageIcon(A1);
             dIcon = new ImageIcon("DeathMatch.png");
             rIcon = new ImageIcon("TimeTrial.png");
@@ -223,21 +238,21 @@ public class gui4 extends JFrame implements ActionListener {
 
     public  void sortButtons(){
         if (computer.getDef().Class.equals(p2d1.getText())){
-            p2d1.setBounds(950,270,100,100);
-            p2d2.setBounds(800,350,100,100);
-            p2d3.setBounds(950,430,100,100);
+            p2d1.setBounds(1100,270,100,100);
+            p2d2.setBounds(950,350,100,100);
+            p2d3.setBounds(1100,430,100,100);
 
-            p21d.setBounds(950, 270,100,100);
-            p21f.setBounds(950, 270,100,100);
-            p21h.setBounds(950, 270,100,100);
+            p21d.setBounds(1100, 270,100,100);
+            p21f.setBounds(1100, 270,100,100);
+            p21h.setBounds(1100, 270,100,100);
 
-            p22d.setBounds(800, 350,100,100);
-            p22f.setBounds(800, 350,100,100);
-            p22h.setBounds(800, 350,100,100);
+            p22d.setBounds(950, 350,100,100);
+            p22f.setBounds(950, 350,100,100);
+            p22h.setBounds(950, 350,100,100);
 
-            p23d.setBounds(950, 430,100,100);
-            p23f.setBounds(950, 430,100,100);
-            p23h.setBounds(950, 430,100,100);
+            p23d.setBounds(1100, 430,100,100);
+            p23f.setBounds(1100, 430,100,100);
+            p23h.setBounds(1100, 430,100,100);
 
             chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
             chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
@@ -249,47 +264,47 @@ public class gui4 extends JFrame implements ActionListener {
             charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
             charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-            fb1.setBounds(950,270,100,100);
-            fb2.setBounds(800,350,100,100);
-            fb3.setBounds(950,430,100,100);
+            fb1.setBounds(1100,270,100,100);
+            fb2.setBounds(950,350,100,100);
+            fb3.setBounds(1100,430,100,100);
 
-            HB1.setBounds(950,270,100,100);
-            HB2.setBounds(800,350,100,100);
-            HB3.setBounds(950,430,100,100);
+            HB1.setBounds(1100,270,100,100);
+            HB2.setBounds(950,350,100,100);
+            HB3.setBounds(1100,430,100,100);
 
             p2d1l.setBounds(820,295,300,50);
             p2d2l.setBounds(820,295,300,50);
             p2d3l.setBounds(820,295,300,50);
 
-            p2a1l.setBounds(950,400,300,50);
-            p2a2l.setBounds(800,480,300,50);
-            p2a3l.setBounds(950,550,300,50);
+            p2a1l.setBounds(1100,400,300,50);
+            p2a2l.setBounds(950,480,300,50);
+            p2a3l.setBounds(1100,550,300,50);
 
-            p2life1l.setBounds(950,400,300,50);
-            p2life2l.setBounds(800,480,300,50);
-            p2life3l.setBounds(950,550,300,50);
+            p2life1l.setBounds(1100,400,300,50);
+            p2life2l.setBounds(950,480,300,50);
+            p2life3l.setBounds(1100,550,300,50);
 
-            p2health1l.setBounds(950,400,300,50);
-            p2health2l.setBounds(800,480,300,50);
-            p2health3l.setBounds(950,550,300,50);
+            p2health1l.setBounds(1100,400,300,50);
+            p2health2l.setBounds(950,480,300,50);
+            p2health3l.setBounds(1100,550,300,50);
 
         }
         else if (computer.getDef().Class.equals(p2d2.getText())){
-                    p2d1.setBounds(800,350,100,100);
-                    p2d2.setBounds(950,270,100,100);
-                    p2d3.setBounds(950,430,100,100);
+                    p2d1.setBounds(950,350,100,100);
+                    p2d2.setBounds(1100,270,100,100);
+                    p2d3.setBounds(1100,430,100,100);
 
-                    p21d.setBounds(800, 350,100,100);
-                    p21f.setBounds(800, 350,100,100);
-                    p21h.setBounds(800, 350,100,100);
+                    p21d.setBounds(950, 350,100,100);
+                    p21f.setBounds(950, 350,100,100);
+                    p21h.setBounds(950, 350,100,100);
 
-                    p22d.setBounds(950, 270,100,100);
-                    p22f.setBounds(950, 270,100,100);
-                    p22h.setBounds(950, 270,100,100);
+                    p22d.setBounds(1100, 270,100,100);
+                    p22f.setBounds(1100, 270,100,100);
+                    p22h.setBounds(1100, 270,100,100);
 
-                    p23d.setBounds(950, 430,100,100);
-                    p23f.setBounds(950, 430,100,100);
-                    p23h.setBounds(950, 430,100,100);
+                    p23d.setBounds(1100, 430,100,100);
+                    p23f.setBounds(1100, 430,100,100);
+                    p23h.setBounds(1100, 430,100,100);
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
                     chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
@@ -301,47 +316,47 @@ public class gui4 extends JFrame implements ActionListener {
                     charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
                     charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-                    fb1.setBounds(800,350,100,100);
-                    fb2.setBounds(950,270,100,100);
-                    fb3.setBounds(950,430,100,100);
+                    fb1.setBounds(950,350,100,100);
+                    fb2.setBounds(1100,270,100,100);
+                    fb3.setBounds(1100,430,100,100);
 
-                    HB1.setBounds(800,350,100,100);
-                    HB2.setBounds(950,270,100,100);
-                    HB3.setBounds(950,430,100,100);
+                    HB1.setBounds(950,350,100,100);
+                    HB2.setBounds(1100,270,100,100);
+                    HB3.setBounds(1100,430,100,100);
 
                     p2d1l.setBounds(820,295,300,50);
                     p2d2l.setBounds(820,295,300,50);
                     p2d3l.setBounds(820,295,300,50);
 
-                    p2a1l.setBounds(800,480,300,50);
-                    p2a2l.setBounds(950,400,300,50);
-                    p2a3l.setBounds(950,550,300,50);
+                    p2a1l.setBounds(950,480,300,50);
+                    p2a2l.setBounds(1100,400,300,50);
+                    p2a3l.setBounds(1100,550,300,50);
 
-                    p2life1l.setBounds(800,480,300,50);
-                    p2life2l.setBounds(950,400,300,50);
-                    p2life3l.setBounds(950,550,300,50);
+                    p2life1l.setBounds(950,480,300,50);
+                    p2life2l.setBounds(1100,400,300,50);
+                    p2life3l.setBounds(1100,550,300,50);
 
-                    p2health1l.setBounds(800,480,300,50);
-                    p2health2l.setBounds(950,400,300,50);
-                    p2health3l.setBounds(950,550,300,50);
+                    p2health1l.setBounds(950,480,300,50);
+                    p2health2l.setBounds(1100,400,300,50);
+                    p2health3l.setBounds(1100,550,300,50);
 
         }
         else{
-                    p2d1.setBounds(950,270,100,100);
-                    p2d2.setBounds(950,430,100,100);
-                    p2d3.setBounds(800,350,100,100);
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(1100,430,100,100);
+                    p2d3.setBounds(950,350,100,100);
 
-                    p21d.setBounds(950, 270,100,100);
-                    p21f.setBounds(950, 270,100,100);
-                    p21h.setBounds(950, 270,100,100);
+                    p21d.setBounds(1100, 270,100,100);
+                    p21f.setBounds(1100, 270,100,100);
+                    p21h.setBounds(1100, 270,100,100);
 
-                    p22d.setBounds(950, 430,100,100);
-                    p22f.setBounds(950, 430,100,100);
-                    p22h.setBounds(950, 430,100,100);
+                    p22d.setBounds(1100, 430,100,100);
+                    p22f.setBounds(1100, 430,100,100);
+                    p22h.setBounds(1100, 430,100,100);
 
-                    p23d.setBounds(800, 350,100,100);
-                    p23f.setBounds(800, 350,100,100);
-                    p23h.setBounds(800, 350,100,100);
+                    p23d.setBounds(950, 350,100,100);
+                    p23f.setBounds(950, 350,100,100);
+                    p23h.setBounds(950, 350,100,100);
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
                     chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
@@ -353,29 +368,29 @@ public class gui4 extends JFrame implements ActionListener {
                     charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
                     charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-                    fb1.setBounds(950,270,100,100);
-                    fb2.setBounds(950,430,100,100);
-                    fb3.setBounds(800,350,100,100);
+                    fb1.setBounds(1100,270,100,100);
+                    fb2.setBounds(1100,430,100,100);
+                    fb3.setBounds(950,350,100,100);
 
-                    HB1.setBounds(950,270,100,100);
-                    HB2.setBounds(950,430,100,100);
-                    HB3.setBounds(800,350,100,100);
+                    HB1.setBounds(1100,270,100,100);
+                    HB2.setBounds(1100,430,100,100);
+                    HB3.setBounds(950,350,100,100);
 
-                    p2d1l.setBounds(800,295,300,50);
-                    p2d2l.setBounds(800,295,300,50);
-                    p2d3l.setBounds(800,295,300,50);
+                    p2d1l.setBounds(950,295,300,50);
+                    p2d2l.setBounds(950,295,300,50);
+                    p2d3l.setBounds(950,295,300,50);
 
-                    p2a1l.setBounds(950,400,300,50);
-                    p2a2l.setBounds(950,550,300,50);
-                    p2a3l.setBounds(800,480,300,50);
+                    p2a1l.setBounds(1100,400,300,50);
+                    p2a2l.setBounds(1100,550,300,50);
+                    p2a3l.setBounds(950,480,300,50);
 
-                    p2life1l.setBounds(950,400,300,50);
-                    p2life2l.setBounds(950,550,300,50);
-                    p2life3l.setBounds(800,480,300,50);
+                    p2life1l.setBounds(1100,400,300,50);
+                    p2life2l.setBounds(1100,550,300,50);
+                    p2life3l.setBounds(950,480,300,50);
 
-                    p2health1l.setBounds(950,400,300,50);
-                    p2health2l.setBounds(950,550,300,50);
-                    p2health3l.setBounds(800,480,300,50);
+                    p2health1l.setBounds(1100,400,300,50);
+                    p2health2l.setBounds(1100,550,300,50);
+                    p2health3l.setBounds(950,480,300,50);
         }
 
     }
@@ -547,8 +562,8 @@ public class gui4 extends JFrame implements ActionListener {
                     
                     if (p1.alive == 0) {
                         winPanelLabel.setText("Computer won!");
-                        winPanel.setEnabled(true);
-                        winPanel.setVisible(true);
+                        winPane.setEnabled(true);
+                        winPane.setVisible(true);
                     }
                     else {
                         defendPanelLabel.setText("Select your defending hero");
@@ -596,8 +611,8 @@ public class gui4 extends JFrame implements ActionListener {
                     else{
                         winPanelLabel.setText("Draw !");
                     }
-                    winPanel.setVisible(true);
-                    winPanel.setEnabled(true);
+                    winPane.setVisible(true);
+                    winPane.setEnabled(true);
                     fightPane.setEnabled(false);
                     fightPane.setVisible(false);
                 }
@@ -611,6 +626,23 @@ public class gui4 extends JFrame implements ActionListener {
                     }
                     computer.getSupport().Skips--;
                     timer1.start();;
+                }
+                if(computer.FindSupport()&&computer.support.up>0){
+                    freeze2.setText("buffed*");
+                    freeze2.setForeground(new Color(255,95,31));
+                    freeze2.setVisible(true);
+                    try{
+                        buffp2();
+                    }
+                    catch(IOException ex){
+                        ex.getStackTrace();
+                    }
+                    catch(UnsupportedAudioFileException g){
+                        g.getStackTrace();
+                    }
+                    catch(LineUnavailableException f){
+                        f.getStackTrace();
+                    } 
                 }
             }
             if (computer.FindSupport() && computer.support.nerfs > 0) {
@@ -663,8 +695,8 @@ public class gui4 extends JFrame implements ActionListener {
             else{
                 winPanelLabel.setText("Draw !");
             }
-            winPanel.setVisible(true);
-            winPanel.setEnabled(true);
+            winPane.setVisible(true);
+            winPane.setEnabled(true);
             fightPane.setEnabled(false);
             fightPane.setVisible(false);
         }
@@ -854,6 +886,198 @@ public class gui4 extends JFrame implements ActionListener {
                 case "tank":
                     p23f.setIcon(p2tn);
                     p23d.setIcon(p2tn);
+
+                break;
+                default:
+            }
+        }
+        }
+        
+    }
+    public void buffp1()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
+        playBuff();
+        if(m1.get(p1.chosen[0].Class).HP>0){
+            switch(p1.chosen[0].Class){
+                case "assault":
+                    p11f.setIcon(p1ab);
+                    p11d.setIcon(p1ab);
+
+                break;
+                case "assassin":
+                    p11f.setIcon(p1asb);
+                    p11d.setIcon(p1asb);
+
+                break;
+
+                case "healer":
+                    p11f.setIcon(p1hb);
+                    p11d.setIcon(p1hb);
+                break;
+                case "support":
+                    p11f.setIcon(p1sb);
+                    p11d.setIcon(p1sb);
+
+                break;
+                case "tank":
+                    p11f.setIcon(p1tb);
+                    p11d.setIcon(p1tb);
+
+                break;
+                default:
+            }
+        }
+        
+        if(m1.get(p1.chosen[1].Class).HP>0){
+            switch(p1.chosen[1].Class){
+                case "assault":
+                    p12f.setIcon(p1ab);
+                    p12d.setIcon(p1ab);
+                break;
+                case "assassin":
+                    p12f.setIcon(p1asb);
+                    p12d.setIcon(p1asb);
+
+                break;
+
+                case "healer":
+                    p12f.setIcon(p1hb);
+                    p12d.setIcon(p1hb);
+
+                break;
+                case "support":
+                    p12f.setIcon(p1sb);
+                    p12d.setIcon(p1sb);
+
+                break;
+                case "tank":
+                    p12f.setIcon(p1tb);
+                    p12d.setIcon(p1tb);
+                break;
+                default:
+            }
+        }
+        
+        if(m1.get(p1.chosen[2].Class).HP>0){
+            switch(p1.chosen[2].Class){
+                case "assault":
+                    p13f.setIcon(p1ab);
+                    p13d.setIcon(p1ab);
+                break;
+                case "assassin":
+                    p13f.setIcon(p1asb);
+                    p13d.setIcon(p1asb);
+
+                break;
+
+                case "healer":
+                    p13f.setIcon(p1hb);
+                    p13d.setIcon(p1hb);
+
+                break;
+                case "support":
+                    p13f.setIcon(p1sb);
+                    p13d.setIcon(p1sb);
+
+                break;
+                case "tank":
+                    p13f.setIcon(p1tb);
+                    p13d.setIcon(p1tb);
+
+                break;
+                default:
+            }
+        }
+    }
+
+    public void buffp2()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
+        playBuff();
+        if(pvp){
+            if(m2.get(p2.chosen[0].Class).HP>0){
+            switch(p2.chosen[0].Class){
+                case "assault":
+                    p21f.setIcon(p2ab);
+                    p21d.setIcon(p2ab);
+                break;
+                case "assassin":
+                    p21f.setIcon(p2asb);
+                    p21d.setIcon(p2asb);
+
+                break;
+
+                case "healer":
+                    p21f.setIcon(p2hb);
+                    p21d.setIcon(p2hb);
+
+                break;
+                case "support":
+                    p21f.setIcon(p2sb);
+                    p21d.setIcon(p2sb);
+
+                break;
+                case "tank":
+                    p21f.setIcon(p2tb);
+                    p21d.setIcon(p2tb);
+
+                break;
+                default:
+            }
+        }
+        
+        if(m2.get(p2.chosen[1].Class).HP>0){
+            switch(p2.chosen[1].Class){
+                case "assault":
+                    p22f.setIcon(p2ab);
+                    p22d.setIcon(p2ab);
+                break;
+                case "assassin":
+                    p22f.setIcon(p2asb);
+                    p22d.setIcon(p2asb);
+
+                break;
+
+                case "healer":
+                    p22f.setIcon(p2hb);
+                    p22d.setIcon(p2hb);
+
+                break;
+                case "support":
+                    p22f.setIcon(p2sb);
+                    p22d.setIcon(p2sb);
+                break;
+                case "tank":
+                    p22f.setIcon(p2tb);
+                    p22d.setIcon(p2tb);
+
+                break;
+                default:
+            }
+        }
+        
+        if(m2.get(p2.chosen[2].Class).HP>0){
+            switch(p2.chosen[2].Class){
+                case "assault":
+                    p23f.setIcon(p2ab);
+                    p23d.setIcon(p2ab);
+                break;
+                case "assassin":
+                    p23f.setIcon(p2asb);
+                    p23d.setIcon(p2asb);
+
+                break;
+
+                case "healer":
+                    p23f.setIcon(p2hb);
+                    p23d.setIcon(p2hb);
+
+                break;
+                case "support":
+                    p23f.setIcon(p2sb);
+                    p23d.setIcon(p2sb);
+
+                break;
+                case "tank":
+                    p23f.setIcon(p2tb);
+                    p23d.setIcon(p2tb);
 
                 break;
                 default:
@@ -2968,7 +3192,7 @@ public class gui4 extends JFrame implements ActionListener {
         b4 = new JButton();
         Back1 = new JButton();
 
-        panel3 = new JPanel();
+        pane21 = new JLayeredPane();
         panel3Label = new JLabel();
         panel3Textbox = new TextField();
         NextB1 = new JButton();
@@ -3085,7 +3309,9 @@ public class gui4 extends JFrame implements ActionListener {
         JLabel bgd = new JLabel();
         JLabel bgc = new JLabel();
         JLabel bgm2 = new JLabel();
+        JLabel bgm3 =new JLabel(sky);
         JLabel bgm = new JLabel();
+        JLabel bgw = new JLabel();
 
         bgop.setSize(1600,800);
         bgop.setLayout(null);
@@ -3101,7 +3327,7 @@ public class gui4 extends JFrame implements ActionListener {
         bgh.setVisible(true);
         bgh.setOpaque(true);
 
-        bgh.setIcon(sky);
+        bgh.setIcon(bg3Icon);
 
         bgs.setSize(1600,800);
         bgs.setLayout(null);
@@ -3117,7 +3343,7 @@ public class gui4 extends JFrame implements ActionListener {
         bgd.setVisible(true);
         bgd.setOpaque(true);
 
-        bgd.setIcon(sky);
+        bgd.setIcon(bg3Icon);
 
         bgc.setSize(1600,800);
         bgc.setLayout(null);
@@ -3141,6 +3367,14 @@ public class gui4 extends JFrame implements ActionListener {
         bgm2.setOpaque(true);
 
         bgm2.setIcon(sky);
+
+        bgm3.setSize(1600,800);
+        bgm2.setLayout(null);
+        //bgm2.setBackground(new Color(100, 60, 140));
+        bgm3.setVisible(true);
+        bgm3.setOpaque(true);
+
+        bgm3.setIcon(sky);
 
         fa1 = new JButton();
         fa2 = new JButton();
@@ -3325,6 +3559,32 @@ JButton p2b3 = new JButton();
         pane1.setSize(1600, 800);
         pane1.add(bgc,JLayeredPane.DEFAULT_LAYER);
 
+        side11 = new JLabel(p1asb);
+        side12 = new JLabel(p2asb);
+
+        side2 = new JLabel(p1asb);
+
+
+
+        side11.setVisible(true);
+        side11.setOpaque(false);
+        side11.setBackground(null);
+        pane1.add(side11,JLayeredPane.DRAG_LAYER);
+	    side11.setBounds(250, 300, 250, 250);
+
+	    side12.setVisible(true);
+        side12.setOpaque(false);
+        side12.setBackground(null);
+        pane1.add(side12,JLayeredPane.DRAG_LAYER);
+	    side12.setBounds(320, 300, 250, 250);
+
+        side2.setVisible(true);
+        side2.setOpaque(false);
+        side2.setBackground(null);
+        pane1.add(side2,JLayeredPane.DRAG_LAYER);
+        
+        side2.setBounds(700, 300, 250, 250);
+
         panel1Label.setText("Choose your game mode");
         panel1Label.setVisible(true);
         panel1Label.setBounds(350, 200, 1200, 100);
@@ -3333,16 +3593,37 @@ JButton p2b3 = new JButton();
         panel1Label.setVisible(true);
         pane1.add(panel1Label,JLayeredPane.DRAG_LAYER);
 
+        	
+JLabel side1l = new JLabel("Two Player");
+
+JLabel side2l = new JLabel("One Player");
+side1l.setVisible(true);
+side1l.setOpaque(false);
+side1l.setBackground(null);
+pane1.add(side1l,JLayeredPane.DRAG_LAYER);
+side1l.setBounds(320, 500, 400, 50);
+side1l.setFont(new Font("Comic Sans", Font.BOLD,50));
+side1l.setForeground(Color.BLUE);
+
+side2l.setVisible(true);
+side2l.setOpaque(false);
+side2l.setBackground(null);
+pane1.add(side2l,JLayeredPane.DRAG_LAYER);
+side2l.setBounds(700, 500, 400, 50);
+side2l.setForeground(Color.RED);
+            side2l.setFont(new Font("Comic Sans", Font.BOLD,50));
+
         deathLabel = new JLabel(dIcon);
         roundsLabel = new JLabel(rIcon);
+
         deathLabel.setVisible(true);
-        deathLabel.setOpaque(false);
+        deathLabel.setOpaque(true);
         deathLabel.setBackground(null);
-        pane1.add(deathLabel,JLayeredPane.DRAG_LAYER);
+        
         roundsLabel.setVisible(true);
-        roundsLabel.setOpaque(false);
+        roundsLabel.setOpaque(true);
         roundsLabel.setBackground(null);
-        pane1.add(roundsLabel,JLayeredPane.DRAG_LAYER);
+        
         deathLabel.setBounds(300, 300, 250, 250);
         roundsLabel.setBounds(700, 300, 250, 250);
 
@@ -3437,6 +3718,7 @@ JButton p2b3 = new JButton();
 
         b2.setBounds(700, 300, 250, 250);
         pane1.add(b2,JLayeredPane.DEFAULT_LAYER);
+        
         b2.addActionListener(this);
         b2.setText("PvE");
         b2.setFocusable(false);
@@ -3671,20 +3953,23 @@ JButton p2b3 = new JButton();
 
 
 
-        panel2Label.setText("Rounds or Deathmatch");
+        panel2Label.setText("Deathmatch   or    Rounds");
         panel2Label.setVisible(true);
         panel2Label.setBounds(350, 200, 1200, 100);
         panel2Label.setFont(new Font("Press Start 2P", Font.BOLD, 60));
         panel2Label.setForeground(new Color(255, 30, 0));
         panel2Label.setVisible(true);
         
-        pane2.add(panel2Label);
+        pane2.add(panel2Label,JLayeredPane.DRAG_LAYER);
+        pane2.add(deathLabel,JLayeredPane.DRAG_LAYER);
+        pane2.add(roundsLabel,JLayeredPane.DRAG_LAYER);
+        pane2.add(b3,JLayeredPane.DEFAULT_LAYER);
+        pane2.add(b4,JLayeredPane.DEFAULT_LAYER);
+        pane2.add(Back1,JLayeredPane.DRAG_LAYER);
         pane2.add(bgm,JLayeredPane.DEFAULT_LAYER);
-        pane2.add(b3);
-        pane2.add(b4);
-        pane2.add(Back1);
 
-        b3.setBounds(500, 400, 400, 80);
+        b3.setBounds(700, 300, 250, 250);
+
         b3.addActionListener(this);
         b3.setText("Rounds");
         b3.setFocusable(false);
@@ -3711,8 +3996,8 @@ JButton p2b3 = new JButton();
                     limited = true;
                     pane2.setEnabled(false);
                     pane2.setVisible(false);
-                    panel3.setEnabled(true);
-                    panel3.setVisible(true);
+                    pane21.setEnabled(true);
+                    pane21.setVisible(true);
                     aI.setBackground(null);
                     asI.setBackground(null);
                     hI.setBackground(null);
@@ -3729,8 +4014,7 @@ JButton p2b3 = new JButton();
             }
         });
 
-        b4.setBounds(500, 600, 400, 80);
-        
+        b4.setBounds(300, 300, 250, 250);
         b4.addActionListener(this);
         b4.setText("Deathmatch");
         b4.setFocusable(false);
@@ -3815,29 +4099,29 @@ JButton p2b3 = new JButton();
         panel2.setEnabled(false);
         panel2.setVisible(false);
 
-        panel3.setLayout(null);
-        panel3.setBackground(new Color(100, 60, 140));
-        panel3.setSize(1600, 800);
-        this.add(panel3);
-        panel3.setEnabled(false);
-        panel3.setVisible(false);
+        pane21.setLayout(null);
+        pane21.setBackground(new Color(100, 60, 140));
+        pane21.setSize(1600, 800);
+        this.add(pane21);
+        pane21.setEnabled(false);
+        pane21.setVisible(false);
 
         panel3Label.setText("How many rounds do you want to play?");
         panel3Label.setBounds(80, 150, 1600, 100);
         panel3Label.setFont(new Font("Press Start 2P", Font.BOLD, 70));
         panel3Label.setForeground(new Color(255, 30, 0));
         panel3Label.setVisible(true);
-        panel3.add(panel3Label);
+        pane21.add(panel3Label,JLayeredPane.DRAG_LAYER);
         //panel3.add();
 
         panel3Textbox.setBounds(500, 310, 400, 50);
         panel3Textbox.setFont(new Font("Press Start 2P", Font.BOLD, 50));
         panel3Textbox.setVisible(true);
         panel3Textbox.setEnabled(true);
-        panel3.add(panel3Textbox);
+        pane21.add(panel3Textbox,JLayeredPane.DRAG_LAYER);
 
         NextB1.setBounds(500, 500, 400, 130);
-        panel3.add(NextB1);
+        pane21.add(NextB1);
         NextB1.addActionListener(this);
         NextB1.setText("Next");
         NextB1.setFocusable(false);
@@ -3863,8 +4147,8 @@ JButton p2b3 = new JButton();
                     } 
                     rounds = Integer.parseInt(panel3Textbox.getText());
                     System.out.println(rounds +" rounds");
-                    panel3.setVisible(false);
-                    panel3.setEnabled(false);
+                    pane3.setVisible(false);
+                    pane3.setEnabled(false);
                     pane3.setVisible(true);
                     pane3.setEnabled(true);
                     aI.setOpaque(false);
@@ -3875,13 +4159,6 @@ JButton p2b3 = new JButton();
                 }
             }
         });
-
-        //this.add(pvpPanel3);
-        pvpPanel3.setVisible(false);
-        pvpPanel3.setEnabled(false);
-        pvpPanel3.setLayout(null);
-        pvpPanel3.setBackground(new Color(100, 60, 140));
-        pvpPanel3.setSize(1600, 800);
 
         pvpPanel3Label.setVisible(true);
         pvpPanel3Label.setBounds(400, 100, 1200, 100);
@@ -3920,28 +4197,20 @@ JButton p2b3 = new JButton();
                     r = 1;
                     pane3.setVisible(false);
                     pane3.setEnabled(false);
-                    p1d1.setBounds(260,270,100,100);
-                    p1d2.setBounds(410,350,100,100);
-                    p1d3.setBounds(260,430,100,100);
+                    p1d1.setBounds(410,270,100,100);
+                    p1d2.setBounds(560,350,100,100);
+                    p1d3.setBounds(410,430,100,100);
 
-                    p2d1.setBounds(950,270,100,100);
-                    p2d2.setBounds(800,350,100,100);
-                    p2d3.setBounds(950,430,100,100);
                     
                     charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
                     charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
                     charda3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
-                    chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
-                    chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
-                    chardb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
+
 
                     p1life1l.setBounds(270,400,300,50);
                     p1life2l.setBounds(420,480,300,50);
                     p1life3l.setBounds(270,550,300,50);
 
-                    p2life1l.setBounds(950,400,300,50);
-                    p2life2l.setBounds(800,480,300,50);
-                    p2life3l.setBounds(950,550,300,50);
 
                     if (pvp){
                         defendPanelLabel.setText("Player 1 choose your defending Hero");
@@ -3985,9 +4254,60 @@ JButton p2b3 = new JButton();
                     p21d.setBackground(null);
                     p22d.setBackground(null);
                     p23d.setBackground(null);
-                    p2d1.setBounds(950,270,100,100);
-                    p22d.setBounds(800, 350,100,100);
-                    p23d.setBounds(950, 430,100,100);
+                    p21d.setOpaque(false);
+                    p22d.setOpaque(false);
+                    p23d.setOpaque(false);
+
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(950,350,100,100);
+                    p2d3.setBounds(1100,430,100,100);
+
+                    p21d.setBounds(1100, 270,100,100);
+                    p21f.setBounds(1100, 270,100,100);
+                    p21h.setBounds(1100, 270,100,100);
+
+                    p22d.setBounds(950, 350,100,100);
+                    p22f.setBounds(950, 350,100,100);
+                    p22h.setBounds(950, 350,100,100);
+
+                    p23d.setBounds(1100, 430,100,100);
+                    p23f.setBounds(1100, 430,100,100);
+                    p23h.setBounds(1100, 430,100,100);
+
+                    chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
+                    chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
+                    chardb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
+                    charfb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
+                    charfb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
+                    charfb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
+                    charhb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
+                    charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
+                    charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
+
+                    fb1.setBounds(1100,270,100,100);
+                    fb2.setBounds(950,350,100,100);
+                    fb3.setBounds(1100,430,100,100);
+
+                    HB1.setBounds(1100,270,100,100);
+                    HB2.setBounds(950,350,100,100);
+                    HB3.setBounds(1100,430,100,100);
+
+                    p2d1l.setBounds(820,295,300,50);
+                    p2d2l.setBounds(820,295,300,50);
+                    p2d3l.setBounds(820,295,300,50);
+
+                    p2a1l.setBounds(1100,400,300,50);
+                    p2a2l.setBounds(950,480,300,50);
+                    p2a3l.setBounds(1100,550,300,50);
+
+                    p2life1l.setBounds(1100,400,300,50);
+                    p2life2l.setBounds(950,480,300,50);
+                    p2life3l.setBounds(1100,550,300,50);
+
+                    p2health1l.setBounds(1100,400,300,50);
+                    p2health2l.setBounds(950,480,300,50);
+                    p2health3l.setBounds(1100,550,300,50);
+
                     
                     p1e1.setText("Energy: "+ m1.get(fa1.getText()).Energy);
                     p1attack1.setText("Attack Strength: "+ m1.get(fa1.getText()).Attack);
@@ -4063,6 +4383,13 @@ JButton p2b3 = new JButton();
                     else{
                         p2spec3.setText("");
                     }
+                    p11d.setOpaque(true);
+                    p12d.setOpaque(true);
+                    p13d.setOpaque(true);
+
+p11d.setBackground(Color.WHITE);
+                    p12d.setBackground(Color.WHITE);
+                    p13d.setBackground(Color.WHITE);
 
                 }
             }
@@ -4922,7 +5249,7 @@ JButton p2b3 = new JButton();
             }
         });
 
-        sI.setBounds(800, 250, 150, 150);
+        sI.setBounds(950, 250, 150, 150);
         pane3.add(sI,JLayeredPane.DRAG_LAYER);
         sI.setBackground(null);
         sI.setOpaque(false);
@@ -4930,7 +5257,7 @@ JButton p2b3 = new JButton();
 
         sb.setVisible(true);
         sb.setEnabled(true);
-        sb.setBounds(800, 250, 150, 150);
+        sb.setBounds(950, 250, 150, 150);
         sb.addActionListener(this);
         sb.setText("Support");
         sb.setFocusable(false);
@@ -5327,6 +5654,7 @@ JButton p2b3 = new JButton();
         });
 
 
+             
         defendPane.add(defendPanelLabel,JLayeredPane.DRAG_LAYER);
         defendPane.add(p1life1l,JLayeredPane.DRAG_LAYER);
         defendPane.add(p1life2l,JLayeredPane.DRAG_LAYER);
@@ -5334,12 +5662,7 @@ JButton p2b3 = new JButton();
         defendPane.add(p2life1l,JLayeredPane.DRAG_LAYER);
         defendPane.add(p2life2l,JLayeredPane.DRAG_LAYER);
         defendPane.add(p2life3l,JLayeredPane.DRAG_LAYER);
-        defendPane.add(p1d1,JLayeredPane.DEFAULT_LAYER);
-        defendPane.add(p1d2,JLayeredPane.DEFAULT_LAYER);
-        defendPane.add(p1d3,JLayeredPane.DEFAULT_LAYER);
-        defendPane.add(p2d1,JLayeredPane.DEFAULT_LAYER);
-        defendPane.add(p2d2,JLayeredPane.DEFAULT_LAYER);
-        defendPane.add(p2d3,JLayeredPane.DEFAULT_LAYER);
+        
         defendPane.add(charda1,JLayeredPane.DRAG_LAYER);
         defendPane.add(charda2,JLayeredPane.DRAG_LAYER);
         defendPane.add(charda3,JLayeredPane.DRAG_LAYER);
@@ -5347,38 +5670,44 @@ JButton p2b3 = new JButton();
         defendPane.add(chardb2,JLayeredPane.DRAG_LAYER);
         defendPane.add(chardb3,JLayeredPane.DRAG_LAYER);
         defendPane.add(bgd,JLayeredPane.DEFAULT_LAYER);
+        defendPane.add(p1d1,JLayeredPane.DEFAULT_LAYER);
+        defendPane.add(p1d2,JLayeredPane.DEFAULT_LAYER);
+        defendPane.add(p1d3,JLayeredPane.DEFAULT_LAYER);
+        defendPane.add(p2d1,JLayeredPane.DEFAULT_LAYER);
+        defendPane.add(p2d2,JLayeredPane.DEFAULT_LAYER);
+        defendPane.add(p2d3,JLayeredPane.DEFAULT_LAYER);   
 
-        p11d.setBounds(260, 270,100,100);
+        p11d.setBounds(410, 270,100,100);
         defendPane.add(p11d,JLayeredPane.DRAG_LAYER);
         p11d.setBackground(null);
         p11d.setOpaque(true);
         p11d.setVisible(true);
 
-        p12d.setBounds(410, 350,100,100);
+        p12d.setBounds(560, 350,100,100);
         defendPane.add(p12d,JLayeredPane.DRAG_LAYER);
         p12d.setBackground(null);
         p12d.setOpaque(true);
         p12d.setVisible(true);
 
-        p13d.setBounds(260, 430,100,100);
+        p13d.setBounds(410, 430,100,100);
         defendPane.add(p13d,JLayeredPane.DRAG_LAYER);
         p13d.setBackground(null);
         p13d.setOpaque(true);
         p13d.setVisible(true);
 
-        p21d.setBounds(950, 270,100,100);
+        p21d.setBounds(1100, 270,100,100);
         defendPane.add(p21d,JLayeredPane.DRAG_LAYER);
         p21d.setBackground(null);
         p21d.setOpaque(true);
         p21d.setVisible(true);
 
-        p22d.setBounds(800, 350,100,100);
+        p22d.setBounds(950, 350,100,100);
         defendPane.add(p22d,JLayeredPane.DRAG_LAYER);
         p22d.setBackground(null);
         p22d.setOpaque(true);
         p22d.setVisible(true);
 
-        p23d.setBounds(950, 430,100,100);
+        p23d.setBounds(1100, 430,100,100);
         defendPane.add(p23d,JLayeredPane.DRAG_LAYER);
         p23d.setBackground(null);
         p23d.setOpaque(true);
@@ -5471,7 +5800,7 @@ JButton p2b3 = new JButton();
         p2life3l.setVisible(true);
 
         p1d1.setFocusable(false);
-        p1d1.setBounds(260,270,100,100);
+        p1d1.setBounds(410,270,100,100);
         p1d1.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         p1d1.setVisible(true);
@@ -5493,20 +5822,20 @@ JButton p2b3 = new JButton();
                             f.getStackTrace();
                         } 
                     D1 = p1d1.getText();
-                    p1d1.setBounds(410,350,100,100);
-                    p1d2.setBounds(260,270,100,100);
-                    p1d3.setBounds(260,430,100,100);
-                    p11d.setBounds(410, 350,100,100);
-                    p11f.setBounds(410, 350,100,100);
-                    p11h.setBounds(410, 350,100,100);
+                    p1d1.setBounds(560,350,100,100);
+                    p1d2.setBounds(410,270,100,100);
+                    p1d3.setBounds(410,430,100,100);
+                    p11d.setBounds(560, 350,100,100);
+                    p11f.setBounds(560, 350,100,100);
+                    p11h.setBounds(560, 350,100,100);
 
-                    p12d.setBounds(260, 270,100,100);
-                    p12f.setBounds(260, 270,100,100);
-                    p12h.setBounds(260, 270,100,100);
+                    p12d.setBounds(410, 270,100,100);
+                    p12f.setBounds(410, 270,100,100);
+                    p12h.setBounds(410, 270,100,100);
 
-                    p13d.setBounds(260, 430,100,100);
-                    p13f.setBounds(260, 430,100,100);
-                    p13h.setBounds(260, 430,100,100);
+                    p13d.setBounds(410, 430,100,100);
+                    p13f.setBounds(410, 430,100,100);
+                    p13h.setBounds(410, 430,100,100);
 
                     charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
                     charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
@@ -5519,13 +5848,13 @@ JButton p2b3 = new JButton();
                     charfa3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
 
 
-                    fa1.setBounds(410,350,100,100);
-                    fa2.setBounds(260,270,100,100);
-                    fa3.setBounds(260,430,100,100);
+                    fa1.setBounds(560,350,100,100);
+                    fa2.setBounds(410,270,100,100);
+                    fa3.setBounds(410,430,100,100);
 
-                    HA1.setBounds(410,350,100,100);
-                    HA2.setBounds(260,270,100,100);
-                    HA3.setBounds(260,430,100,100);
+                    HA1.setBounds(560,350,100,100);
+                    HA2.setBounds(410,270,100,100);
+                    HA3.setBounds(410,430,100,100);
 
                     p1d1l.setBounds(420, 295,300,50);
                     p1d2l.setBounds(420, 295,300,50);
@@ -5549,6 +5878,10 @@ JButton p2b3 = new JButton();
                     p11d.setBackground(null);
                     p12d.setBackground(null);
                     p13d.setBackground(null);
+                    
+p11d.setOpaque(false);
+p12d.setOpaque(false);
+p13d.setOpaque(false);
 
                     if (pvp && m2.get(D2)== null){
                         defendPanelLabel.setText("Player 2 choose your defending hero");
@@ -5604,7 +5937,7 @@ JButton p2b3 = new JButton();
         });
 
         p1d2.setFocusable(false);
-        p1d2.setBounds(410,350,100,100);
+        p1d2.setBounds(560,350,100,100);
         p1d2.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         p1d2.setVisible(true);
@@ -5626,21 +5959,21 @@ JButton p2b3 = new JButton();
                             f.getStackTrace();
                         } 
                     D1 = p1d2.getText();
-                    p1d1.setBounds(260,270,100,100);
-                    p1d2.setBounds(410,350,100,100);
-                    p1d3.setBounds(260,430,100,100);       
+                    p1d1.setBounds(410,270,100,100);
+                    p1d2.setBounds(560,350,100,100);
+                    p1d3.setBounds(410,430,100,100);       
 
-                    p11d.setBounds(260, 270,100,100);
-                    p11f.setBounds(260, 270,100,100);
-                    p11h.setBounds(260, 270,100,100);
+                    p11d.setBounds(410, 270,100,100);
+                    p11f.setBounds(410, 270,100,100);
+                    p11h.setBounds(410, 270,100,100);
 
-                    p12d.setBounds(410, 350,100,100);
-                    p12f.setBounds(410, 350,100,100);
-                    p12h.setBounds(410, 350,100,100);
+                    p12d.setBounds(560, 350,100,100);
+                    p12f.setBounds(560, 350,100,100);
+                    p12h.setBounds(560, 350,100,100);
 
-                    p13d.setBounds(260, 430,100,100);
-                    p13f.setBounds(260, 430,100,100);
-                    p13h.setBounds(260, 430,100,100);
+                    p13d.setBounds(410, 430,100,100);
+                    p13f.setBounds(410, 430,100,100);
+                    p13h.setBounds(410, 430,100,100);
 
                     charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
                     charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
@@ -5653,13 +5986,13 @@ JButton p2b3 = new JButton();
                     charfa3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
 
 
-                    fa1.setBounds(260,270,100,100);
-                    fa2.setBounds(410,350,100,100);
-                    fa3.setBounds(260,430,100,100);
+                    fa1.setBounds(410,270,100,100);
+                    fa2.setBounds(560,350,100,100);
+                    fa3.setBounds(410,430,100,100);
 
-                    HA1.setBounds(260,270,100,100);
-                    HA2.setBounds(410,350,100,100);
-                    HA3.setBounds(260,430,100,100);
+                    HA1.setBounds(410,270,100,100);
+                    HA2.setBounds(560,350,100,100);
+                    HA3.setBounds(410,430,100,100);
 
                     p1d1l.setBounds(420, 295,300,50);
                     p1d2l.setBounds(420, 295,300,50);
@@ -5683,6 +6016,10 @@ JButton p2b3 = new JButton();
                     p11d.setBackground(null);
                     p12d.setBackground(null);
                     p13d.setBackground(null);
+                    
+p11d.setOpaque(false);
+p12d.setOpaque(false);
+p13d.setOpaque(false);
                     if (pvp && m2.get(D2)== null) {
                         defendPanelLabel.setText("Player 2 choose your defending hero");
                         p2d1.setEnabled(true);
@@ -5737,7 +6074,7 @@ JButton p2b3 = new JButton();
 
 
         p1d3.setFocusable(false);
-        p1d3.setBounds(260,430,100,100);
+        p1d3.setBounds(410,430,100,100);
         p1d3.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         p1d3.setVisible(true);
@@ -5761,25 +6098,25 @@ JButton p2b3 = new JButton();
                             f.getStackTrace();
                         } 
                     D1 = p1d3.getText();
-                    p1d1.setBounds(260,270,100,100);
-                    p1d2.setBounds(260,430,100,100);
-                    p1d3.setBounds(410,350,100,100);
+                    p1d1.setBounds(410,270,100,100);
+                    p1d2.setBounds(410,430,100,100);
+                    p1d3.setBounds(560,350,100,100);
 
                     
 
-                    p11d.setBounds(260, 270,100,100);
-                    p11f.setBounds(260, 270,100,100);
-                    p11h.setBounds(260, 270,100,100);
+                    p11d.setBounds(410, 270,100,100);
+                    p11f.setBounds(410, 270,100,100);
+                    p11h.setBounds(410, 270,100,100);
 
 
 
-                    p12d.setBounds(260, 430,100,100);
-                    p12f.setBounds(260, 430,100,100);
-                    p12h.setBounds(260, 430,100,100);
+                    p12d.setBounds(410, 430,100,100);
+                    p12f.setBounds(410, 430,100,100);
+                    p12h.setBounds(410, 430,100,100);
 
-                    p13d.setBounds(410, 350,100,100);
-                    p13f.setBounds(410, 350,100,100);
-                    p13h.setBounds(410, 350,100,100);
+                    p13d.setBounds(560, 350,100,100);
+                    p13f.setBounds(560, 350,100,100);
+                    p13h.setBounds(560, 350,100,100);
 
                     charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
                     charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
@@ -5792,13 +6129,13 @@ JButton p2b3 = new JButton();
                     charfa3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40); 
                     
 
-                    fa1.setBounds(260,270,100,100);
-                    fa2.setBounds(260,430,100,100);
-                    fa3.setBounds(410,350,100,100);
+                    fa1.setBounds(410,270,100,100);
+                    fa2.setBounds(410,430,100,100);
+                    fa3.setBounds(560,350,100,100);
 
-                    HA1.setBounds(260,270,100,100);
-                    HA2.setBounds(260,430,100,100);
-                    HA3.setBounds(410,350,100,100);
+                    HA1.setBounds(410,270,100,100);
+                    HA2.setBounds(410,430,100,100);
+                    HA3.setBounds(560,350,100,100);
 
                     p1d1l.setBounds(420, 295,300,50);
                     p1d2l.setBounds(420, 295,300,50);
@@ -5822,6 +6159,10 @@ JButton p2b3 = new JButton();
                     p11d.setBackground(null);
                     p12d.setBackground(null);
                     p13d.setBackground(null);
+                    
+p11d.setOpaque(false);
+p12d.setOpaque(false);
+p13d.setOpaque(false);
 
                     if (pvp && m2.get(D2)== null) {
                         defendPanelLabel.setText("Player 2 choose your defending hero");
@@ -5877,7 +6218,7 @@ JButton p2b3 = new JButton();
 
 
         p2d1.setFocusable(false);
-        p2d1.setBounds(950,270,100,100);
+        p2d1.setBounds(1100,270,100,100);
         p2d1.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         p2d1.setVisible(true);
@@ -5899,21 +6240,21 @@ JButton p2b3 = new JButton();
                             f.getStackTrace();
                         } 
                     D2 = p2d1.getText();
-                    p2d1.setBounds(800,350,100,100);
-                    p2d2.setBounds(950,270,100,100);
-                    p2d3.setBounds(950,430,100,100);
+                    p2d1.setBounds(950,350,100,100);
+                    p2d2.setBounds(1100,270,100,100);
+                    p2d3.setBounds(1100,430,100,100);
 
-                    p21d.setBounds(800, 350,100,100);
-                    p21f.setBounds(800, 350,100,100);
-                    p21h.setBounds(800, 350,100,100);
+                    p21d.setBounds(950, 350,100,100);
+                    p21f.setBounds(950, 350,100,100);
+                    p21h.setBounds(950, 350,100,100);
 
-                    p22d.setBounds(950, 270,100,100);
-                    p22f.setBounds(950, 270,100,100);
-                    p22h.setBounds(950, 270,100,100);
+                    p22d.setBounds(1100, 270,100,100);
+                    p22f.setBounds(1100, 270,100,100);
+                    p22h.setBounds(1100, 270,100,100);
 
-                    p23d.setBounds(950, 430,100,100);
-                    p23f.setBounds(950, 430,100,100);
-                    p23h.setBounds(950, 430,100,100);
+                    p23d.setBounds(1100, 430,100,100);
+                    p23f.setBounds(1100, 430,100,100);
+                    p23h.setBounds(1100, 430,100,100);
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
                     chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
@@ -5925,29 +6266,29 @@ JButton p2b3 = new JButton();
                     charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
                     charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-                    fb1.setBounds(800,350,100,100);
-                    fb2.setBounds(950,270,100,100);
-                    fb3.setBounds(950,430,100,100);
+                    fb1.setBounds(950,350,100,100);
+                    fb2.setBounds(1100,270,100,100);
+                    fb3.setBounds(1100,430,100,100);
 
-                    HB1.setBounds(800,350,100,100);
-                    HB2.setBounds(950,270,100,100);
-                    HB3.setBounds(950,430,100,100);
+                    HB1.setBounds(950,350,100,100);
+                    HB2.setBounds(1100,270,100,100);
+                    HB3.setBounds(1100,430,100,100);
 
                     p2d1l.setBounds(820,295,300,50);
                     p2d2l.setBounds(820,295,300,50);
                     p2d3l.setBounds(820,295,300,50);
 
-                    p2a1l.setBounds(800,480,300,50);
-                    p2a2l.setBounds(950,400,300,50);
-                    p2a3l.setBounds(950,550,300,50);
+                    p2a1l.setBounds(950,480,300,50);
+                    p2a2l.setBounds(1100,400,300,50);
+                    p2a3l.setBounds(1100,550,300,50);
 
-                    p2life1l.setBounds(800,480,300,50);
-                    p2life2l.setBounds(950,400,300,50);
-                    p2life3l.setBounds(950,550,300,50);
+                    p2life1l.setBounds(950,480,300,50);
+                    p2life2l.setBounds(1100,400,300,50);
+                    p2life3l.setBounds(1100,550,300,50);
 
-                    p2health1l.setBounds(800,480,300,50);
-                    p2health2l.setBounds(950,400,300,50);
-                    p2health3l.setBounds(950,550,300,50);
+                    p2health1l.setBounds(950,480,300,50);
+                    p2health2l.setBounds(1100,400,300,50);
+                    p2health3l.setBounds(1100,550,300,50);
 
                     p2d1.setEnabled(false);
                     p2d2.setEnabled(false);
@@ -5995,7 +6336,7 @@ JButton p2b3 = new JButton();
 
 
         p2d2.setFocusable(false);
-        p2d2.setBounds(800,350,100,100);
+        p2d2.setBounds(950,350,100,100);
         p2d2.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         p2d2.setVisible(true);
@@ -6017,21 +6358,21 @@ JButton p2b3 = new JButton();
                             f.getStackTrace();
                         } 
                     D2 = p2d2.getText();
-                    p2d1.setBounds(950,270,100,100);
-                    p2d2.setBounds(800,350,100,100);
-                    p2d3.setBounds(950,430,100,100);
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(950,350,100,100);
+                    p2d3.setBounds(1100,430,100,100);
 
-                    p21d.setBounds(950, 270,100,100);
-                    p21f.setBounds(950, 270,100,100);
-                    p21h.setBounds(950, 270,100,100);
+                    p21d.setBounds(1100, 270,100,100);
+                    p21f.setBounds(1100, 270,100,100);
+                    p21h.setBounds(1100, 270,100,100);
 
-                    p22d.setBounds(800, 350,100,100);
-                    p22f.setBounds(800, 350,100,100);
-                    p22h.setBounds(800, 350,100,100);
+                    p22d.setBounds(950, 350,100,100);
+                    p22f.setBounds(950, 350,100,100);
+                    p22h.setBounds(950, 350,100,100);
 
-                    p23d.setBounds(950, 430,100,100);
-                    p23f.setBounds(950, 430,100,100);
-                    p23h.setBounds(950, 430,100,100);
+                    p23d.setBounds(1100, 430,100,100);
+                    p23f.setBounds(1100, 430,100,100);
+                    p23h.setBounds(1100, 430,100,100);
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
                     chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
@@ -6043,29 +6384,29 @@ JButton p2b3 = new JButton();
                     charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
                     charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-                    fb1.setBounds(950,270,100,100);
-                    fb2.setBounds(800,350,100,100);
-                    fb3.setBounds(950,430,100,100);
+                    fb1.setBounds(1100,270,100,100);
+                    fb2.setBounds(950,350,100,100);
+                    fb3.setBounds(1100,430,100,100);
 
-                    HB1.setBounds(950,270,100,100);
-                    HB2.setBounds(800,350,100,100);
-                    HB3.setBounds(950,430,100,100);
+                    HB1.setBounds(1100,270,100,100);
+                    HB2.setBounds(950,350,100,100);
+                    HB3.setBounds(1100,430,100,100);
 
                     p2d1l.setBounds(820,295,300,50);
                     p2d2l.setBounds(820,295,300,50);
                     p2d3l.setBounds(820,295,300,50);
 
-                    p2a1l.setBounds(950,400,300,50);
-                    p2a2l.setBounds(800,480,300,50);
-                    p2a3l.setBounds(950,550,300,50);
+                    p2a1l.setBounds(1100,400,300,50);
+                    p2a2l.setBounds(950,480,300,50);
+                    p2a3l.setBounds(1100,550,300,50);
 
-                    p2life1l.setBounds(950,400,300,50);
-                    p2life2l.setBounds(800,480,300,50);
-                    p2life3l.setBounds(950,550,300,50);
+                    p2life1l.setBounds(1100,400,300,50);
+                    p2life2l.setBounds(950,480,300,50);
+                    p2life3l.setBounds(1100,550,300,50);
 
-                    p2health1l.setBounds(950,400,300,50);
-                    p2health2l.setBounds(800,480,300,50);
-                    p2health3l.setBounds(950,550,300,50);
+                    p2health1l.setBounds(1100,400,300,50);
+                    p2health2l.setBounds(950,480,300,50);
+                    p2health3l.setBounds(1100,550,300,50);
 
                     
                     p2d1.setEnabled(false);
@@ -6114,7 +6455,7 @@ JButton p2b3 = new JButton();
 
 
         p2d3.setFocusable(false);
-        p2d3.setBounds(950,430,100,100);
+        p2d3.setBounds(1100,430,100,100);
         p2d3.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         p2d3.setVisible(true);
@@ -6136,21 +6477,21 @@ JButton p2b3 = new JButton();
                             f.getStackTrace();
                         } 
                     D2 = p2d3.getText();
-                    p2d1.setBounds(950,270,100,100);
-                    p2d2.setBounds(950,430,100,100);
-                    p2d3.setBounds(800,350,100,100);
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(1100,430,100,100);
+                    p2d3.setBounds(950,350,100,100);
 
-                    p21d.setBounds(950, 270,100,100);
-                    p21f.setBounds(950, 270,100,100);
-                    p21h.setBounds(950, 270,100,100);
+                    p21d.setBounds(1100, 270,100,100);
+                    p21f.setBounds(1100, 270,100,100);
+                    p21h.setBounds(1100, 270,100,100);
 
-                    p22d.setBounds(950, 430,100,100);
-                    p22f.setBounds(950, 430,100,100);
-                    p22h.setBounds(950, 430,100,100);
+                    p22d.setBounds(1100, 430,100,100);
+                    p22f.setBounds(1100, 430,100,100);
+                    p22h.setBounds(1100, 430,100,100);
 
-                    p23d.setBounds(800, 350,100,100);
-                    p23f.setBounds(800, 350,100,100);
-                    p23h.setBounds(800, 350,100,100);
+                    p23d.setBounds(950, 350,100,100);
+                    p23f.setBounds(950, 350,100,100);
+                    p23h.setBounds(950, 350,100,100);
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
                     chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
@@ -6162,29 +6503,29 @@ JButton p2b3 = new JButton();
                     charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
                     charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-                    fb1.setBounds(950,270,100,100);
-                    fb2.setBounds(950,430,100,100);
-                    fb3.setBounds(800,350,100,100);
+                    fb1.setBounds(1100,270,100,100);
+                    fb2.setBounds(1100,430,100,100);
+                    fb3.setBounds(950,350,100,100);
 
-                    HB1.setBounds(950,270,100,100);
-                    HB2.setBounds(950,430,100,100);
-                    HB3.setBounds(800,350,100,100);
+                    HB1.setBounds(1100,270,100,100);
+                    HB2.setBounds(1100,430,100,100);
+                    HB3.setBounds(950,350,100,100);
 
-                    p2d1l.setBounds(800,295,300,50);
-                    p2d2l.setBounds(800,295,300,50);
-                    p2d3l.setBounds(800,295,300,50);
+                    p2d1l.setBounds(950,295,300,50);
+                    p2d2l.setBounds(950,295,300,50);
+                    p2d3l.setBounds(950,295,300,50);
 
-                    p2a1l.setBounds(950,400,300,50);
-                    p2a2l.setBounds(950,550,300,50);
-                    p2a3l.setBounds(800,480,300,50);
+                    p2a1l.setBounds(1100,400,300,50);
+                    p2a2l.setBounds(1100,550,300,50);
+                    p2a3l.setBounds(950,480,300,50);
 
-                    p2life1l.setBounds(950,400,300,50);
-                    p2life2l.setBounds(950,550,300,50);
-                    p2life3l.setBounds(800,480,300,50);
+                    p2life1l.setBounds(1100,400,300,50);
+                    p2life2l.setBounds(1100,550,300,50);
+                    p2life3l.setBounds(950,480,300,50);
 
-                    p2health1l.setBounds(950,400,300,50);
-                    p2health2l.setBounds(950,550,300,50);
-                    p2health3l.setBounds(800,480,300,50);
+                    p2health1l.setBounds(1100,400,300,50);
+                    p2health2l.setBounds(1100,550,300,50);
+                    p2health3l.setBounds(950,480,300,50);
 
                     p2d1.setEnabled(false);
                     p2d2.setEnabled(false);
@@ -6250,6 +6591,13 @@ JButton p2b3 = new JButton();
 
         bg3.setIcon(bg3Icon);
 
+        bgw.setSize(1600,800);
+        bgw.setLayout(null);
+        bgw.setBackground(new Color(100, 60, 140));
+        bgw.setVisible(true);
+        bgw.setOpaque(true);
+        bgw.setIcon(sky);
+
         fightPane.add(bg3, JLayeredPane.DEFAULT_LAYER);
         fightPane.add(fightPanelLabel,JLayeredPane.DRAG_LAYER);
         fightPane.add(fa1,JLayeredPane.DEFAULT_LAYER);
@@ -6295,7 +6643,7 @@ JButton p2b3 = new JButton();
         charfb3.setFont(new Font("Press Start 2P",Font.PLAIN,20));
 
         fa1.setFocusable(false);
-        fa1.setBounds(260,270,100,100);
+        fa1.setBounds(410,270,100,100);
         fa1.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         fa1.setVisible(true);
@@ -6374,7 +6722,7 @@ JButton p2b3 = new JButton();
         });
 
         fa2.setFocusable(false);
-        fa2.setBounds(410,350,100,100);
+        fa2.setBounds(560,350,100,100);
         fa2.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         fa2.setVisible(true);
@@ -6473,7 +6821,7 @@ JButton p2b3 = new JButton();
 
 
         fa3.setFocusable(false);
-        fa3.setBounds(260,430,100,100);
+        fa3.setBounds(410,430,100,100);
         fa3.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         fa3.setVisible(true);
@@ -6572,7 +6920,7 @@ JButton p2b3 = new JButton();
         });
 
         fb1.setFocusable(false);
-        fb1.setBounds(950,270,100,100);
+        fb1.setBounds(1100,270,100,100);
         fb1.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         fb1.setVisible(true);
@@ -6673,7 +7021,7 @@ JButton p2b3 = new JButton();
 
 
         fb2.setFocusable(false);
-        fb2.setBounds(800,350,100,100);
+        fb2.setBounds(950,350,100,100);
         fb2.setFont(new Font("Comic Sans", Font.BOLD,35));
         
         fb2.setVisible(true);
@@ -6774,7 +7122,7 @@ JButton p2b3 = new JButton();
 
 
         fb3.setFocusable(false);
-        fb3.setBounds(950,430,100,100);
+        fb3.setBounds(1100,430,100,100);
         fb3.setFont(new Font("Comic Sans", Font.BOLD,35));
         fightPane.add(fb3);
         fb3.setVisible(true);
@@ -7182,8 +7530,8 @@ JButton p2b3 = new JButton();
                                
                                 if (p2.alive == 0){
                                     winPanelLabel.setText("Player 1 won!");
-                                    winPanel.setEnabled(true);
-                                    winPanel.setVisible(true);
+                                    winPane.setEnabled(true);
+                                    winPane.setVisible(true);
                                 }
                                 else if((limited&& r <rounds)|| !limited){
                                     defendPanelLabel.setText("Player 2 select defending hero");
@@ -7260,8 +7608,8 @@ JButton p2b3 = new JButton();
                                 sortButtons();
                                 if (computer.alive == 0){
                                     winPanelLabel.setText("Player 1 won!");
-                                    winPanel.setEnabled(true);
-                                    winPanel.setVisible(true);
+                                    winPane.setEnabled(true);
+                                    winPane.setVisible(true);
                                     fightPane.setVisible(false);
                                     fightPane.setEnabled(false);
                                 }
@@ -7469,8 +7817,8 @@ JButton p2b3 = new JButton();
                             
                             if (p1.alive == 0){
                                 winPanelLabel.setText("Player 2 won!");
-                                winPanel.setEnabled(true);
-                                winPanel.setVisible(true);
+                                winPane.setEnabled(true);
+                                winPane.setVisible(true);
                             }
                             else if((limited&& r <rounds)|| !limited){
                                 defendPanelLabel.setText("Player 1 select your defending hero");
@@ -7514,8 +7862,8 @@ JButton p2b3 = new JButton();
                         else{
                             winPanelLabel.setText("Draw !");
                         }
-                        winPanel.setVisible(true);
-                        winPanel.setEnabled(true);
+                        winPane.setVisible(true);
+                        winPane.setEnabled(true);
                         fightPane.setEnabled(false);
                         fightPane.setVisible(false);
                     }
@@ -7698,6 +8046,20 @@ JButton p2b3 = new JButton();
                                         bleed1.setVisible(false);
                                     }
                             }
+                            else if(p1.FindSupport()&&p1.support.up>0){
+                                try{
+                                    buffp1();
+                                }
+                                catch(UnsupportedAudioFileException x){
+                                    x.getStackTrace();
+                                }
+                                catch(IOException f){
+                                    f.getStackTrace();
+                                }
+                                catch(LineUnavailableException g){
+                                    g.getStackTrace();
+                                }
+                            }
                             
                             if (pvp){
                                 System.out.println("Player 2 " + D2 + " had " +m2.get(D2).HP + " HP");
@@ -7771,8 +8133,8 @@ JButton p2b3 = new JButton();
                                     }
                                     if (p2.alive == 0){
                                         winPanelLabel.setText("Player 1 won!");
-                                        winPanel.setEnabled(true);
-                                        winPanel.setVisible(true);
+                                        winPane.setEnabled(true);
+                                        winPane.setVisible(true);
                                     }
                                     else if((limited&& r <rounds)|| !limited){
                                         defendPanelLabel.setText("Player 2 select defending hero");
@@ -7875,8 +8237,8 @@ JButton p2b3 = new JButton();
                                     sortButtons();
                                     if (computer.alive == 0){
                                         winPanelLabel.setText("Player 1 won!");
-                                        winPanel.setEnabled(true);
-                                        winPanel.setVisible(true);
+                                        winPane.setEnabled(true);
+                                        winPane.setVisible(true);
                                         fightPane.setVisible(false);
                                         fightPane.setEnabled(false);
                                     }
@@ -7949,8 +8311,8 @@ JButton p2b3 = new JButton();
                                         else{
                                             winPanelLabel.setText("Draw !");
                                         }
-                                        winPanel.setVisible(true);
-                                        winPanel.setEnabled(true);
+                                        winPane.setVisible(true);
+                                        winPane.setEnabled(true);
                                         fightPane.setEnabled(false);
                                         fightPane.setVisible(false);
                                     }
@@ -8044,9 +8406,7 @@ JButton p2b3 = new JButton();
                             m2.get(A2).Attack += p2.support.Buff();
                             p2.support.up--;
                             System.out.println("Player 2 " +A2+ " was buffed");
-                            freeze2.setText("buffed*");
-                            freeze2.setForeground(new Color(255,95,31));
-                            freeze2.setVisible(true);
+                            
                         }
                         if(!m2.get(A2).Class.equals("healer")){
                             System.out.println("Player 1 " + D1 + " had " +m1.get(D1).HP + " HP");
@@ -8153,8 +8513,8 @@ JButton p2b3 = new JButton();
                                 }
                                 if (p1.alive == 0){
                                     winPanelLabel.setText("Player 2 won!");
-                                    winPanel.setEnabled(true);
-                                    winPanel.setVisible(true);
+                                    winPane.setEnabled(true);
+                                    winPane.setVisible(true);
                                 }
                                 else if((limited&& r <rounds)|| !limited){
                                     defendPanelLabel.setText("Player 1 select your defending hero");
@@ -8218,6 +8578,23 @@ JButton p2b3 = new JButton();
                                 else{
                                     bleed2.setVisible(false);
                                 }
+                            }
+                            else if(p1.FindSupport()&&p1.support.up>0){
+                                try{
+                                    buffp2();
+                                }
+                                catch(IOException ex){
+                                    ex.getStackTrace();
+                                }
+                                catch(UnsupportedAudioFileException g){
+                                    g.getStackTrace();
+                                }
+                                catch(LineUnavailableException f){
+                                    f.getStackTrace();
+                                }
+                                freeze2.setText("buffed*");
+                                freeze2.setForeground(new Color(255,95,31));
+                                freeze2.setVisible(true);
                             }
                             else{
                                 fb1.setEnabled(false);
@@ -8337,8 +8714,8 @@ JButton p2b3 = new JButton();
                         else{
                             winPanelLabel.setText("Draw !");
                         }
-                        winPanel.setVisible(true);
-                        winPanel.setEnabled(true);
+                        winPane.setVisible(true);
+                        winPane.setEnabled(true);
                         fightPane.setEnabled(false);
                         fightPane.setVisible(false);
                     }
@@ -8528,8 +8905,8 @@ JButton p2b3 = new JButton();
                                     
                                     if (p2.alive == 0){
                                         winPanelLabel.setText("Player 1 won!");
-                                        winPanel.setEnabled(true);
-                                        winPanel.setVisible(true);
+                                        winPane.setEnabled(true);
+                                        winPane.setVisible(true);
                                     }
                                     else if((limited&& r <rounds)|| !limited){
                                         defendPanelLabel.setText("Player 2 select defending hero");
@@ -8597,6 +8974,23 @@ JButton p2b3 = new JButton();
                                     else{
                                         bleed1.setVisible(false);
                                     }
+                                }
+                                else if(p1.FindSupport()&&p1.support.up>0){
+                                    try{
+                                        buffp1();
+                                    }
+                                    catch(UnsupportedAudioFileException x){
+                                        x.getStackTrace();
+                                    }
+                                    catch(IOException f){
+                                        f.getStackTrace();
+                                    }
+                                    catch(LineUnavailableException g){
+                                        g.getStackTrace();
+                                    }
+                                    freeze1.setText("buffed*");
+                                    freeze1.setForeground(new Color(255,95,31));
+                                    freeze1.setVisible(true);
                                 }
                                 else{
                                     if (m2.get(fb1.getText()).HP>0){
@@ -8671,8 +9065,8 @@ JButton p2b3 = new JButton();
                                     sortButtons();
                                     if (computer.alive == 0){
                                         winPanelLabel.setText("Player 1 won!");
-                                        winPanel.setEnabled(true);
-                                        winPanel.setVisible(true);
+                                        winPane.setEnabled(true);
+                                        winPane.setVisible(true);
                                         fightPane.setVisible(false);
                                         fightPane.setEnabled(false);
                                     }
@@ -8745,8 +9139,8 @@ JButton p2b3 = new JButton();
                                         else{
                                             winPanelLabel.setText("Draw !");
                                         }
-                                        winPanel.setVisible(true);
-                                        winPanel.setEnabled(true);
+                                        winPane.setVisible(true);
+                                        winPane.setEnabled(true);
                                         fightPane.setEnabled(false);
                                         fightPane.setVisible(false);
                                     }
@@ -8989,8 +9383,8 @@ JButton p2b3 = new JButton();
                                 }
                                 if (p1.alive == 0){
                                     winPanelLabel.setText("Player 2 won!");
-                                    winPanel.setEnabled(true);
-                                    winPanel.setVisible(true);
+                                    winPane.setEnabled(true);
+                                    winPane.setVisible(true);
                                 }
                                 else if((limited&& r <rounds)|| !limited){
                                     defendPanelLabel.setText("Player 1 select your defending hero");
@@ -9055,6 +9449,23 @@ JButton p2b3 = new JButton();
                                 else{
                                     bleed2.setVisible(false);
                                 }
+                            }
+                            else if(p2.FindSupport()&&p2.support.up>0){
+                                freeze2.setText("buffed*");
+                                freeze2.setForeground(new Color(255,95,31));
+                                freeze2.setVisible(true);
+                                try{
+                                    buffp2();
+                                }
+                                catch(IOException ex){
+                                    ex.getStackTrace();
+                                }
+                                catch(UnsupportedAudioFileException g){
+                                    g.getStackTrace();
+                                }
+                                catch(LineUnavailableException f){
+                                    f.getStackTrace();
+                                }  
                             }
                             else{
                                 fb1.setEnabled(false);
@@ -9171,8 +9582,8 @@ JButton p2b3 = new JButton();
                         else{
                             winPanelLabel.setText("Draw !");
                         }
-                        winPanel.setVisible(true);
-                        winPanel.setEnabled(true);
+                        winPane.setVisible(true);
+                        winPane.setEnabled(true);
                         fightPane.setEnabled(false);
                         fightPane.setVisible(false);
                     }
@@ -9313,7 +9724,7 @@ JButton p2b3 = new JButton();
         p23h.setVisible(true);      
 
         HA1.setFocusable(false);
-        HA1.setBounds(260,270,100,100);
+        HA1.setBounds(410,270,100,100);
         HA1.setFont(new Font("Comic Sans", Font.BOLD,35));
         healPane.add(HA1,JLayeredPane.DEFAULT_LAYER);
         HA1.setVisible(true);
@@ -9401,7 +9812,7 @@ JButton p2b3 = new JButton();
         });
 
         HA2.setFocusable(false);
-        HA2.setBounds(410,350,100,100);
+        HA2.setBounds(560,350,100,100);
         HA2.setFont(new Font("Comic Sans", Font.BOLD,35));
         healPane.add(HA2,JLayeredPane.DEFAULT_LAYER);
         HA2.setVisible(true);
@@ -9489,7 +9900,7 @@ JButton p2b3 = new JButton();
 
 
         HA3.setFocusable(false);
-        HA3.setBounds(260,430,100,100);
+        HA3.setBounds(410,430,100,100);
         HA3.setFont(new Font("Comic Sans", Font.BOLD,35));
         healPane.add(HA3,JLayeredPane.DEFAULT_LAYER);
         HA3.setVisible(true);
@@ -9575,7 +9986,7 @@ JButton p2b3 = new JButton();
 
 
         HB1.setFocusable(false);
-        HB1.setBounds(950,270,100,100);
+        HB1.setBounds(1100,270,100,100);
         HB1.setFont(new Font("Comic Sans", Font.BOLD,35));
         healPane.add(HB1,JLayeredPane.DEFAULT_LAYER);
         HB1.setVisible(true);
@@ -9655,7 +10066,7 @@ JButton p2b3 = new JButton();
 
 
         HB2.setFocusable(false);
-        HB2.setBounds(800,350,100,100);
+        HB2.setBounds(950,350,100,100);
         HB2.setFont(new Font("Comic Sans", Font.BOLD,35));
         healPane.add(HB2,JLayeredPane.DEFAULT_LAYER);
         HB2.setVisible(true);
@@ -9735,7 +10146,7 @@ JButton p2b3 = new JButton();
 
 
         HB3.setFocusable(false);
-        HB3.setBounds(950,430,100,100);
+        HB3.setBounds(1100,430,100,100);
         HB3.setFont(new Font("Comic Sans", Font.BOLD,35));
         healPane.add(HB3,JLayeredPane.DEFAULT_LAYER);
         HB3.setVisible(true);
@@ -9813,17 +10224,19 @@ JButton p2b3 = new JButton();
                 }
             }
         });
+        winPane = new JLayeredPane();
 
-        this.add(winPanel);
-        winPanel.setVisible(false);
-        winPanel.setEnabled(false);
-        winPanel = new JPanel();
-        winPanel.setLayout(null);
-        winPanel.setBackground(new Color(100, 60, 140));
-        winPanel.setSize(1600, 800);
-        this.add(winPanel);
-        winPanel.setVisible(false);
-        winPanel.setEnabled(false);
+        this.add(winPane);
+        winPane.setVisible(false);
+        winPane.setEnabled(false);
+        winPane = new JLayeredPane();
+        winPane.setLayout(null);
+        winPane.setBackground(new Color(100, 60, 140));
+        winPane.setSize(1600, 800);
+        this.add(winPane);
+        winPane.setVisible(false);
+        winPane.setEnabled(false);
+        winPane.add(bgw,JLayeredPane.DEFAULT_LAYER);
 
         winPanelLabel = new JLabel();
         winPanelLabel.setVisible(true);
@@ -9831,10 +10244,10 @@ JButton p2b3 = new JButton();
         winPanelLabel.setFont(new Font("Press Start 2P",Font.BOLD,120));
         winPanelLabel.setForeground(new Color(255,30,0));
         winPanelLabel.setVisible(true);
-        winPanel.add(winPanelLabel);
+        winPane.add(winPanelLabel,JLayeredPane.DRAG_LAYER);
 
         Home.setBounds(1000, 200, 120, 90);
-        winPanel.add(Home);
+        winPane.add(Home,JLayeredPane.DRAG_LAYER);
         Home.addActionListener(this);
         Home.setText("Home");
         Home.setFocusable(false);
@@ -9908,33 +10321,33 @@ JButton p2b3 = new JButton();
                     fa2.setEnabled(true);
                     fa3.setEnabled(true);
 
-                    p1d1.setBounds(260,270,100,100);
-                    p1d2.setBounds(410,350,100,100);
-                    p1d3.setBounds(260,430,100,100);
+                    p1d1.setBounds(410,270,100,100);
+                    p1d2.setBounds(560,350,100,100);
+                    p1d3.setBounds(410,430,100,100);
 
-                    p11d.setBounds(260, 270,100,100);
-                    p12d.setBounds(410, 350,100,100);
-                    p13d.setBounds(260, 430,100,100);
+                    p11d.setBounds(410, 270,100,100);
+                    p12d.setBounds(560, 350,100,100);
+                    p13d.setBounds(410, 430,100,100);
 
                     charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
                     charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
                     charda3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
 
-                    p2d1.setBounds(950,270,100,100);
-                    p2d2.setBounds(800,350,100,100);
-                    p2d3.setBounds(950,430,100,100);
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(950,350,100,100);
+                    p2d3.setBounds(1100,430,100,100);
 
-                    p21d.setBounds(950, 270,100,100);
-                    p22d.setBounds(800, 350,100,100);
-                    p23d.setBounds(950, 430,100,100);
+                    p21d.setBounds(1100, 270,100,100);
+                    p22d.setBounds(950, 350,100,100);
+                    p23d.setBounds(1100, 430,100,100);
 
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
                     chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
                     chardb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-                    winPanel.setEnabled(false);
-                    winPanel.setVisible(false);
+                    winPane.setEnabled(false);
+                    winPane.setVisible(false);
                     startPane.setEnabled(true);
                     startPane.setVisible(true);
                     NextB2.setEnabled(false);
@@ -9943,7 +10356,7 @@ JButton p2b3 = new JButton();
         });
 
         playAgain.setBounds(600, 500, 400, 90);
-        winPanel.add(playAgain);
+        winPane.add(playAgain,JLayeredPane.DRAG_LAYER);
         playAgain.addActionListener(this);
         playAgain.setText("Play Again");
         playAgain.setFocusable(false);
@@ -10029,13 +10442,13 @@ JButton p2b3 = new JButton();
                     fa3.setEnabled(true);
                     
 
-                    p1d1.setBounds(260,270,100,100);
-                    p1d2.setBounds(410,350,100,100);
-                    p1d3.setBounds(260,430,100,100);
+                    p1d1.setBounds(410,270,100,100);
+                    p1d2.setBounds(560,350,100,100);
+                    p1d3.setBounds(410,430,100,100);
 
-                    p11d.setBounds(260, 270,100,100);
-                    p12d.setBounds(410, 350,100,100);
-                    p13d.setBounds(260, 430,100,100);
+                    p11d.setBounds(410, 270,100,100);
+                    p12d.setBounds(560, 350,100,100);
+                    p13d.setBounds(410, 430,100,100);
 
                     charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
                     charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
@@ -10043,21 +10456,21 @@ JButton p2b3 = new JButton();
 
 
 
-                    p2d1.setBounds(950,270,100,100);
-                    p2d2.setBounds(800,350,100,100);
-                    p2d3.setBounds(950,430,100,100);
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(950,350,100,100);
+                    p2d3.setBounds(1100,430,100,100);
 
-                    p21d.setBounds(950, 270,100,100);
-                    p22d.setBounds(800, 350,100,100);
-                    p23d.setBounds(950, 430,100,100);
+                    p21d.setBounds(1100, 270,100,100);
+                    p22d.setBounds(950, 350,100,100);
+                    p23d.setBounds(1100, 430,100,100);
 
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
                     chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
                     chardb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
 
-                    winPanel.setEnabled(false);
-                    winPanel.setVisible(false);
+                    winPane.setEnabled(false);
+                    winPane.setVisible(false);
                     pane2.setEnabled(true);
                     pane2.setVisible(true);
                     NextB2.setEnabled(false);
@@ -11018,7 +11431,7 @@ JButton p2b3 = new JButton();
 
 	    supportb.setVisible(true);
         supportb.setEnabled(true);
-        supportb.setBounds(400, 460, 700, 100);
+        supportb.setBounds(400, 410, 700, 100);
         supportb.addActionListener(this);
         supportb.setText("support");
         supportb.setFocusable(false);
@@ -11554,7 +11967,7 @@ JButton p2b3 = new JButton();
 
 	    supportb1.setVisible(true);
         supportb1.setEnabled(true);
-        supportb1.setBounds(400, 460, 700, 100);
+        supportb1.setBounds(400, 410, 700, 100);
         supportb1.addActionListener(this);
         supportb1.setText("support");
         supportb1.setFocusable(false);
@@ -11732,7 +12145,7 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
         Home1.setEnabled(true);
         Home1.setVisible(true);
         pausePanel.add(Home1);
-        Home1.setBounds(800,400,400,100);
+        Home1.setBounds(950,400,400,100);
         Home1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -11799,13 +12212,13 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     fa2.setEnabled(true);
                     fa3.setEnabled(true);
 
-                    p1d1.setBounds(260,270,100,100);
-                    p1d2.setBounds(410,350,100,100);
-                    p1d3.setBounds(260,430,100,100);
+                    p1d1.setBounds(410,270,100,100);
+                    p1d2.setBounds(560,350,100,100);
+                    p1d3.setBounds(410,430,100,100);
 
-                    p11d.setBounds(260, 270,100,100);
-                    p12d.setBounds(410, 350,100,100);
-                    p13d.setBounds(260, 430,100,100);
+                    p11d.setBounds(410, 270,100,100);
+                    p12d.setBounds(560, 350,100,100);
+                    p13d.setBounds(410, 430,100,100);
 
                     charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
                     charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
@@ -11813,13 +12226,13 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
 
 
 
-                    p2d1.setBounds(950,270,100,100);
-                    p2d2.setBounds(800,350,100,100);
-                    p2d3.setBounds(950,430,100,100);
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(950,350,100,100);
+                    p2d3.setBounds(1100,430,100,100);
 
-                    p21d.setBounds(950, 270,100,100);
-                    p22d.setBounds(800, 350,100,100);
-                    p23d.setBounds(950, 430,100,100);
+                    p21d.setBounds(1100, 270,100,100);
+                    p22d.setBounds(950, 350,100,100);
+                    p23d.setBounds(1100, 430,100,100);
 
 
                     chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
@@ -11998,6 +12411,125 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     p21d.setBackground(null);
                     p22d.setBackground(null);
                     p23d.setBackground(null);
+                    p21d.setOpaque(false);
+                    p22d.setOpaque(false);
+                    p23d.setOpaque(false);
+                    p1d1.setBounds(410,270,100,100);
+                    p1d2.setBounds(560,350,100,100);
+                    p1d3.setBounds(410,430,100,100);       
+
+                    p11d.setBounds(410, 270,100,100);
+                    p11f.setBounds(410, 270,100,100);
+                    p11h.setBounds(410, 270,100,100);
+
+                    p12d.setBounds(560, 350,100,100);
+                    p12f.setBounds(560, 350,100,100);
+                    p12h.setBounds(560, 350,100,100);
+
+                    p13d.setBounds(410, 430,100,100);
+                    p13f.setBounds(410, 430,100,100);
+                    p13h.setBounds(410, 430,100,100);
+
+                    charda1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
+                    charda2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
+                    charda3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
+                    charha1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
+                    charha2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
+                    charha3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
+                    charfa1.setBounds(p11d.getX()+20, p11d.getY()+100, 100, 40);
+                    charfa2.setBounds(p12d.getX()+20, p12d.getY()+100, 100, 40);
+                    charfa3.setBounds(p13d.getX()+20, p13d.getY()+100, 100, 40);
+
+
+                    fa1.setBounds(410,270,100,100);
+                    fa2.setBounds(560,350,100,100);
+                    fa3.setBounds(410,430,100,100);
+
+                    HA1.setBounds(410,270,100,100);
+                    HA2.setBounds(560,350,100,100);
+                    HA3.setBounds(410,430,100,100);
+
+                    p1d1l.setBounds(420, 295,300,50);
+                    p1d2l.setBounds(420, 295,300,50);
+                    p1d3l.setBounds(420, 295,300,50);
+
+                    p1a1l.setBounds(270,400,300,50);
+                    p1a2l.setBounds(420,480,300,50);
+                    p1a3l.setBounds(270,550,300,50);
+
+                    p1life1l.setBounds(270,400,300,50);
+                    p1life2l.setBounds(420,480,300,50);
+                    p1life3l.setBounds(270,550,300,50);
+
+                    p1health1l.setBounds(270,400,300,50);
+                    p1health2l.setBounds(420,480,300,50);
+                    p1health3l.setBounds(270,550,300,50);
+
+                    p1d1.setEnabled(false);
+                    p1d2.setEnabled(false);
+                    p1d3.setEnabled(false);
+                    p11d.setBackground(null);
+                    p12d.setBackground(null);
+                    p13d.setBackground(null);
+
+                    p2d1.setBounds(1100,270,100,100);
+                    p2d2.setBounds(950,350,100,100);
+                    p2d3.setBounds(1100,430,100,100);
+
+                    p21d.setBounds(1100, 270,100,100);
+                    p21f.setBounds(1100, 270,100,100);
+                    p21h.setBounds(1100, 270,100,100);
+
+                    p22d.setBounds(950, 350,100,100);
+                    p22f.setBounds(950, 350,100,100);
+                    p22h.setBounds(950, 350,100,100);
+
+                    p23d.setBounds(1100, 430,100,100);
+                    p23f.setBounds(1100, 430,100,100);
+                    p23h.setBounds(1100, 430,100,100);
+
+                    chardb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
+                    chardb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
+                    chardb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
+                    charfb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
+                    charfb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
+                    charfb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
+                    charhb1.setBounds(p21d.getX(), p21d.getY()+100, 100, 40);
+                    charhb2.setBounds(p22d.getX(), p22d.getY()+100, 100, 40);
+                    charhb3.setBounds(p23d.getX(), p23d.getY()+100, 100, 40);
+
+                    fb1.setBounds(1100,270,100,100);
+                    fb2.setBounds(950,350,100,100);
+                    fb3.setBounds(1100,430,100,100);
+
+                    HB1.setBounds(1100,270,100,100);
+                    HB2.setBounds(950,350,100,100);
+                    HB3.setBounds(1100,430,100,100);
+
+                    p2d1l.setBounds(820,295,300,50);
+                    p2d2l.setBounds(820,295,300,50);
+                    p2d3l.setBounds(820,295,300,50);
+
+                    p2a1l.setBounds(1100,400,300,50);
+                    p2a2l.setBounds(950,480,300,50);
+                    p2a3l.setBounds(1100,550,300,50);
+
+                    p2life1l.setBounds(1100,400,300,50);
+                    p2life2l.setBounds(950,480,300,50);
+                    p2life3l.setBounds(1100,550,300,50);
+
+                    p2health1l.setBounds(1100,400,300,50);
+                    p2health2l.setBounds(950,480,300,50);
+                    p2health3l.setBounds(1100,550,300,50);
+
+                    p11d.setOpaque(true);
+                    p12d.setOpaque(true);
+                    p13d.setOpaque(true);
+
+p11d.setBackground(Color.WHITE);
+                    p12d.setBackground(Color.WHITE);
+                    p13d.setBackground(Color.WHITE);
+
                 }
             }
         });
