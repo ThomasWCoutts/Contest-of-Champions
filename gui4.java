@@ -46,7 +46,7 @@ public class gui4 extends JFrame implements ActionListener {
         Clip clip1 = AudioSystem.getClip();
         clip1.open(a1);
         FloatControl fc = (FloatControl)clip1.getControl(FloatControl.Type.MASTER_GAIN);
-        fc.setValue(-10.0f);
+        fc.setValue(-7.0f);
         clip1.loop(Clip.LOOP_CONTINUOUSLY);
         clip1.start();
     }
@@ -108,7 +108,7 @@ public class gui4 extends JFrame implements ActionListener {
         AudioInputStream a1 = AudioSystem.getAudioInputStream(f1);
         Clip clip1 = AudioSystem.getClip();
         clip1.open(a1);
-        clip1.setMicrosecondPosition(1000);
+        clip1.setMicrosecondPosition(3000);
         clip1.start();
     }
 
@@ -272,9 +272,9 @@ public class gui4 extends JFrame implements ActionListener {
             HB2.setBounds(950,350,100,100);
             HB3.setBounds(1100,430,100,100);
 
-            p2d1l.setBounds(820,295,300,50);
-            p2d2l.setBounds(820,295,300,50);
-            p2d3l.setBounds(820,295,300,50);
+            p2d1l.setBounds(920,295,300,50);
+            p2d2l.setBounds(920,295,300,50);
+            p2d3l.setBounds(920,295,300,50);
 
             p2a1l.setBounds(1100,400,300,50);
             p2a2l.setBounds(950,480,300,50);
@@ -324,9 +324,9 @@ public class gui4 extends JFrame implements ActionListener {
                     HB2.setBounds(1100,270,100,100);
                     HB3.setBounds(1100,430,100,100);
 
-                    p2d1l.setBounds(820,295,300,50);
-                    p2d2l.setBounds(820,295,300,50);
-                    p2d3l.setBounds(820,295,300,50);
+                    p2d1l.setBounds(920,295,300,50);
+                    p2d2l.setBounds(920,295,300,50);
+                    p2d3l.setBounds(920,295,300,50);
 
                     p2a1l.setBounds(950,480,300,50);
                     p2a2l.setBounds(1100,400,300,50);
@@ -376,9 +376,9 @@ public class gui4 extends JFrame implements ActionListener {
                     HB2.setBounds(1100,430,100,100);
                     HB3.setBounds(950,350,100,100);
 
-                    p2d1l.setBounds(950,295,300,50);
-                    p2d2l.setBounds(950,295,300,50);
-                    p2d3l.setBounds(950,295,300,50);
+                    p2d1l.setBounds(920,295,300,50);
+                    p2d2l.setBounds(920,295,300,50);
+                    p2d3l.setBounds(920,295,300,50);
 
                     p2a1l.setBounds(1100,400,300,50);
                     p2a2l.setBounds(1100,550,300,50);
@@ -427,7 +427,8 @@ public class gui4 extends JFrame implements ActionListener {
             }
             if (computer.FindSupport() && computer.getSupport().up > 0) {
                 computer.getAt().Attack += computer.getSupport().Buff();
-                computer.getSupport().up--;
+                computer.getSupport().up=0;
+                p2reset();
                 System.out.println("Computer " + computer.getAt().Class + " was buffed");
                 freeze2.setText("buffed*");
                 freeze2.setForeground(new Color(255,95,31));
@@ -600,16 +601,52 @@ public class gui4 extends JFrame implements ActionListener {
                 fa2.setEnabled(false);
                 fa3.setEnabled(false);
                 r++;
-                fightPanelLabel.setText("Round "+ r);
+                fightPanelLabel.setText("       Round "+ r);
                 if (limited && r == rounds+1){
                     if (p1.alive>computer.alive){
                         winPanelLabel.setText("Player 1 won!");
+                        try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                     }
                     else if (p1.alive<computer.alive){
                         winPanelLabel.setText("Computer won!");
+                        try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                     }
                     else{
                         winPanelLabel.setText("Draw !");
+                        try{
+                                playDraw();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                     }
                     winPane.setVisible(true);
                     winPane.setEnabled(true);
@@ -624,7 +661,7 @@ public class gui4 extends JFrame implements ActionListener {
                         bleed2.setText("-"+p1.assassin.Bleed);
                         bleed2.setVisible(true);
                     }
-                    computer.getSupport().Skips--;
+                    computer.getSupport().Skips = 0;
                     timer1.start();;
                 }
                 if(computer.FindSupport()&&computer.support.up>0){
@@ -683,17 +720,53 @@ public class gui4 extends JFrame implements ActionListener {
             
         }
         r++;
-        fightPanelLabel.setText("Round "+ r);
+        fightPanelLabel.setText("       Round "+ r);
         turn = 1;
         if (limited && r == rounds+1){
             if (p1.alive>computer.alive){
                 winPanelLabel.setText("Player 1 won!");
+                try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
             }
             else if (p1.alive<computer.alive){
                 winPanelLabel.setText("Computer won!");
+                try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
             }
             else{
-                winPanelLabel.setText("Draw !");
+                winPanelLabel.setText("Draw !");try{
+                                playDraw();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
+
             }
             winPane.setVisible(true);
             winPane.setEnabled(true);
@@ -829,9 +902,9 @@ public class gui4 extends JFrame implements ActionListener {
                 break;
                 default:
             }
-        }
+            }
         
-        if(m2.get(p2.chosen[1].Class).HP>0){
+            if(m2.get(p2.chosen[1].Class).HP>0){
             switch(p2.chosen[1].Class){
                 case "assault":
                     p22f.setIcon(p2an);
@@ -859,9 +932,9 @@ public class gui4 extends JFrame implements ActionListener {
                 break;
                 default:
             }
-        }
+            }
         
-        if(m2.get(p2.chosen[2].Class).HP>0){
+            if(m2.get(p2.chosen[2].Class).HP>0){
             switch(p2.chosen[2].Class){
                 case "assault":
                     p23f.setIcon(p2an);
@@ -891,9 +964,105 @@ public class gui4 extends JFrame implements ActionListener {
                 default:
             }
         }
+    }
+        else{
+            if(m2.get(computer.chosen[0].Class).HP>0){
+                switch(computer.chosen[0].Class){
+                    case "assault":
+                        p21f.setIcon(p2an);
+                        p21d.setIcon(p2an);
+                    break;
+                    case "assassin":
+                        p21f.setIcon(p2asn);
+                        p21d.setIcon(p2asn);
+    
+                    break;
+    
+                    case "healer":
+                        p21f.setIcon(p2hn);
+                        p21d.setIcon(p2hn);
+    
+                    break;
+                    case "support":
+                        p21f.setIcon(p2sn);
+                        p21d.setIcon(p2sn);
+    
+                    break;
+                    case "tank":
+                        p21f.setIcon(p2tn);
+                        p21d.setIcon(p2tn);
+    
+                    break;
+                    default:
+                }
+            
+            }
+                if(m2.get(computer.chosen[1].Class).HP>0){
+                switch(computer.chosen[1].Class){
+                    case "assault":
+                        p22f.setIcon(p2an);
+                        p22d.setIcon(p2an);
+                    break;
+                    case "assassin":
+                        p22f.setIcon(p2asn);
+                        p22d.setIcon(p2asn);
+    
+                    break;
+    
+                    case "healer":
+                        p22f.setIcon(p2hn);
+                        p22d.setIcon(p2hn);
+    
+                    break;
+                    case "support":
+                        p22f.setIcon(p2sn);
+                        p22d.setIcon(p2sn);
+                    break;
+                    case "tank":
+                        p22f.setIcon(p2tn);
+                        p22d.setIcon(p2tn);
+    
+                    break;
+                    default:
+                }
+                }
+            
+                if(m2.get(computer.chosen[2].Class).HP>0){
+                switch(computer.chosen[2].Class){
+                    case "assault":
+                        p23f.setIcon(p2an);
+                        p23d.setIcon(p2an);
+                    break;
+                    case "assassin":
+                        p23f.setIcon(p2asn);
+                        p23d.setIcon(p2asn);
+    
+                    break;
+    
+                    case "healer":
+                        p23f.setIcon(p2hn);
+                        p23d.setIcon(p2hn);
+    
+                    break;
+                    case "support":
+                        p23f.setIcon(p2sn);
+                        p23d.setIcon(p2sn);
+    
+                    break;
+                    case "tank":
+                        p23f.setIcon(p2tn);
+                        p23d.setIcon(p2tn);
+    
+                    break;
+                    default:
+                }
+            }
+            
         }
         
     }
+
+
     public void buffp1()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
         playBuff();
         if(m1.get(p1.chosen[0].Class).HP>0){
@@ -1727,7 +1896,7 @@ public class gui4 extends JFrame implements ActionListener {
         playDie();
         if(pvp){
             if(A2.equals(p2.chosen[0].Class)){
-                p21d.setBounds(510,350,100,100);
+                p21d.setBounds(660,350,100,100);
                 switch(p2.chosen[0].Class){
                     case "assault":
                         p21d.setIcon(p2aa);
@@ -1753,7 +1922,7 @@ public class gui4 extends JFrame implements ActionListener {
                 }
             }
             else if(A2.equals(p2.chosen[1].Class)){
-                p22d.setBounds(510,350,100,100);
+                p22d.setBounds(660,350,100,100);
                 switch(p2.chosen[1].Class){
                     case "assault":
                         p22d.setIcon(p2aa);
@@ -1780,7 +1949,7 @@ public class gui4 extends JFrame implements ActionListener {
                 
             }
             else{
-                p23d.setBounds(510,350,100,100);
+                p23d.setBounds(660,350,100,100);
                 switch(p2.chosen[2].Class){
                     case "assault":
                         p23d.setIcon(p2aa);
@@ -1809,7 +1978,7 @@ public class gui4 extends JFrame implements ActionListener {
         }
         else{
             if(A2.equals(computer.chosen[0].Class)){
-                p21d.setBounds(510,350,100,100);
+                p21d.setBounds(660,350,100,100);
                 switch(computer.chosen[0].Class){
                     case "assault":
                         p21d.setIcon(p2aa);
@@ -1837,7 +2006,7 @@ public class gui4 extends JFrame implements ActionListener {
             }
             
             else if(A2.equals(computer.chosen[1].Class)){
-                p22d.setBounds(510,350,100,100);
+                p22d.setBounds(660,350,100,100);
                 switch(computer.chosen[1].Class){
                     case "assault":
                         p22d.setIcon(p2aa);
@@ -1864,7 +2033,7 @@ public class gui4 extends JFrame implements ActionListener {
                 
             }
             else{
-                p23d.setBounds(510,350,100,100);
+                p23d.setBounds(660,350,100,100);
                 switch(computer.chosen[2].Class){
                     case "assault":
                         p23d.setIcon(p2aa);
@@ -1892,6 +2061,7 @@ public class gui4 extends JFrame implements ActionListener {
             }
         }        
         if (p1.chosen[0].Class.equals(D1)){
+            p11d.setOpaque(false);
             switch(p1.chosen[0].Class){
                 case "assault":
                     p11d.setIcon(p1ad);
@@ -1927,6 +2097,7 @@ public class gui4 extends JFrame implements ActionListener {
             }
         }
         else if(p1.chosen[1].Class.equals(D1)){
+            p12d.setOpaque(false);
             switch(p1.chosen[1].Class){
                 case "assault":
                     p12d.setIcon(p1ad);
@@ -1962,6 +2133,7 @@ public class gui4 extends JFrame implements ActionListener {
             }
         }
         else{
+            p13d.setOpaque(false);
             switch(p1.chosen[2].Class){
                 case "assault":
                     p13d.setIcon(p1ad);
@@ -2000,7 +2172,7 @@ public class gui4 extends JFrame implements ActionListener {
     public void killp2(String A1, String D2)throws UnsupportedAudioFileException,IOException,LineUnavailableException{
         playDie();
         if(A1.equals(p1.chosen[0].Class)){
-            p11d.setBounds(700,350,100,100);
+            p11d.setBounds(850,350,100,100);
             switch(p1.chosen[0].Class){
                 case "assault":
                     p11d.setIcon(p1aa);
@@ -2028,7 +2200,7 @@ public class gui4 extends JFrame implements ActionListener {
         }
         
         else if(A1.equals(p1.chosen[1].Class)){
-            p12d.setBounds(700,350,100,100);
+            p12d.setBounds(850,350,100,100);
             switch(p1.chosen[1].Class){
                 case "assault":
                     p12d.setIcon(p1aa);
@@ -2055,7 +2227,7 @@ public class gui4 extends JFrame implements ActionListener {
             
         }
         else{
-            p13d.setBounds(700,350,100,100);
+            p13d.setBounds(850,350,100,100);
             switch(p1.chosen[2].Class){
                 case "assault":
                     p13d.setIcon(p1aa);
@@ -2083,8 +2255,10 @@ public class gui4 extends JFrame implements ActionListener {
         }
         if (pvp){
             if (p2.chosen[0].Class.equals(D2)){
+                p21d.setOpaque(false);
                 switch(p2.chosen[0].Class){
                     case "assault":
+                    
                         p21d.setIcon(p2ad);
                         p21f.setIcon(p2ad);
                         p21h.setIcon(p2ad);
@@ -2118,6 +2292,7 @@ public class gui4 extends JFrame implements ActionListener {
                 }
             }
             else if(p2.chosen[1].Class.equals(D2)){
+                p22d.setOpaque(false);
                 switch(p2.chosen[1].Class){
                     case "assault":
                         p22d.setIcon(p2ad);
@@ -2153,6 +2328,7 @@ public class gui4 extends JFrame implements ActionListener {
                 }
             }
             else{
+                p23d.setOpaque(false);
                 switch(p2.chosen[2].Class){
                     case "assault":
                         p23d.setIcon(p2ad);
@@ -2188,6 +2364,7 @@ public class gui4 extends JFrame implements ActionListener {
         }
         else{
             if (computer.chosen[0].Class.equals(D2)){
+                p21d.setOpaque(false);
                 switch(computer.chosen[0].Class){
                     case "assault":
                         p21d.setIcon(p2ad);
@@ -2223,6 +2400,7 @@ public class gui4 extends JFrame implements ActionListener {
                 }
             }
             else if(computer.chosen[1].Class.equals(D2)){
+                p22d.setOpaque(false);
                 switch(computer.chosen[1].Class){
                     case "assault":
                         p22d.setIcon(p2ad);
@@ -2258,6 +2436,7 @@ public class gui4 extends JFrame implements ActionListener {
                 }
             }
             else{
+                p23d.setOpaque(false);
                 switch(computer.chosen[2].Class){
                     case "assault":
                         p23d.setIcon(p2ad);
@@ -2385,7 +2564,7 @@ public class gui4 extends JFrame implements ActionListener {
         playHit();
         if(pvp){
             if(A2.equals(p2.chosen[0].Class)){
-            p21f.setBounds(610,350,100,100);
+            p21f.setBounds(660,350,100,100);
             switch(p2.chosen[0].Class){
                 case "assault":
                     p21f.setIcon(p2aa);
@@ -2413,7 +2592,7 @@ public class gui4 extends JFrame implements ActionListener {
         }
         
         else if(A2.equals(p2.chosen[1].Class)){
-            p22f.setBounds(610,350,100,100);
+            p22f.setBounds(660,350,100,100);
             switch(p2.chosen[1].Class){
                 case "assault":
                     p22f.setIcon(p2aa);
@@ -2440,7 +2619,7 @@ public class gui4 extends JFrame implements ActionListener {
             
         }
         else{
-            p23f.setBounds(610,350,100,100);
+            p23f.setBounds(660,350,100,100);
             switch(p2.chosen[2].Class){
                 case "assault":
                     p23f.setIcon(p2aa);
@@ -2469,7 +2648,7 @@ public class gui4 extends JFrame implements ActionListener {
         }
         else{
             if(A2.equals(computer.chosen[0].Class)){
-                p21f.setBounds(510,350,100,100);
+                p21f.setBounds(660,350,100,100);
                 switch(computer.chosen[0].Class){
                     case "assault":
                         p21f.setIcon(p2aa);
@@ -2497,7 +2676,7 @@ public class gui4 extends JFrame implements ActionListener {
             }
             
             else if(A2.equals(computer.chosen[1].Class)){
-                p22f.setBounds(510,350,100,100);
+                p22f.setBounds(660,350,100,100);
                 switch(computer.chosen[1].Class){
                     case "assault":
                         p22f.setIcon(p2aa);
@@ -2524,7 +2703,7 @@ public class gui4 extends JFrame implements ActionListener {
                 
             }
             else{
-                p23f.setBounds(510,350,100,100);
+                p23f.setBounds(660,350,100,100);
                 switch(computer.chosen[2].Class){
                     case "assault":
                         p23f.setIcon(p2aa);
@@ -2564,28 +2743,62 @@ public class gui4 extends JFrame implements ActionListener {
             if(m1.get(p1.chosen[0].Class).HP>0){
                 switch(p1.chosen[0].Class){
                     case "assault":
-                        p11f.setIcon(p1ai);
-                        p11h.setIcon(p1ai);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11f.setIcon(p1ab);
+                            p11h.setIcon(p1ab);
+                        }
+                        else{
+                            p11f.setIcon(p1ai);
+                            p11h.setIcon(p1ai);
+                        }
                     break;
                     case "assassin":
-                        p11f.setIcon(p1asi);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11f.setIcon(p1asb);
+                            p11h.setIcon(p1asb);
+                        }
+                        else{
+                            p11f.setIcon(p1asi);
                         p11h.setIcon(p1asi);
+                        }
 
                     break;
 
                     case "healer":
-                        p11f.setIcon(p1hi);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11f.setIcon(p1hb);
+                            p11h.setIcon(p1hb);
+                        }
+                        else{
+                            p11f.setIcon(p1hi);
                         p11h.setIcon(p1hi);
+                        }
 
                     break;
                     case "support":
-                        p11f.setIcon(p1si);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11f.setIcon(p1sb);
+                            p11h.setIcon(p1sb);
+                        }
+                        else{
+                            p11f.setIcon(p1si);
                         p11h.setIcon(p1si);
+                        }
 
                     break;
                     case "tank":
-                        p11f.setIcon(p1ti);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11f.setIcon(p1tb);
+                            p11h.setIcon(p1tb);
+                        }
+                        else{
+                            p11f.setIcon(p1ti);
                         p11h.setIcon(p1ti);
+                        }
 
                     break;
                     default:
@@ -2594,28 +2807,62 @@ public class gui4 extends JFrame implements ActionListener {
             if(m1.get(p1.chosen[1].Class).HP>0){
                 switch(p1.chosen[1].Class){
                     case "assault":
-                        p12f.setIcon(p1ai);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12f.setIcon(p1ab);
+                            p12h.setIcon(p1ab);
+                        }
+                        else{
+                            p12f.setIcon(p1ai);
                         p12h.setIcon(p1ai);
+                        }
                     break;
                     case "assassin":
-                        p12f.setIcon(p1asi);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12f.setIcon(p1asb);
+                            p12h.setIcon(p1asb);
+                        }
+                        else{
+                            p12f.setIcon(p1asi);
                         p12h.setIcon(p1asi);
+                        }
 
                     break;
 
                     case "healer":
-                        p12f.setIcon(p1hi);
-                        p12h.setIcon(p1hi);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12f.setIcon(p1hb);
+                            p12h.setIcon(p1hb);
+                        }
+                        else{
+                            p12f.setIcon(p1hi);
+                            p12h.setIcon(p1hi);
+                        }
 
                     break;
                     case "support":
-                        p12f.setIcon(p1si);
-                        p12h.setIcon(p1si);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12f.setIcon(p1sb);
+                            p12h.setIcon(p1sb);
+                        }
+                        else{
+                            p12f.setIcon(p1si);
+                            p12h.setIcon(p1si);
+                        }
 
                     break;
                     case "tank":
-                        p12f.setIcon(p1ti);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12f.setIcon(p1tb);
+                            p12h.setIcon(p1tb);
+                        }
+                        else{
+                            p12f.setIcon(p1ti);
                         p12h.setIcon(p1ti);
+                        }
 
                     break;
                     default:
@@ -2624,28 +2871,64 @@ public class gui4 extends JFrame implements ActionListener {
             if(m1.get(p1.chosen[2].Class).HP>0){
                 switch(p1.chosen[2].Class){
                     case "assault":
-                        p13f.setIcon(p1ai);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13f.setIcon(p1ab);
+                            p13h.setIcon(p1ab);
+                        }
+                        else{
+                            p13f.setIcon(p1ai);
                         p13h.setIcon(p1ai);
+                        }
                     break;
                     case "assassin":
-                        p13f.setIcon(p1asi);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13f.setIcon(p1asb);
+                            p13h.setIcon(p1asb);
+                        }
+                        else{
+                            p13f.setIcon(p1asi);
                         p13h.setIcon(p1asi);
+                        }
 
                     break;
 
                     case "healer":
-                        p13f.setIcon(p1hi);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13f.setIcon(p1hb);
+                            p13h.setIcon(p1hb);
+                        }
+                        else{
+                            p13f.setIcon(p1hi);
                         p13h.setIcon(p1hi);
+                        }
+
 
                     break;
                     case "support":
-                        p13f.setIcon(p1si);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13f.setIcon(p1sb);
+                            p13h.setIcon(p1sb);
+                        }
+                        else{
+                            p13f.setIcon(p1si);
                         p13h.setIcon(p1si);
+                        }
 
                     break;
                     case "tank":
-                        p13f.setIcon(p1ti);
+                        
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13f.setIcon(p1tb);
+                            p13h.setIcon(p1tb);
+                        }
+                        else{
+                            p13f.setIcon(p1ti);
                         p13h.setIcon(p1ti);
+                        }
 
                     break;
                     default:
@@ -2664,28 +2947,63 @@ public class gui4 extends JFrame implements ActionListener {
             if(m2.get(p2.chosen[0].Class).HP>0){
                 switch(p2.chosen[0].Class){
                     case "assault":
-                        p21f.setIcon(p2ai);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21f.setIcon(p2ab);
+                            p21h.setIcon(p2ab);
+                        }
+                        else{
+                            p21f.setIcon(p2ai);
                         p21h.setIcon(p2ai);
+                        }
                     break;
                     case "assassin":
-                        p21f.setIcon(p2asi);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21f.setIcon(p2asb);
+                            p21h.setIcon(p2asb);
+                        }
+                        else{
+                            p21f.setIcon(p2asi);
                         p21h.setIcon(p2asi);
+                        }
 
                     break;
 
                     case "healer":
-                        p21f.setIcon(p2hi);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21f.setIcon(p2hb);
+                            p21h.setIcon(p2hb);
+                        }
+                        else{
+                            p21f.setIcon(p2hi);
                         p21h.setIcon(p2hi);
+                        }
 
                     break;
                     case "support":
-                        p21f.setIcon(p2si);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21f.setIcon(p2sb);
+                            p21h.setIcon(p2sb);
+                        }
+                        else{
+                            p21f.setIcon(p2si);
                         p21h.setIcon(p2si);
+                        }
 
                     break;
                     case "tank":
-                        p21f.setIcon(p2ti);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21f.setIcon(p2tb);
+                            p21h.setIcon(p2tb);
+                        }
+                        else{
+                            p21f.setIcon(p2ti);
                         p21h.setIcon(p2ti);
+                        }
 
                     break;
                     default:
@@ -2694,27 +3012,62 @@ public class gui4 extends JFrame implements ActionListener {
             if(m2.get(p2.chosen[1].Class).HP>0){
                 switch(p2.chosen[1].Class){
                     case "assault":
-                        p22f.setIcon(p2ai);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22f.setIcon(p2ab);
+                            p22h.setIcon(p2ab);
+                        }
+                        else{
+                            p22f.setIcon(p2ai);
                         p22h.setIcon(p2ai);
+                        }
                     break;
                     case "assassin":
-                        p22f.setIcon(p2asi);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22f.setIcon(p2asb);
+                            p22h.setIcon(p2asb);
+                        }
+                        else{
+                            p22f.setIcon(p2asi);
                         p22h.setIcon(p2asi);
+                        }
                     break;
 
                     case "healer":
-                        p22f.setIcon(p2hi);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22f.setIcon(p2hb);
+                            p22h.setIcon(p2hb);
+                        }
+                        else{
+                            p22f.setIcon(p2hi);
                         p22h.setIcon(p2hi);
+                        }
 
                     break;
                     case "support":
-                        p22f.setIcon(p2si);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22f.setIcon(p2sb);
+                            p22h.setIcon(p2sb);
+                        }
+                        else{
+                            p22f.setIcon(p2si);
                         p22h.setIcon(p2si);
+                        }
 
                     break;
                     case "tank":
-                        p22f.setIcon(p2ti);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22f.setIcon(p2tb);
+                            p22h.setIcon(p2tb);
+                        }
+                        else{
+                            p22f.setIcon(p2ti);
                         p22h.setIcon(p2ti);
+                        }
 
                     break;
                     default:
@@ -2724,28 +3077,62 @@ public class gui4 extends JFrame implements ActionListener {
             if(m2.get(p2.chosen[2].Class).HP>0){
                 switch(p2.chosen[2].Class){
                     case "assault":
-                        p23f.setIcon(p2ai);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23f.setIcon(p2ab);
+                            p23h.setIcon(p2ab);
+                        }
+                        else{
+                            p23f.setIcon(p2ai);
                         p23h.setIcon(p2ai);
+                        }
                     break;
                     case "assassin":
-                        p23f.setIcon(p2asi);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23f.setIcon(p2asb);
+                            p23h.setIcon(p2asb);
+                        }
+                        else{
+                            p23f.setIcon(p2asi);
                         p23h.setIcon(p2asi);
+                        }
 
                     break;
 
                     case "healer":
-                        p23f.setIcon(p2hi);
+                       
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23f.setIcon(p2hb);
+                            p23h.setIcon(p2hb);
+                        }
+                        else{
+                             p23f.setIcon(p2hi);
                         p23h.setIcon(p2hi);
-
+                        }
                     break;
                     case "support":
-                        p23f.setIcon(p2si);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23f.setIcon(p2sb);
+                            p23h.setIcon(p2sb);
+                        }
+                        else{
+                            p23f.setIcon(p2si);
                         p23h.setIcon(p2si);
+                        }
 
                     break;
                     case "tank":
-                        p23f.setIcon(p2ti);
+                        
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23f.setIcon(p2tb);
+                            p23h.setIcon(p2tb);
+                        }
+                        else{
+                            p23f.setIcon(p2ti);
                         p23h.setIcon(p2ti);
+                        }
 
                     break;
                     default:
@@ -2758,26 +3145,47 @@ public class gui4 extends JFrame implements ActionListener {
                     case "assault":
                         p21f.setIcon(p2ai);
                         p21h.setIcon(p2ai);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21f.setIcon(p2ab);
+                            p21h.setIcon(p2ab);
+                        }
+                        
                     break;
                     case "assassin":
                         p21f.setIcon(p2asi);
                         p21h.setIcon(p2asi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21f.setIcon(p2asb);
+                            p21h.setIcon(p2asb);
+                        }
 
                     break;
 
                     case "healer":
                         p21f.setIcon(p2hi);
                         p21h.setIcon(p2hi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21f.setIcon(p2hb);
+                            p21h.setIcon(p2hb);
+                        }
 
                     break;
                     case "support":
                         p21f.setIcon(p2si);
                         p21h.setIcon(p2si);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21f.setIcon(p2sb);
+                            p21h.setIcon(p2sb);
+                        }
 
                     break;
                     case "tank":
                         p21f.setIcon(p2ti);
                         p21h.setIcon(p2ti);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21f.setIcon(p2tb);
+                            p21h.setIcon(p2tb);
+                        }
 
                     break;
                     default:
@@ -2788,25 +3196,46 @@ public class gui4 extends JFrame implements ActionListener {
                     case "assault":
                         p22f.setIcon(p2ai);
                         p22h.setIcon(p2ai);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22f.setIcon(p2ab);
+                            p22h.setIcon(p2ab);
+                        }
                     break;
                     case "assassin":
                         p22f.setIcon(p2asi);
                         p22h.setIcon(p2asi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22f.setIcon(p2asb);
+                            p22h.setIcon(p2asb);
+                        }
                     break;
 
                     case "healer":
                         p22f.setIcon(p2hi);
                         p22h.setIcon(p2hi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22f.setIcon(p2hb);
+                            p22h.setIcon(p2hb);
+                        }
 
                     break;
                     case "support":
                         p22f.setIcon(p2si);
                         p22h.setIcon(p2si);
+                        if(computer.FindSupport() && computer.support.up>0){
+                            p22f.setIcon(p2sb);
+                            p22h.setIcon(p2sb);
+                        }
 
                     break;
                     case "tank":
                         p22f.setIcon(p2ti);
                         p22h.setIcon(p2ti);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22h.setIcon(p2tb);
+                            p22f.setIcon(p2tb);
+                        }
+
 
                     break;
                     default:
@@ -2818,26 +3247,46 @@ public class gui4 extends JFrame implements ActionListener {
                     case "assault":
                         p23f.setIcon(p2ai);
                         p23h.setIcon(p2ai);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23h.setIcon(p2ab);
+                            p23f.setIcon(p2ab);
+                        }
+
                     break;
                     case "assassin":
                         p23f.setIcon(p2asi);
                         p23h.setIcon(p2asi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23h.setIcon(p2asb);
+                            p23f.setIcon(p2asb);
+                        }
 
                     break;
 
                     case "healer":
                         p23f.setIcon(p2hi);
                         p23h.setIcon(p2hi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23h.setIcon(p2hb);
+                            p23f.setIcon(p2hb);
+                        }
 
                     break;
                     case "support":
                         p23f.setIcon(p2si);
                         p23h.setIcon(p2si);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23h.setIcon(p2sb);
+                            p23f.setIcon(p2sb);
+                        }
                     break;
                     case "tank":
                         p23f.setIcon(p2ti);
                         p23h.setIcon(p2ti);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23h.setIcon(p2tb);
+                            p23f.setIcon(p2tb);
+                        }
 
                     break;
                     default:
@@ -2859,22 +3308,42 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(p1.chosen[0].Class){
                     case "assault":
                         p11d.setIcon(p1ai);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11d.setIcon(p1ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p11d.setIcon(p1asi);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11d.setIcon(p1asb);
+                        
+                        }
 
                     break;
 
                     case "healer":
                         p11d.setIcon(p1hi);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11d.setIcon(p1hb);
+                        
+                        }
 
                     break;
                     case "support":
                         p11d.setIcon(p1si);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11d.setIcon(p1sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p11d.setIcon(p1ti);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p11d.setIcon(p1tb);
+                        
+                        }
 
                     break;
                     default:
@@ -2884,22 +3353,43 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(p1.chosen[1].Class){
                     case "assault":
                         p12d.setIcon(p1ai);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12d.setIcon(p1ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p12d.setIcon(p1asi);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12d.setIcon(p1asb);
+                        
+                        }
 
                     break;
 
                     case "healer":
                         p12d.setIcon(p1hi);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12d.setIcon(p1hb);
+                        
+                        }
+
 
                     break;
                     case "support":
                         p12d.setIcon(p1si);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12d.setIcon(p1sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p12d.setIcon(p1ti);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p12d.setIcon(p1tb);
+                        
+                        }
 
                     break;
                     default:
@@ -2909,22 +3399,42 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(p1.chosen[2].Class){
                     case "assault":
                         p13d.setIcon(p1ai);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13d.setIcon(p1ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p13d.setIcon(p1asi);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13d.setIcon(p1asb);
+                        
+                        }
 
                     break;
 
                     case "healer":
                         p13d.setIcon(p1hi);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13d.setIcon(p1hb);
+                        
+                        }
 
                     break;
                     case "support":
                         p13d.setIcon(p1si);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13d.setIcon(p1sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p13d.setIcon(p1ti);
+                        if(p1.FindSupport()&&p1.support.up>0){
+                            p13d.setIcon(p1tb);
+                        
+                        }
 
                     break;
                     default:
@@ -2944,22 +3454,42 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(p2.chosen[0].Class){
                     case "assault":
                         p21d.setIcon(p2ai);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21d.setIcon(p2ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p21d.setIcon(p2asi);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21d.setIcon(p2asb);
+                        
+                        }
 
                     break;
 
                     case "healer":
                         p21d.setIcon(p2hi);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21d.setIcon(p2hb);
+                        
+                        }
 
                     break;
                     case "support":
                         p21d.setIcon(p2si);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21d.setIcon(p2sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p21d.setIcon(p2ti);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p21d.setIcon(p2tb);
+                        
+                        }
 
                     break;
                     default:
@@ -2969,22 +3499,42 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(p2.chosen[1].Class){
                     case "assault":
                         p22d.setIcon(p2ai);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22d.setIcon(p2ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p22d.setIcon(p2asi);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22d.setIcon(p2asb);
+                        
+                        }
 
                     break;
 
                     case "healer":
                         p22d.setIcon(p2hi);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22d.setIcon(p2hb);
+                        
+                        }
 
                     break;
                     case "support":
                         p22d.setIcon(p2si);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22d.setIcon(p2sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p22d.setIcon(p2ti);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p22d.setIcon(p2tb);
+                        
+                        }
 
                     break;
                     default:
@@ -2995,23 +3545,42 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(p2.chosen[2].Class){
                     case "assault":
                         p23d.setIcon(p2ai);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23d.setIcon(p2ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p23d.setIcon(p2asi);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23d.setIcon(p2asb);
+                        
+                        }
 
                     break;
 
                     case "healer":
                         p23d.setIcon(p2hi);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23d.setIcon(p2hb);
+                        
+                        }
 
                     break;
                     case "support":
                         p23d.setIcon(p2si);
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23d.setIcon(p2sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p23d.setIcon(p2ti);
-
+                        if(p2.FindSupport()&&p2.support.up>0){
+                            p23d.setIcon(p2tb);
+                        
+                        }
                     break;
                     default:
                 }
@@ -3022,23 +3591,40 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(computer.chosen[0].Class){
                     case "assault":
                         p21d.setIcon(p2ai);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21d.setIcon(p2ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p21d.setIcon(p2asi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21d.setIcon(p2asb);
+                        }
 
                     break;
 
                     case "healer":
                         p21d.setIcon(p2hi);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21d.setIcon(p2hb);
+                        
+                        }                        
                     break;
                     case "support":
                         p21d.setIcon(p2si);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21d.setIcon(p2sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p21d.setIcon(p2ti);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p21d.setIcon(p2tb);
+                        
+                        }
                     break;
                     default:
                 }
@@ -3047,23 +3633,43 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(computer.chosen[1].Class){
                     case "assault":
                         p22d.setIcon(p2ai);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22d.setIcon(p2ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p22d.setIcon(p2asi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22d.setIcon(p2asb);
+                        
+                        }
+                        
 
                     break;
 
                     case "healer":
                         p22d.setIcon(p2hi);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22d.setIcon(p2hb);
+                        
+                        }
 
                     break;
                     case "support":
                         p22d.setIcon(p2si);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22d.setIcon(p2sb);
+                        
+                        }
 
                     break;
                     case "tank":
                         p22d.setIcon(p2ti);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p22d.setIcon(p2tb);
+                        
+                        }
                     break;
                     default:
                 }
@@ -3073,23 +3679,38 @@ public class gui4 extends JFrame implements ActionListener {
                 switch(computer.chosen[2].Class){
                     case "assault":
                         p23d.setIcon(p2ai);
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23d.setIcon(p2ab);
+                        
+                        }
                     break;
                     case "assassin":
                         p23d.setIcon(p2asi);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23d.setIcon(p2asb);
+                        
+                        }
                     break;
-
                     case "healer":
                         p23d.setIcon(p2hi);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23d.setIcon(p2hb);
+                        
+                        }
                     break;
                     case "support":
                         p23d.setIcon(p2si);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23d.setIcon(p2sb);
+                        
+                        }
                     break;
                     case "tank":
                         p23d.setIcon(p2ti);
-
+                        if(computer.FindSupport()&&computer.support.up>0){
+                            p23d.setIcon(p2tb);
+                        
+                        }
                     break;
                     default:
                 }
@@ -3517,7 +4138,7 @@ JButton p2b3 = new JButton();
         startPane.add(bgop,JLayeredPane.DEFAULT_LAYER);
         startLabel.setVisible(true);
 
-        startButton.setBounds(400, 500, 600, 100);
+        startButton.setBounds(500, 500, 600, 100);
         startButton.setText("Click to start");
         startPane.add(startButton,JLayeredPane.DRAG_LAYER);
         startButton.addActionListener(this);
@@ -3570,24 +4191,24 @@ JButton p2b3 = new JButton();
         side11.setOpaque(false);
         side11.setBackground(null);
         pane1.add(side11,JLayeredPane.DRAG_LAYER);
-	    side11.setBounds(250, 300, 250, 250);
+	    side11.setBounds(380, 300, 250, 250);
 
 	    side12.setVisible(true);
         side12.setOpaque(false);
         side12.setBackground(null);
         pane1.add(side12,JLayeredPane.DRAG_LAYER);
-	    side12.setBounds(320, 300, 250, 250);
+	    side12.setBounds(460, 300, 250, 250);
 
         side2.setVisible(true);
         side2.setOpaque(false);
         side2.setBackground(null);
         pane1.add(side2,JLayeredPane.DRAG_LAYER);
         
-        side2.setBounds(700, 300, 250, 250);
+        side2.setBounds(800, 300, 250, 250);
 
         panel1Label.setText("Choose your game mode");
         panel1Label.setVisible(true);
-        panel1Label.setBounds(350, 200, 1200, 100);
+        panel1Label.setBounds(400, 200, 1200, 100);
         panel1Label.setFont(new Font("Press Start 2P", Font.BOLD, 60));
         panel1Label.setForeground(new Color(255, 30, 0));
         panel1Label.setVisible(true);
@@ -3601,7 +4222,7 @@ side1l.setVisible(true);
 side1l.setOpaque(false);
 side1l.setBackground(null);
 pane1.add(side1l,JLayeredPane.DRAG_LAYER);
-side1l.setBounds(320, 500, 400, 60);
+side1l.setBounds(420, 500, 400, 60);
 side1l.setFont(new Font("Comic Sans", Font.BOLD,50));
 side1l.setForeground(Color.BLUE);
 
@@ -3609,7 +4230,7 @@ side2l.setVisible(true);
 side2l.setOpaque(false);
 side2l.setBackground(null);
 pane1.add(side2l,JLayeredPane.DRAG_LAYER);
-side2l.setBounds(700, 500, 400, 60);
+side2l.setBounds(800, 500, 400, 60);
 side2l.setForeground(Color.RED);
             side2l.setFont(new Font("Comic Sans", Font.BOLD,50));
 
@@ -3617,15 +4238,15 @@ side2l.setForeground(Color.RED);
         roundsLabel = new JLabel(rIcon);
 
         deathLabel.setVisible(true);
-        deathLabel.setOpaque(true);
+        deathLabel.setOpaque(false);
         deathLabel.setBackground(null);
         
         roundsLabel.setVisible(true);
-        roundsLabel.setOpaque(true);
+        roundsLabel.setOpaque(false);
         roundsLabel.setBackground(null);
         
-        deathLabel.setBounds(300, 300, 250, 250);
-        roundsLabel.setBounds(700, 300, 250, 250);
+        deathLabel.setBounds(800, 300, 250, 250);
+        roundsLabel.setBounds(400, 300, 250, 250);
 
         JLabel test = new JLabel();
         panel1.add(test);
@@ -3638,7 +4259,7 @@ side2l.setForeground(Color.RED);
         test.setForeground(Color.RED);
         test.setText("Test");
         
-        b1.setBounds(300, 300, 250, 250);
+        b1.setBounds(400, 300, 250, 250);
         pane1.add(b1,JLayeredPane.DEFAULT_LAYER);
         b1.addActionListener(this);
         b1.setText("PvP");
@@ -3667,7 +4288,7 @@ side2l.setForeground(Color.RED);
                     r = 1;
                     computer = null;
                     p2 = new Player();
-                    fightPanelLabel.setText("Round "+ r+" Player 1 turn");
+                    fightPanelLabel.setText("       Round "+ r+" Player 1 turn");
                     pvpPanel3Label.setText("Player 1 choose 3 Heroes");
                     defendPanelLabel.setText("Player 1 choose your defending Hero");
                     pane2.setEnabled(true);
@@ -3716,7 +4337,7 @@ side2l.setForeground(Color.RED);
             }
         });
 
-        b2.setBounds(700, 300, 250, 250);
+        b2.setBounds(800, 300, 250, 250);
         pane1.add(b2,JLayeredPane.DEFAULT_LAYER);
         
         b2.addActionListener(this);
@@ -3767,7 +4388,7 @@ side2l.setForeground(Color.RED);
                     Player11.setBounds(550,500,300,50);
                     Player12.setBounds(550,550,300,50);
                     Player13.setBounds(550,600,300,50);
-                    fightPanelLabel.setText("Round "+ r);
+                    fightPanelLabel.setText("       Round "+ r);
                     pvpPanel3Label.setText("Choose 3 Heroes");
                     defendPanelLabel.setText("Choose your defending Hero");
                     computer = new Computer();
@@ -3953,7 +4574,7 @@ side2l.setForeground(Color.RED);
 
 
 
-        panel2Label.setText("Deathmatch   or    Rounds");
+        panel2Label.setText("   Rounds  or  Deathmatch");
         panel2Label.setVisible(true);
         panel2Label.setBounds(350, 200, 1200, 100);
         panel2Label.setFont(new Font("Press Start 2P", Font.BOLD, 60));
@@ -3968,7 +4589,7 @@ side2l.setForeground(Color.RED);
         pane2.add(Back1,JLayeredPane.DRAG_LAYER);
         pane2.add(bgm,JLayeredPane.DEFAULT_LAYER);
 
-        b3.setBounds(700, 300, 250, 250);
+        b3.setBounds(410, 310, 230, 230);
 
         b3.addActionListener(this);
         b3.setText("Rounds");
@@ -4014,7 +4635,7 @@ side2l.setForeground(Color.RED);
             }
         });
 
-        b4.setBounds(300, 300, 250, 250);
+        b4.setBounds(810, 310, 230, 230);
         b4.addActionListener(this);
         b4.setText("Deathmatch");
         b4.setFocusable(false);
@@ -4296,9 +4917,9 @@ side2l.setForeground(Color.RED);
                     HB2.setBounds(950,350,100,100);
                     HB3.setBounds(1100,430,100,100);
 
-                    p2d1l.setBounds(820,295,300,50);
-                    p2d2l.setBounds(820,295,300,50);
-                    p2d3l.setBounds(820,295,300,50);
+                    p2d1l.setBounds(920,295,300,50);
+                    p2d2l.setBounds(920,295,300,50);
+                    p2d3l.setBounds(920,295,300,50);
 
                     p2a1l.setBounds(1100,400,300,50);
                     p2a2l.setBounds(950,480,300,50);
@@ -4722,7 +5343,7 @@ p11d.setBackground(Color.WHITE);
                             case 2:
                                 p1s3.setText("assault");
                                 p1d3.setText(p1.chosen[selected].Class);
-                                fa2.setText(p1.chosen[selected].Class);
+                                fa3.setText(p1.chosen[selected].Class);
                                 HA3.setText(p1.chosen[selected].Class);
                                 p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
                                 p1life3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
@@ -5765,7 +6386,7 @@ p11d.setBackground(Color.WHITE);
         defendPane.setEnabled(false);
 
         defendPanelLabel.setVisible(true);
-        defendPanelLabel.setBounds(200, 100, 1200, 100);
+        defendPanelLabel.setBounds(500, 50, 1200, 100);
         defendPanelLabel.setFont(new Font("Press Start 2P", Font.BOLD, 60));
         defendPanelLabel.setForeground(new Color(255, 30, 0));
         
@@ -6287,9 +6908,9 @@ p23d.setOpaque(true);
                     HB2.setBounds(1100,270,100,100);
                     HB3.setBounds(1100,430,100,100);
 
-                    p2d1l.setBounds(820,295,300,50);
-                    p2d2l.setBounds(820,295,300,50);
-                    p2d3l.setBounds(820,295,300,50);
+                    p2d1l.setBounds(920,295,300,50);
+                    p2d2l.setBounds(920,295,300,50);
+                    p2d3l.setBounds(920,295,300,50);
 
                     p2a1l.setBounds(950,480,300,50);
                     p2a2l.setBounds(1100,400,300,50);
@@ -6405,9 +7026,9 @@ p23d.setOpaque(true);
                     HB2.setBounds(950,350,100,100);
                     HB3.setBounds(1100,430,100,100);
 
-                    p2d1l.setBounds(820,295,300,50);
-                    p2d2l.setBounds(820,295,300,50);
-                    p2d3l.setBounds(820,295,300,50);
+                    p2d1l.setBounds(920,295,300,50);
+                    p2d2l.setBounds(920,295,300,50);
+                    p2d3l.setBounds(920,295,300,50);
 
                     p2a1l.setBounds(1100,400,300,50);
                     p2a2l.setBounds(950,480,300,50);
@@ -6524,9 +7145,9 @@ p23d.setOpaque(true);
                     HB2.setBounds(1100,430,100,100);
                     HB3.setBounds(950,350,100,100);
 
-                    p2d1l.setBounds(950,295,300,50);
-                    p2d2l.setBounds(950,295,300,50);
-                    p2d3l.setBounds(950,295,300,50);
+                    p2d1l.setBounds(920,295,300,50);
+                    p2d2l.setBounds(920,295,300,50);
+                    p2d3l.setBounds(920,295,300,50);
 
                     p2a1l.setBounds(1100,400,300,50);
                     p2a2l.setBounds(1100,550,300,50);
@@ -6910,7 +7531,7 @@ p23d.setOpaque(true);
                     else{
                         s.setEnabled(true);
                     }
-                    if (m1.get(A1).Energy<100){
+                    if (m1.get(fa3.getText()).Energy<100){
                         S.setEnabled(false);
                     }
                     else{
@@ -7297,49 +7918,49 @@ p23d.setOpaque(true);
 
 
         p2d1l.setForeground(Color.RED);
-        p2d1l.setBounds(770, 295,300,50);
+        p2d1l.setBounds(920, 295,300,50);
         p2d1l.setFont(new Font("Comic Sans", Font.PLAIN,35));
         fightPane.add(p2d1l,JLayeredPane.DRAG_LAYER);
         p2d1l.setVisible(false);
 
 
         p2d2l.setForeground(Color.RED);
-        p2d2l.setBounds(770, 295,300,50);
+        p2d2l.setBounds(920, 295,300,50);
         p2d2l.setFont(new Font("Comic Sans", Font.PLAIN,35));
         fightPane.add(p2d2l,JLayeredPane.DRAG_LAYER);
         p2d2l.setVisible(false);
 
 
         p2d3l.setForeground(Color.RED);
-        p2d3l.setBounds(770, 295,300,50);
+        p2d3l.setBounds(920, 295,300,50);
         p2d3l.setFont(new Font("Comic Sans", Font.PLAIN,35));
         fightPane.add(p2d3l,JLayeredPane.DRAG_LAYER);
         p2d3l.setVisible(false);
 
         freeze1.setText("frozen*");
         freeze1.setForeground(new Color(0,255,255));
-        freeze1.setBounds(500,300,300,50);
+        freeze1.setBounds(600,300,300,50);
         freeze1.setFont(new Font("Comic Sans", Font.PLAIN,35));
         fightPane.add(freeze1,JLayeredPane.DRAG_LAYER);
         freeze1.setVisible(false);
 
         freeze2.setText("frozen*");
         freeze2.setForeground(new Color(0,255,255));
-        freeze2.setBounds(700,300,300,50);
+        freeze2.setBounds(900,300,300,50);
         freeze2.setFont(new Font("Comic Sans", Font.PLAIN,35));
         fightPane.add(freeze2,JLayeredPane.DRAG_LAYER);
         freeze2.setVisible(false);
 
         
         bleed1.setForeground(Color.ORANGE);
-        bleed1.setBounds(400,340,100,50);
+        bleed1.setBounds(550,340,100,50);
         bleed1.setFont(new Font("Comic Sans", Font.PLAIN,16));
         fightPane.add(bleed1,JLayeredPane.DRAG_LAYER);
         bleed1.setVisible(false);
 
 	    
         bleed2.setForeground(Color.ORANGE);
-        bleed2.setBounds(900,340,100,50);
+        bleed2.setBounds(1050,340,100,50);
         bleed2.setFont(new Font("Comic Sans", Font.PLAIN,16));
         fightPane.add(bleed2,JLayeredPane.DRAG_LAYER);
         bleed2.setVisible(false);
@@ -7426,19 +8047,6 @@ p23d.setOpaque(true);
                         if (pvp && p2.FindSupport()&& p2.support.nerfs>0){
                             m1.get(A1).Attack -= p2.support.Nerf();
                             System.out.println("Player 1 " +A1+ " was nerfed");
-                            try{
-                                nerfp1();
-                            }
-                            catch(IOException ex){
-                                ex.getStackTrace();
-                            }
-                            catch(UnsupportedAudioFileException g){
-                                g.getStackTrace();
-                            }
-                            catch(LineUnavailableException f){
-                                f.getStackTrace();
-                            }  
-                            
                             p2.support.nerfs--;
                             //p1reset();
                         }
@@ -7462,11 +8070,8 @@ p23d.setOpaque(true);
 
                         if (p1.FindSupport() && p1.support.up>0){
                             m1.get(A1).Attack += p1.support.Buff();
-                            p1.support.up--;
-                            System.out.println("Player 1 " +A1+ " was buffed");
-                            freeze1.setText("buffed*");
-                            freeze1.setForeground(new Color(255,95,31));
-                            freeze1.setVisible(true);
+                            p1.support.up=0;
+                            p1reset();
                         }
                         damage = m1.get(A1).Normal();
                         if (pvp) {
@@ -7569,6 +8174,7 @@ p23d.setOpaque(true);
                             System.out.println("Player 2 " + D2 + " has " +m2.get(D2).HP + " HP");   
                         }
                         else{
+                            String DC = computer.getDef().Class;
                             System.out.println("Computer " + computer.getDef().Class + " had " +computer.getDef().HP + " HP");
                             if(computer.getDef().Class.equals("tank")){
                                 if(damage >computer.getDef().Shield){
@@ -7599,8 +8205,8 @@ p23d.setOpaque(true);
                                 p2d3l.setVisible(true);
                             }
                             
-                            if (computer.getDef().HP<=0){
-                                computer.getDef().HP = 0;
+                            if (m2.get(DC).HP<=0){
+                                m2.get(DC).HP = 0;
                                 computer.alive--;
                                 try{
                                     killp2(A1, D2);
@@ -7641,11 +8247,11 @@ p23d.setOpaque(true);
 
                             System.out.println("Computer " +computer.getDef().Class  + " has " +computer.getDef().HP + " HP");
                             turn = 2;
-                            fightPanelLabel.setText("Round "+ r);
+                            fightPanelLabel.setText("       Round "+ r);
                             timer2.start();
                         }
                         if(pvp){
-                            fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
+                            fightPanelLabel.setText("       Round "+ r+ " Player "+ turn+ " turn");
                         }
                         if (pvp && m2.get(HB1.getText()).HP>0){
                             fb1.setEnabled(true);
@@ -7710,28 +8316,14 @@ p23d.setOpaque(true);
                         if (p1!= null && p1.FindSupport()&& p1.support.nerfs>0){
                             m2.get(A2).Attack -= p1.support.Nerf();
                             System.out.println("Player 2 " +A2+ " was nerfed");
-                            try{
-                                nerfp2();
-                            }
-                            catch(UnsupportedAudioFileException x){
-                                x.getStackTrace();
-                            }
-                            catch(IOException f){
-                                f.getStackTrace();
-                            }
-                            catch(LineUnavailableException g){
-                                g.getStackTrace();
-                            }
                             p1.support.nerfs--;
                             //p2reset();
                         }
                         if (p2.FindSupport() && p2.support.up>0){
                             m2.get(A2).Attack += p2.support.Buff();
-                            p2.support.up--;
+                            p2.support.up=0;
+                            p2reset();
                             System.out.println("Player 2 " +A2+ " was buffed");
-                            freeze2.setText("buffed*");
-                            freeze2.setForeground(new Color(255,95,31));
-                            freeze2.setVisible(true);
                         }
                         fb1.setEnabled(false);
                         fb2.setEnabled(false);
@@ -7867,13 +8459,49 @@ p23d.setOpaque(true);
                     
                     if (pvp&& limited && r == rounds+1){
                         if (p1.alive>p2.alive){
+                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            } 
                             winPanelLabel.setText("Player 1 won!");
                         }
                         else if (p1.alive<p2.alive){
+                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                             winPanelLabel.setText("Player 2 won!");
                         }
                         else{
                             winPanelLabel.setText("Draw !");
+                            try{
+                            playDraw();
+                        }
+                        catch(IOException ex){
+                            ex.getStackTrace();
+                        }
+                        catch(UnsupportedAudioFileException g){
+                            g.getStackTrace();
+                        }
+                        catch(LineUnavailableException f){
+                            f.getStackTrace();
+                        } 
                         }
                         winPane.setVisible(true);
                         winPane.setEnabled(true);
@@ -7959,11 +8587,9 @@ p23d.setOpaque(true);
 
                         if (p1.FindSupport() && p1.support.up>0){
                             m1.get(A1).Attack += p1.support.Buff();
-                            p1.support.up--;
-                            System.out.println("Player 1 " +A1+ " was buffed");
-                            freeze1.setText("buffed*");
-                            freeze1.setForeground(new Color(255,95,31));
-                            freeze1.setVisible(true);
+                            p1.support.up=0;
+                            p1reset();
+                            
                         }
                         if(!m1.get(A1).Class.equals("healer")){
                             damage = m1.get(A1).Skill();
@@ -7999,7 +8625,25 @@ p23d.setOpaque(true);
                                 }  
                                 
                             }
-                            else if (p1.support != null && p1.support.Skips>0){
+                            if(p1.FindSupport()&&p1.support.up>0){
+                                try{
+                                    buffp1();
+                                    System.out.println("Player 1 " +A1+ " was buffed");
+                                    freeze1.setText("buffed*");
+                                    freeze1.setForeground(new Color(255,95,31));
+                                    freeze1.setVisible(true);
+                                }
+                                catch(UnsupportedAudioFileException x){
+                                    x.getStackTrace();
+                                }
+                                catch(IOException f){
+                                    f.getStackTrace();
+                                }
+                                catch(LineUnavailableException g){
+                                    g.getStackTrace();
+                                }
+                            }
+                            if (p1.support != null && p1.support.Skips>0){
                                     System.out.println(("Player 2 was frozen"));
                                     freeze2.setText("frozen*");
                                     p1reset();
@@ -8009,7 +8653,7 @@ p23d.setOpaque(true);
                                     fb1.setEnabled(false);
                                     fb2.setEnabled(false);
                                     fb3.setEnabled(false);
-                                    p1.support.Skips--;
+                                    p1.support.Skips = 0;
                                     try{
                                         freezep2();
                                     }
@@ -8054,26 +8698,97 @@ p23d.setOpaque(true);
                                         computer.assassin.CutCount--;
                                         bleed1.setText("-"+computer.assassin.Bleed);
                                         bleed1.setVisible(true);
+
+                                        
                                     }
-                                    else{
-                                        bleed1.setVisible(false);
+                                    if(!pvp){
+                                        r--;
+                                        if (limited && r == rounds+1){
+                                            if (p1.alive>computer.alive){
+                                                winPanelLabel.setText("Player 1 won!");
+                                                try{
+                                                    playWin();
+                                                }
+                                                catch(IOException ex){
+                                                    ex.getStackTrace();
+                                                }
+                                                catch(UnsupportedAudioFileException g){
+                                                    g.getStackTrace();
+                                                }
+                                                catch(LineUnavailableException f){
+                                                    f.getStackTrace();
+                                                }
+                                            }
+                                            else if (p1.alive<computer.alive){
+                                                winPanelLabel.setText("Computer won!");
+                                                try{
+                                                    playWin();
+                                                }
+                                                catch(IOException ex){
+                                                    ex.getStackTrace();
+                                                }
+                                                catch(UnsupportedAudioFileException g){
+                                                    g.getStackTrace();
+                                                }
+                                                catch(LineUnavailableException f){
+                                                    f.getStackTrace();
+                                                }
+                                            }
+                                            else{
+                                                winPanelLabel.setText("Draw !");
+                                                try{
+                                                    playDraw();
+                                                }
+                                                catch(IOException ex){
+                                                    ex.getStackTrace();
+                                                }
+                                                catch(UnsupportedAudioFileException g){
+                                                    g.getStackTrace();
+                                                }
+                                                catch(LineUnavailableException f){
+                                                    f.getStackTrace();
+                                                }
+                                            }
+                                            winPane.setVisible(true);
+                                            winPane.setEnabled(true);
+                                            fightPane.setEnabled(false);
+                                            fightPane.setVisible(false);
+                                        }
+                    
                                     }
+                            else{
+                                bleed1.setVisible(false);
                             }
-                            else if(p1.FindSupport()&&p1.support.up>0){
-                                try{
-                                    buffp1();
-                                }
-                                catch(UnsupportedAudioFileException x){
-                                    x.getStackTrace();
-                                }
-                                catch(IOException f){
-                                    f.getStackTrace();
-                                }
-                                catch(LineUnavailableException g){
-                                    g.getStackTrace();
-                                }
+                        }
+                    else{
+                        if(pvp){
+                            fa1.setEnabled(false);
+                            fa2.setEnabled(false);
+                            fa3.setEnabled(false);
+                            if (m2.get(HB1.getText()).HP>0){
+                                fb1.setEnabled(true);
                             }
-                            
+                            else{
+                                fb1.setEnabled(false);
+                            }
+                            if (m2.get(HB2.getText()).HP>0){
+                                fb2.setEnabled(true);
+                            }
+                            else{
+                                fb2.setEnabled(false);
+                            }
+                            if (m2.get(HB3.getText()).HP>0){
+                                fb3.setEnabled(true);
+                            }
+                            else{
+                                fb3.setEnabled(false);
+                            }
+                        }
+                        /*else{
+                            timer4.start();
+                        }*/
+                                
+                            }
                             if (pvp){
                                 System.out.println("Player 2 " + D2 + " had " +m2.get(D2).HP + " HP");
                                 if (m2.get(D2).Class.equals("tank")) {
@@ -8171,24 +8886,7 @@ p23d.setOpaque(true);
 
                                 System.out.println("Player 2 " + D2 + " has " +m2.get(D2).HP + " HP");
                                 if(turn ==2){
-                                    if (m2.get(HB1.getText()).HP>0){
-                                        fb1.setEnabled(true);
-                                    }
-                                    else{
-                                        fb1.setEnabled(false);
-                                    }
-                                    if (m2.get(HB2.getText()).HP>0){
-                                        fb2.setEnabled(true);
-                                    }
-                                    else{
-                                        fb2.setEnabled(false);
-                                    }
-                                    if (m2.get(HB3.getText()).HP>0){
-                                        fb3.setEnabled(true);
-                                    }
-                                    else{
-                                        fb3.setEnabled(false);
-                                    }
+                                    
                                     fa1.setEnabled(false);
                                     fa2.setEnabled(false);
                                     fa3.setEnabled(false);
@@ -8197,8 +8895,8 @@ p23d.setOpaque(true);
 
                             }
                             else{
+                                String DC = computer.getDef().Class;
                                 System.out.println("Computer " + computer.getDef().Class + " had " +computer.getDef().HP + " HP");
-                                damage = m1.get(A1).Skill();
                                 if(computer.getDef().Class.equals("tank")){
                                     if (damage> computer.getDef().Shield){
                                         computer.getDef().HP -= (damage -computer.getDef().Shield);
@@ -8227,8 +8925,8 @@ p23d.setOpaque(true);
                                     p2d3l.setVisible(true);
                                 }
                                 
-                                if (computer.getDef().HP< 0){
-                                    computer.getDef().HP = 0;
+                                if (m2.get(DC).HP<= 0){
+                                    m2.get(DC).HP = 0;
                                     computer.alive--;
                                     try{
                                         killp2(A1, D2);
@@ -8243,13 +8941,23 @@ p23d.setOpaque(true);
                                     catch(LineUnavailableException f){
                                         f.getStackTrace();
                                     }  
-                
-                
                                     
                                     p1resetd();
                                     sortButtons();
                                     if (computer.alive == 0){
                                         winPanelLabel.setText("Player 1 won!");
+                                        try{
+                                            playWin();
+                                        }
+                                        catch(IOException ex){
+                                            ex.getStackTrace();
+                                        }
+                                        catch(UnsupportedAudioFileException g){
+                                            g.getStackTrace();
+                                        }
+                                        catch(LineUnavailableException f){
+                                            f.getStackTrace();
+                                        }
                                         winPane.setEnabled(true);
                                         winPane.setVisible(true);
                                         fightPane.setVisible(false);
@@ -8269,103 +8977,45 @@ p23d.setOpaque(true);
                                 p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                                 System.out.println("Computer " + computer.getDef().Class + " has " +computer.getDef().HP + " HP");
-                                if (p1.FindSupport() && p1.support.nerfs > 0) {
-                                    try{
-                                        nerfp2();
-                                    }
-                                    catch(IOException ex){
-                                        ex.getStackTrace();
-                                    }
-                                    catch(UnsupportedAudioFileException g){
-                                        g.getStackTrace();
-                                    }
-                                    catch(LineUnavailableException f){
-                                        f.getStackTrace();
-                                    }  
-                                    
-                                }
-                                if (p1.support != null && p1.support.Skips>0){
-                                    turn =1;
-                                    System.out.println(("computer was frozen"));
-                                    freeze2.setText("frozen*"); 
-                                    try{
-                                        freezep2();
+                                timer5.start();
 
-                                    }
-                                    catch(IOException ex){
-                                        ex.getStackTrace();
-                                    }
-                                    catch(UnsupportedAudioFileException g){
-                                        g.getStackTrace();
-                                    }
-                                    catch(LineUnavailableException f){
-                                        f.getStackTrace();
-                                    }  
-                                    p1reset();
-                                    freeze2.setForeground(new Color(0,255,255));
-                                    freeze2.setVisible(true);
-                                    p1.support.Skips--;
-                                    r++;
-                                    fightPanelLabel.setText("Round "+ r);
-                                    if (!pvp&&computer.FindAssassin()  && computer.getAssassin().CutCount>0){
-                                        m1.get(D1).HP-= computer.getAssassin().Bleed;
-                                        System.out.println("Player 1 " + D1 + " is bleeding \t HP -"+computer.getAssassin().Bleed);
-                                        computer.getAssassin().CutCount--;
-                                        bleed1.setText("-"+computer.assassin.Bleed);
-                                        bleed1.setVisible(true);
-                                    }
-                                    if (limited && r == rounds+1){
-                                        if (p1.alive>computer.alive){
-                                            winPanelLabel.setText("Player 1 won!");
-                                        }
-                                        else if (p1.alive<computer.alive){
-                                            winPanelLabel.setText("Computer won!");
-                                        }
-                                        else{
-                                            winPanelLabel.setText("Draw !");
-                                        }
-                                        winPane.setVisible(true);
-                                        winPane.setEnabled(true);
-                                        fightPane.setEnabled(false);
-                                        fightPane.setVisible(false);
-                                    }
-                                }
-                                else{
-                                    timer3.start();
-                                }
-                            }
+                            }        
                         }
                         else {
                             if (m1.get(HA1.getText()).HP>0&& m1.get(HA1.getText()).HP< m1.get(HA1.getText()).cHP){
                                 HA1.setEnabled(true);
+                                p11h.setOpaque(true);
                                 p11h.setBackground(Color.WHITE);
                             }
                             else{
                                 HA1.setEnabled(false);
+                                p11h.setOpaque(false);
                                 p11h.setBackground(null);
                             }
                             if (m1.get(HA2.getText()).HP>0 && m1.get(HA2.getText()).HP< m1.get(HA2.getText()).cHP){
                                 HA2.setEnabled(true);
+                                p12h.setOpaque(true);
                                 p12h.setBackground(Color.WHITE);
                             }
                             else{
                                 HA2.setEnabled(false);
+                                p12h.setOpaque(false);
                                 p12h.setBackground(null);
                             }
                             if (m1.get(HA3.getText()).HP>0&& m1.get(HA3.getText()).HP< m1.get(HA3.getText()).cHP){
                                 HA3.setEnabled(true);
+                                p13h.setOpaque(true);
                                 p13h.setBackground(Color.WHITE);
                             }
                             else{
                                 HA3.setEnabled(false);
+                                p12h.setOpaque(false);
                                 p13h.setBackground(null);
                             }
                             healPane.setEnabled(true);
                             healPane.setVisible(true);
 
-                            HB1.setEnabled(false);
-                            HB2.setEnabled(false);
-                            HB3.setEnabled(false);
+                            
                             fightPane.setEnabled(false);
                             fightPane.setVisible(false);
                             if (pvp&& p2.assassin!= null){
@@ -8374,9 +9024,7 @@ p23d.setOpaque(true);
                             else if (!pvp && computer.FindAssassin()){
                                 computer.getAssassin().CutCount= 0;
                             }
-                            fa1.setEnabled(false);
-                            fa2.setEnabled(false);
-                            fa3.setEnabled(false);
+                            
                             fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                         }
                         p1e1.setText("Energy: "+ m1.get(HA1.getText()).Energy);
@@ -8417,7 +9065,8 @@ p23d.setOpaque(true);
                         }
                         if (p2.FindSupport() && p2.support.up>0){
                             m2.get(A2).Attack += p2.support.Buff();
-                            p2.support.up--;
+                            p2.support.up=0;
+                            p1reset();
                             System.out.println("Player 2 " +A2+ " was buffed");
                             
                         }
@@ -8571,7 +9220,7 @@ p23d.setOpaque(true);
                                 } 
                                 
                                 //p2reset();
-                                p2.support.Skips--;
+                                p2.support.Skips = 0;
                                 fa1.setEnabled(false);
                                 fa2.setEnabled(false);
                                 fa3.setEnabled(false);
@@ -8592,7 +9241,30 @@ p23d.setOpaque(true);
                                     bleed2.setVisible(false);
                                 }
                             }
-                            if(p2.FindSupport()&&p1.support.up>0){
+                            else{
+                                fb1.setEnabled(false);
+                                fb2.setEnabled(false);
+                                fb3.setEnabled(false);
+                                if (m1.get(HA1.getText()).HP==0){
+                                    fa1.setEnabled(false);
+                                }
+                                else{
+                                    fa1.setEnabled(true);
+                                }
+                                if (m1.get(HA2.getText()).HP== 0){
+                                    fa2.setEnabled(false);
+                                }
+                                else{
+                                    fa2.setEnabled(true);
+                                }
+                                if (m1.get(HA3.getText()).HP== 0){
+                                    fa3.setEnabled(false);
+                                }
+                                else{
+                                    fa3.setEnabled(true);
+                                }
+                            }
+                            if(p2.FindSupport()&&p2.support.up>0){
                                 try{
                                     buffp2();
                                 }
@@ -8609,56 +9281,38 @@ p23d.setOpaque(true);
                                 freeze2.setForeground(new Color(255,95,31));
                                 freeze2.setVisible(true);
                             }
-                            else{
-                                fb1.setEnabled(false);
-                                fb2.setEnabled(false);
-                                fb3.setEnabled(false);
-                                if (m1.get(HA1.getText()).HP>0){
-                                    fa1.setEnabled(true);
-                                    
-                                }
-                                else{
-                                    fa1.setEnabled(false);
-                                }
-                                if (m1.get(HA2.getText()).HP>0){
-                                    fa2.setEnabled(true);
-                                }
-                                else{
-                                    fa2.setEnabled(false);
-                                }
-                                if (m1.get(HA3.getText()).HP>0){
-                                    fa3.setEnabled(true);
-                                }
-                                else{
-                                    fa3.setEnabled(false);
-                                }
-                            }
                             r++;
                             //fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                         }
                         else {
                             if (m2.get(HB1.getText()).HP>0&& m2.get(HB1.getText()).HP< m2.get(HB1.getText()).cHP){
                                 HB1.setEnabled(true);
+                                p21h.setOpaque(true);
                                 p21h.setBackground(Color.WHITE);
                             }
                             else{
                                 HB1.setEnabled(false);
+                                p21h.setOpaque(false);
                                 p21h.setBackground(null);
                             }
                             if (m2.get(HB2.getText()).HP>0&& m2.get(HB2.getText()).HP< m2.get(HB2.getText()).cHP){
                                 HB2.setEnabled(true);
+                                p22h.setOpaque(true);
                                 p22h.setBackground(Color.WHITE);
                             }
                             else{
                                 HB2.setEnabled(false);
+                                p22h.setOpaque(false);
                                 p22h.setBackground(null);
                             }
                             if (m2.get(HB3.getText()).HP>0&& m2.get(HB3.getText()).HP< m2.get(HB3.getText()).cHP){
                                 HB3.setEnabled(true);
+                                p23h.setOpaque(true);
                                 p23h.setBackground(Color.WHITE);
                             }
                             else{
                                 HB3.setEnabled(false);
+                                p23h.setOpaque(false);
                                 p23h.setBackground(null);
                             }
                             healPane.setVisible(true);
@@ -8694,38 +9348,67 @@ p23d.setOpaque(true);
                             else{
                                 fa3.setEnabled(true);
                             }
+                            
                         }
-                        if (p2.FindSupport() && p2.support.up>0){
-                            m2.get(A2).Attack += p2.support.Buff();
-                            p2.support.up--;
-                            System.out.println("Player 2 " +A2+ " was buffed");
-                            freeze2.setText("buffed*");
-                            freeze2.setForeground(new Color(255,95,31));
-                            freeze2.setVisible(true);
-                        }
-                        
                         p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
                         p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
                         p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
                         p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
                         p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
                         p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
+                    
                     }
                     if (pvp){
                         fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                     }
                     else{
-                        fightPanelLabel.setText("Round "+ r);
+                        fightPanelLabel.setText("       Round "+ r);
                     }
                     if ( pvp && limited && r == rounds+1){
                         if (p1.alive>p2.alive){
                             winPanelLabel.setText("Player 1 won!");
+                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                         }
                         else if (p1.alive<p2.alive){
                             winPanelLabel.setText("Player 2 won!");
+                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                         }
                         else{
                             winPanelLabel.setText("Draw !");
+                            try{
+                                playDraw();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                         }
                         winPane.setVisible(true);
                         winPane.setEnabled(true);
@@ -8805,11 +9488,9 @@ p23d.setOpaque(true);
 
                         if (p1.FindSupport() && p1.support.up>0){
                             m1.get(A1).Attack += p1.support.Buff();
-                            p1.support.up--;
-                            System.out.println("Player 1 " +A1+ " was buffed");
-                            freeze1.setText("buffed*");
-                            freeze1.setForeground(new Color(255,95,31));
-                            freeze1.setVisible(true);
+                            p1.support.up=0;
+                            p1reset();
+
                         }
                         if(!m1.get(A1).Class.equals("healer")){
                             damage = m1.get(A1).Super();
@@ -8967,7 +9648,7 @@ p23d.setOpaque(true);
                                     fb1.setEnabled(false);
                                     fb2.setEnabled(false);
                                     fb3.setEnabled(false);
-                                    p1.support.Skips--;
+                                    p1.support.Skips = 0;
                                     r++;
                                     if (p2.assassin!=null && p2.assassin.CutCount>0){
                                         m1.get(D1).HP-= p2.assassin.Bleed;
@@ -8986,6 +9667,30 @@ p23d.setOpaque(true);
                                     }
                                     else{
                                         bleed1.setVisible(false);
+
+                                    }
+                                }
+                                else{
+                                    fa1.setEnabled(false);
+                                    fa2.setEnabled(false);
+                                    fa3.setEnabled(false);
+                                if (m2.get(HB1.getText()).HP>0){
+                                        fb1.setEnabled(true);
+                                    }
+                                    else{
+                                        fb1.setEnabled(false);
+                                    }
+                                    if (m2.get(HB2.getText()).HP>0){
+                                        fb2.setEnabled(true);
+                                    }
+                                    else{
+                                        fb2.setEnabled(false);
+                                    }
+                                    if (m2.get(HB3.getText()).HP>0){
+                                        fb3.setEnabled(true);
+                                    }
+                                    else{
+                                        fb3.setEnabled(false);
                                     }
                                 }
                                 if(p1.FindSupport()&&p1.support.up>0){
@@ -9005,36 +9710,10 @@ p23d.setOpaque(true);
                                     freeze1.setForeground(new Color(255,95,31));
                                     freeze1.setVisible(true);
                                 }
-                                else{
-                                    if (m2.get(HB1.getText()).HP>0){
-                                        fb1.setEnabled(true);
-                                        
-                                    }
-                                    else{
-                                        fb1.setEnabled(false);
-                                    }
-                                    if (m2.get(HB2.getText()).HP>0){
-                                        fb2.setEnabled(true);
-                            
-                                    }
-                                    else{
-                                        fb2.setEnabled(false);
-                                    }
-                                    if (m2.get(HB3.getText()).HP>0){
-                                        fb3.setEnabled(true);
-                            
-                                    }
-                                    else{
-                                        fb3.setEnabled(false);
-                                    }
-                                    fa1.setEnabled(false);
-                                    fa2.setEnabled(false);
-                                    fa3.setEnabled(false);
-                                }
-
                                 fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                             }
                             else{
+                                String DC = computer.getDef().Class;
                                 System.out.println("Computer " + computer.getDef().Class + " had " +computer.getDef().HP + " HP");
                                 damage = m1.get(A1).Skill();
                                 if(computer.getDef().Class.equals("tank")){
@@ -9057,8 +9736,8 @@ p23d.setOpaque(true);
                                     p2d3l.setText(" -" +damage);
                                     p2d3l.setVisible(true);
                                 }
-                                if (computer.getDef().HP< 0){
-                                    computer.getDef().HP = 0;
+                                if (m2.get(DC).HP< 0){
+                                    m2.get(DC).HP = 0;
                                     computer.alive--;
                                     try{
                                         killp2(A1, D2);
@@ -9114,6 +9793,7 @@ p23d.setOpaque(true);
                                 }
                                 if (p1.support != null && p1.support.Skips>0){
                                     turn =1;
+                                    r--;
                                     System.out.println(("computer was frozen"));
                                     freeze2.setText("frozen*");
                                     try{
@@ -9132,9 +9812,9 @@ p23d.setOpaque(true);
                                     p1reset();
                                     freeze2.setForeground(new Color(0,255,255));
                                     freeze2.setVisible(true);
-                                    p1.support.Skips--;
+                                    p1.support.Skips = 0;
                                     r++;
-                                    fightPanelLabel.setText("Round "+ r);
+                                    fightPanelLabel.setText("       Round "+ r);
                                     if (computer.FindAssassin() && computer.getAssassin().CutCount>0){
                                         m1.get(D1).HP-= computer.getAssassin().Bleed;
                                         System.out.println("Player 1 " + D1 + " is bleeding \t HP -"+computer.getAssassin().Bleed);
@@ -9145,12 +9825,48 @@ p23d.setOpaque(true);
                                     if (limited && r == rounds+1){
                                         if (p1.alive>computer.alive){
                                             winPanelLabel.setText("Player 1 won!");
+                                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                                         }
                                         else if (p1.alive<computer.alive){
                                             winPanelLabel.setText("Computer won!");
+                                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                                         }
                                         else{
                                             winPanelLabel.setText("Draw !");
+                                            try{
+                                playDraw();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                                         }
                                         winPane.setVisible(true);
                                         winPane.setEnabled(true);
@@ -9166,28 +9882,34 @@ p23d.setOpaque(true);
                         else {
                             if (m1.get(HA1.getText()).HP== m1.get(HA1.getText()).cHP){
                                 HA1.setEnabled(false);
+                                p11h.setOpaque(false);
                                 p11h.setBackground(null);
                             }
                             else{
                                 HA1.setEnabled(true);
+                                p11h.setOpaque(true);
                                 p11h.setBackground(Color.WHITE);
                                 
                             }
                             if (m1.get(HA2.getText()).HP== m1.get(HA2.getText()).cHP){
                                 HA2.setEnabled(false);
+                                p12h.setOpaque(false);
                                 p12h.setBackground(null);
                             }
                             else{
                                 HA2.setEnabled(true);
+                                p12h.setOpaque(true);
                                 p12h.setBackground(Color.WHITE);
                                 
                             }
                             if (m1.get(HA3.getText()).HP== m1.get(HA3.getText()).cHP){
                                 HA3.setEnabled(false);
+                                p13h.setOpaque(false);
                                 p13h.setBackground(null);
                             }
                             else{
                                 HA3.setEnabled(true);
+                                p13h.setOpaque(true);
                                 p13h.setBackground(Color.WHITE);
                             }
                             healPane.setEnabled(true);
@@ -9258,7 +9980,8 @@ p23d.setOpaque(true);
                         }
                         if (p2.FindSupport() && p2.support.up>0){
                             m2.get(A2).Attack += p2.support.Buff();
-                            p2.support.up--;
+                            p2.support.up=0;
+                            p2reset();
                             System.out.println("Player 2 " +A2+ " was buffed");
                             freeze1.setText("buffed*");
                             freeze1.setForeground(new Color(255,95,31));
@@ -9442,7 +10165,7 @@ p23d.setOpaque(true);
                                 //p2reset();
                                 freeze1.setForeground(new Color(0,255,255));
                                 freeze1.setVisible(true);
-                                p2.support.Skips--;
+                                p2.support.Skips = 0;
                                 fa1.setEnabled(false);
                                 fa2.setEnabled(false);
                                 fa3.setEnabled(false);
@@ -9510,28 +10233,34 @@ p23d.setOpaque(true);
                         else {
                             if (m2.get(HB1.getText()).HP== m2.get(HB1.getText()).cHP){
                                 HB1.setEnabled(false);
+                                p21h.setOpaque(false);
                                 p21h.setBackground(null);
                             }
                             else{
                                 HB1.setEnabled(true);
+                                p21h.setOpaque(true);
                                 p21h.setBackground(Color.WHITE);
                                 
                             }
                             if (m2.get(HB2.getText()).HP== m2.get(HB2.getText()).cHP){
                                 HB2.setEnabled(false);
+                                p22h.setOpaque(false);
                                 p22h.setBackground(null);
                             }
                             else{
                                 HB2.setEnabled(true);
+                                p22h.setOpaque(true);
                                 p22h.setBackground(Color.WHITE);
                                 
                             }
                             if (m2.get(HB3.getText()).HP== m2.get(HB3.getText()).cHP){
                                 HB3.setEnabled(false);
+                                p23h.setOpaque(false);
                                 p23h.setBackground(null);
                             }
                             else{
                                 HB3.setEnabled(true);
+                                p23h.setOpaque(true);
                                 p23h.setBackground(Color.WHITE);
                                 
                             }
@@ -9580,7 +10309,7 @@ p23d.setOpaque(true);
                         fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                     }
                     else{
-                        fightPanelLabel.setText("Round "+ r);
+                        fightPanelLabel.setText("       Round "+ r);
                     }
                     n.setEnabled(false);
                     s.setEnabled(false);
@@ -9588,12 +10317,48 @@ p23d.setOpaque(true);
                     if (pvp&& limited && r == rounds+1){
                         if (p1.alive>p2.alive){
                             winPanelLabel.setText("Player 1 won!");
+                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                         }
                         else if (p1.alive<p2.alive){
                             winPanelLabel.setText("Player 2 won!");
+                            try{
+                                playWin();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                         }
                         else{
                             winPanelLabel.setText("Draw !");
+                            try{
+                                playDraw();
+                            }
+                            catch(IOException ex){
+                                ex.getStackTrace();
+                            }
+                            catch(UnsupportedAudioFileException g){
+                                g.getStackTrace();
+                            }
+                            catch(LineUnavailableException f){
+                                f.getStackTrace();
+                            }
                         }
                         winPane.setVisible(true);
                         winPane.setEnabled(true);
@@ -9636,12 +10401,12 @@ p23d.setOpaque(true);
         healPane.add(p2health3l,JLayeredPane.DRAG_LAYER);
         healPane.add(bgh,JLayeredPane.DEFAULT_LAYER);
 
-        p11h.setOpaque(true);
-        p12h.setOpaque(true);
-        p13h.setOpaque(true);
-        p21h.setOpaque(true);
-        p22h.setOpaque(true);
-        p23h.setOpaque(true);
+        p11h.setOpaque(false);
+        p12h.setOpaque(false);
+        p13h.setOpaque(false);
+        p21h.setOpaque(false);
+        p22h.setOpaque(false);
+        p23h.setOpaque(false);
         
         charha1.setForeground(Color.BLUE);
         charha1.setVisible(true);
@@ -9752,6 +10517,12 @@ p23d.setOpaque(true);
                     p21h.setBackground(null);
                     p22h.setBackground(null);
                     p23h.setBackground(null);
+                    p11h.setOpaque(false);
+                    p12h.setOpaque(false);
+                    p13h.setOpaque(false);
+                    p21h.setOpaque(false);
+                    p22h.setOpaque(false);
+                    p23h.setOpaque(false);
                     p1d1l.setForeground(new Color(10,255,120));
                     p1d2l.setForeground(new Color(10,255,120));
                     p1d3l.setForeground(new Color(10,255,120));
@@ -9840,6 +10611,12 @@ p23d.setOpaque(true);
                     p21h.setBackground(null);
                     p22h.setBackground(null);
                     p23h.setBackground(null);
+                    p11h.setOpaque(false);
+                    p12h.setOpaque(false);
+                    p13h.setOpaque(false);
+                    p21h.setOpaque(false);
+                    p22h.setOpaque(false);
+                    p23h.setOpaque(false);
                     p1d1l.setForeground(new Color(10,255,120));
                     p1d2l.setForeground(new Color(10,255,120));
                     p1d3l.setForeground(new Color(10,255,120));
@@ -9928,6 +10705,12 @@ p23d.setOpaque(true);
                     p21h.setBackground(null);
                     p22h.setBackground(null);
                     p23h.setBackground(null);
+                    p11h.setOpaque(false);
+                    p12h.setOpaque(false);
+                    p13h.setOpaque(false);
+                    p21h.setOpaque(false);
+                    p22h.setOpaque(false);
+                    p23h.setOpaque(false);
                     p1d1l.setForeground(new Color(10,255,120));
                     p1d2l.setForeground(new Color(10,255,120));
                     p1d3l.setForeground(new Color(10,255,120));
@@ -10014,6 +10797,12 @@ p23d.setOpaque(true);
                     p21h.setBackground(null);
                     p22h.setBackground(null);
                     p23h.setBackground(null);
+                    p11h.setOpaque(false);
+                    p12h.setOpaque(false);
+                    p13h.setOpaque(false);
+                    p21h.setOpaque(false);
+                    p22h.setOpaque(false);
+                    p23h.setOpaque(false);
                     if(rev){
                         if( m2.get(HB1.getText()).HP==0){
                             p2.alive++;
@@ -10094,6 +10883,12 @@ p23d.setOpaque(true);
                     p21h.setBackground(null);
                     p22h.setBackground(null);
                     p23h.setBackground(null);
+                    p11h.setOpaque(false);
+                    p12h.setOpaque(false);
+                    p13h.setOpaque(false);
+                    p21h.setOpaque(false);
+                    p22h.setOpaque(false);
+                    p23h.setOpaque(false);
                     if(rev){
                         if( m2.get(HB2.getText()).HP==0){
                             p2.alive++;
@@ -10174,6 +10969,12 @@ p23d.setOpaque(true);
                     p21h.setBackground(null);
                     p22h.setBackground(null);
                     p23h.setBackground(null);
+                    p11h.setOpaque(false);
+                    p12h.setOpaque(false);
+                    p13h.setOpaque(false);
+                    p21h.setOpaque(false);
+                    p22h.setOpaque(false);
+                    p23h.setOpaque(false);
                     if(rev){
                         if( m2.get(HB3.getText()).HP==0){
                             p2.alive++;
@@ -10253,13 +11054,13 @@ p23d.setOpaque(true);
 
         winPanelLabel = new JLabel();
         winPanelLabel.setVisible(true);
-        winPanelLabel.setBounds(300,300,1200,100);
+        winPanelLabel.setBounds(500,300,1200,100);
         winPanelLabel.setFont(new Font("Press Start 2P",Font.BOLD,120));
         winPanelLabel.setForeground(new Color(255,30,0));
         winPanelLabel.setVisible(true);
         winPane.add(winPanelLabel,JLayeredPane.DRAG_LAYER);
 
-        Home.setBounds(1000, 200, 120, 90);
+        Home.setBounds(1100, 150, 120, 90);
         winPane.add(Home,JLayeredPane.DRAG_LAYER);
         Home.addActionListener(this);
         Home.setText("Home");
@@ -10309,7 +11110,7 @@ p23d.setOpaque(true);
                         
                     }
                     else{
-                        fightPanelLabel.setText("Round "+r );
+                        fightPanelLabel.setText("       Round "+r );
                     }
                     p1d1l.setVisible(false);
                     p1d2l.setVisible(false);
@@ -10419,7 +11220,7 @@ p23d.setOpaque(true);
                     }
                     else{
                         pvpPanel3Label.setText("Choose 3 Heroes");
-                        fightPanelLabel.setText("Round "+r );
+                        fightPanelLabel.setText("       Round "+r );
                         computer = new Computer();
                         p2d1.setText(computer.chosen[0].Class);
                         p2d2.setText(computer.chosen[1].Class);
@@ -10487,6 +11288,10 @@ p23d.setOpaque(true);
                     pane2.setEnabled(true);
                     pane2.setVisible(true);
                     NextB2.setEnabled(false);
+                    bleed1.setVisible(false);
+                    bleed2.setVisible(false);
+                    freeze1.setVisible(false);
+                    freeze2.setVisible(false);
                 }
             }
         });
@@ -10888,7 +11693,7 @@ p23d.setOpaque(true);
         helpButton.setEnabled(true);
         helpButton.setVisible(true);
         helpButton.addActionListener(this);
-        helpButton.setFont(new Font("Comic Sans", Font.PLAIN,16));
+        helpButton.setFont(new Font("Comic Sans", Font.BOLD,10));
         helpButton.setBounds(1400, 40, 40, 40);  
 	    fightPane.add(helpButton,JLayeredPane.DRAG_LAYER); 
         helpButton.addActionListener(new ActionListener() {
@@ -10917,7 +11722,7 @@ p23d.setOpaque(true);
 
 
         JButton helpButton1 = new JButton("?");
-        helpButton1.setFont(new Font("Comic Sans", Font.PLAIN,16));
+        helpButton1.setFont(new Font("Comic Sans", Font.BOLD,10));
         helpButton1.setFocusable(false);
         //helpButton.setIcon(cIcon);
         helpButton1.setVisible(true);
@@ -12198,7 +13003,7 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                         fightPanelLabel.setText("Round "+r+ " Player "+turn+" turn" );
                     }
                     else{
-                        fightPanelLabel.setText("Round "+r );
+                        fightPanelLabel.setText("       Round "+r );
                     }
                     p1d1l.setVisible(false);
                     p1d2l.setVisible(false);
@@ -12317,7 +13122,7 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     }
                     else{
                         defendPanelLabel.setText("Choose your defending hero");
-                        fightPanelLabel.setText("Round "+r );
+                        fightPanelLabel.setText("       Round "+r );
 			            computer.alive = 3;
                         if(computer.FindAssassin()){
                             computer.assassin.CutCount = 0;
@@ -12426,6 +13231,12 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     p21d.setBackground(null);
                     p22d.setBackground(null);
                     p23d.setBackground(null);
+                    p21f.setBackground(null);
+                    p22f.setBackground(null);
+                    p23f.setBackground(null);
+                    p21h.setBackground(null);
+                    p22h.setBackground(null);
+                    p23h.setBackground(null);
                     p21d.setOpaque(false);
                     p22d.setOpaque(false);
                     p23d.setOpaque(false);
@@ -12514,9 +13325,9 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     HB2.setBounds(950,350,100,100);
                     HB3.setBounds(1100,430,100,100);
 
-                    p2d1l.setBounds(820,295,300,50);
-                    p2d2l.setBounds(820,295,300,50);
-                    p2d3l.setBounds(820,295,300,50);
+                    p2d1l.setBounds(920,295,300,50);
+                    p2d2l.setBounds(920,295,300,50);
+                    p2d3l.setBounds(920,295,300,50);
 
                     p2a1l.setBounds(1100,400,300,50);
                     p2a2l.setBounds(950,480,300,50);
@@ -12534,7 +13345,7 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     p12d.setOpaque(true);
                     p13d.setOpaque(true);
 
-p11d.setBackground(Color.WHITE);
+                    p11d.setBackground(Color.WHITE);
                     p12d.setBackground(Color.WHITE);
                     p13d.setBackground(Color.WHITE);
 
