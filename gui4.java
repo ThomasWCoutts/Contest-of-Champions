@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -18,7 +17,6 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import java.io.File;
-import java.io.IOException;
 import javax.sound.sampled.*;
 
 public class gui4 extends JFrame implements ActionListener {
@@ -41,7 +39,7 @@ public class gui4 extends JFrame implements ActionListener {
      
 
     public void playSound()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
-        File f1 = new File("track.wav");
+        File f1 = new File("t.wav");
         AudioInputStream a1 = AudioSystem.getAudioInputStream(f1);
         Clip clip1 = AudioSystem.getClip();
         clip1.open(a1);
@@ -397,6 +395,7 @@ public class gui4 extends JFrame implements ActionListener {
 
     public  void ComputerTurn()throws UnsupportedAudioFileException,IOException,LineUnavailableException{
         if (turn == 2){
+            turn = 1;
             p1d1l.setForeground(Color.RED);
             p1d2l.setForeground(Color.RED);
             p1d3l.setForeground(Color.RED);
@@ -419,8 +418,6 @@ public class gui4 extends JFrame implements ActionListener {
                 catch(LineUnavailableException g){
                     g.getStackTrace();
                 }
-
-                //p2reset();
             }
             else{
                 p2reset();
@@ -442,19 +439,29 @@ public class gui4 extends JFrame implements ActionListener {
                 bleed1.setVisible(true);
             }
             if ((computer.FindHealer() && computer.getHealer().HP>0 && computer.getDef().HP<500)&& (r%2==0)||computer.FindHealer() &&computer.getHealer().Energy>=100){
-                int heal;
+                int heal;   
+                String healed = ""; 
                 if ( computer.getHealer().Energy>=100){
                     heal = computer.getHealer().Super();
+                    for(Hero x:computer.chosen){
+                        if(x.HP<=0){
+                            x.HP += heal;
+                            healed = x.Class;
+                            computer.alive++;
+                            break;
+                        }
+                    }
                 }
                 else{
                     heal = computer.getHealer().Skill();
+                    computer.getDef().HP += heal;
+                    healed = computer.getDef().Class;
                 }
                 if(p1.assassin!= null){
                     p1.assassin.CutCount =0;
-                }
-                computer.getDef().HP += heal;
-                System.out.println("Computer "+ computer.getDef().Class+ " was healed to "+ computer.getDef().HP);
-                p2heal(computer.getDef().Class);
+                }        
+                System.out.println("Computer "+ healed+ " was healed to "+ computer.getDef().HP);
+                p2heal(computer.getDef().Class);    
                 p1reset();
                 p2a1l.setText(String.valueOf(computer.chosen[0].HP));
                 p2a2l.setText(String.valueOf(computer.chosen[1].HP));
@@ -574,10 +581,8 @@ public class gui4 extends JFrame implements ActionListener {
                     fightPane.setVisible(false);
                     fightPane.setEnabled(false);
                 }
+                System.out.println("Player 1 " + D1 + " has " +m1.get(D1).HP + " HP");
 
-                else{
-                    System.out.println("Player 1 " + D1 + " has " +m1.get(D1).HP + " HP");
-                }
                 p1a1l.setText(String.valueOf(m1.get(HA1.getText()).HP));
                 p1a2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                 p1a3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
@@ -585,16 +590,18 @@ public class gui4 extends JFrame implements ActionListener {
                 p1health2l.setText(String.valueOf(m1.get(HA2.getText()).HP));
                 p1health3l.setText(String.valueOf(m1.get(HA3.getText()).HP));
             }
-            p2e1.setText("Energy: "+ m2.get(HB1.getText()).Energy);
-            p2attack1.setText("Attack Strength: "+ m2.get(HB1.getText()).Attack);
-            p2e2.setText("Energy: "+ m2.get(HB2.getText()).Energy);
-            p2attack2.setText("Attack Strength: "+ m2.get(HB2.getText()).Attack);
-            p2e3.setText("Energy: "+ m2.get(HB3.getText()).Energy);
-            p2attack3.setText("Attack Strength: "+ m2.get(HB3.getText()).Attack);
+            p2e1.setText("Energy: "+ computer.chosen[0].Energy);
+            p2attack1.setText("Attack Strength: "+ computer.chosen[0].Attack);
+            p2e2.setText("Energy: "+ computer.chosen[1].Energy);
+            p2attack2.setText("Attack Strength: "+ computer.chosen[1].Attack);
+            p2e3.setText("Energy: "+ computer.chosen[2].Energy);
+            p2attack3.setText("Attack Strength: "+ computer.chosen[2].Attack);
             if (computer.FindSupport() && computer.getSupport().Skips>0){
                 System.out.println(("Player 1 was frozen"));
                 freezep1();
                 p2reset();
+                turn = 2;
+                computer.support.Skips=0;
                 freeze1.setForeground(new Color(0,255,255));
                 freeze1.setVisible(true);
                 fa1.setEnabled(false);
@@ -662,26 +669,49 @@ public class gui4 extends JFrame implements ActionListener {
                         bleed2.setVisible(true);
                     }
                     computer.getSupport().Skips = 0;
-                    timer1.start();;
-                }
-                if(computer.FindSupport()&&computer.support.up>0){
-                    freeze2.setText("buffed*");
-                    freeze2.setForeground(new Color(255,95,31));
-                    freeze2.setVisible(true);
-                    try{
-                        buffp2();
-                    }
-                    catch(IOException ex){
-                        ex.getStackTrace();
-                    }
-                    catch(UnsupportedAudioFileException g){
-                        g.getStackTrace();
-                    }
-                    catch(LineUnavailableException f){
-                        f.getStackTrace();
-                    } 
+                    timer1.start();
                 }
             }
+            else{
+                r++;
+                //timer1.reset();
+                if (m1.get(HA1.getText()).HP>0){
+                    fa1.setEnabled(true);
+                }
+                else{
+                    fa1.setEnabled(false);
+                }
+                if (m1.get(HA2.getText()).HP>0){
+                    fa2.setEnabled(true);
+                }
+                else{
+                    fa2.setEnabled(false);
+                }
+                if (m1.get(HA3.getText()).HP>0){
+                    fa3.setEnabled(true);
+                }
+                else{
+                    fa3.setEnabled(false);
+                }
+            }
+            if(computer.FindSupport()&&computer.support.up>0){
+                freeze2.setText("buffed*");
+                freeze2.setForeground(new Color(255,95,31));
+                freeze2.setVisible(true);
+                try{
+                    buffp2();
+                }
+                catch(IOException ex){
+                    ex.getStackTrace();
+                }
+                catch(UnsupportedAudioFileException g){
+                    g.getStackTrace();
+                }
+                catch(LineUnavailableException f){
+                    f.getStackTrace();
+                } 
+            }
+
             if (computer.FindSupport() && computer.support.nerfs > 0) {
                 try{
                     nerfp1();
@@ -695,77 +725,57 @@ public class gui4 extends JFrame implements ActionListener {
                 catch(LineUnavailableException g){
                     g.getStackTrace();
                 }
-                //System.out.println("Computer " + computer.getAt().Class + " was nerfed");
+                System.out.println("Player 1 was nerfed");
                 computer.support.nerfs--;
                 //p2reset();
-            }
-            if (m1.get(HA1.getText()).HP>0){
-                fa1.setEnabled(true);
-            }
-            else{
-                fa1.setEnabled(false);
-            }
-            if (m1.get(HA2.getText()).HP>0){
-                fa2.setEnabled(true);
-            }
-            else{
-                fa2.setEnabled(false);
-            }
-            if (m1.get(HA3.getText()).HP>0){
-                fa3.setEnabled(true);
-            }
-            else{
-                fa3.setEnabled(false);
-            }
-            
+            }    
         }
-        r++;
+        //r++;
         fightPanelLabel.setText("       Round "+ r);
-        turn = 1;
         if (limited && r == rounds+1){
             if (p1.alive>computer.alive){
                 winPanelLabel.setText("Player 1 won!");
                 try{
-                                playWin();
-                            }
-                            catch(IOException ex){
-                                ex.getStackTrace();
-                            }
-                            catch(UnsupportedAudioFileException g){
-                                g.getStackTrace();
-                            }
-                            catch(LineUnavailableException f){
-                                f.getStackTrace();
-                            }
+                    playWin();
+                }
+                catch(IOException ex){
+                    ex.getStackTrace();
+                }
+                catch(UnsupportedAudioFileException g){
+                    g.getStackTrace();
+                }
+                catch(LineUnavailableException f){
+                    f.getStackTrace();
+                }
             }
             else if (p1.alive<computer.alive){
                 winPanelLabel.setText("Computer won!");
                 try{
-                                playWin();
-                            }
-                            catch(IOException ex){
-                                ex.getStackTrace();
-                            }
-                            catch(UnsupportedAudioFileException g){
-                                g.getStackTrace();
-                            }
-                            catch(LineUnavailableException f){
-                                f.getStackTrace();
-                            }
+                    playWin();
+                }
+                catch(IOException ex){
+                    ex.getStackTrace();
+                }
+                catch(UnsupportedAudioFileException g){
+                    g.getStackTrace();
+                }
+                catch(LineUnavailableException f){
+                    f.getStackTrace();
+                }
             }
             else{
                 winPanelLabel.setText("Draw !");try{
-                                playDraw();
-                            }
-                            catch(IOException ex){
-                                ex.getStackTrace();
-                            }
-                            catch(UnsupportedAudioFileException g){
-                                g.getStackTrace();
-                            }
-                            catch(LineUnavailableException f){
-                                f.getStackTrace();
-                            }
+                    playDraw();
+                }
+                catch(IOException ex){
+                    ex.getStackTrace();
+                }
+                catch(UnsupportedAudioFileException g){
+                    g.getStackTrace();
+                }
+                catch(LineUnavailableException f){
+                    f.getStackTrace();
+                }
 
             }
             winPane.setVisible(true);
@@ -1894,6 +1904,15 @@ public class gui4 extends JFrame implements ActionListener {
 
     public void killp1(String A2, String D1)throws UnsupportedAudioFileException,IOException,LineUnavailableException{
         playDie();
+        p21d.setBackground(null);
+        p22d.setBackground(null);
+        p23d.setBackground(null);
+        p21d.setOpaque(false);
+        p22d.setOpaque(false);
+        p23d.setOpaque(false);
+        p2d1.setEnabled(false);
+        p2d2.setEnabled(false);
+        p2d3.setEnabled(false);
         if(pvp){
             if(A2.equals(p2.chosen[0].Class)){
                 p21d.setBounds(660,350,100,100);
@@ -2171,6 +2190,15 @@ public class gui4 extends JFrame implements ActionListener {
 
     public void killp2(String A1, String D2)throws UnsupportedAudioFileException,IOException,LineUnavailableException{
         playDie();
+        p11d.setBackground(null);
+        p12d.setBackground(null);
+        p13d.setBackground(null);
+        p11d.setOpaque(false);
+        p12d.setOpaque(false);
+        p13d.setOpaque(false);
+        p1d1.setEnabled(false);
+        p1d2.setEnabled(false);
+        p1d3.setEnabled(false);
         if(A1.equals(p1.chosen[0].Class)){
             p11d.setBounds(850,350,100,100);
             switch(p1.chosen[0].Class){
@@ -3791,9 +3819,7 @@ public class gui4 extends JFrame implements ActionListener {
                 }  
             }
         };
-        
-
-        
+         
         startPane = new JLayeredPane();
         startpic = new JLabel(sIcon);
         startLabel = new JLabel("Contest of Heroes");
@@ -5012,9 +5038,23 @@ side2l.setForeground(Color.RED);
                     p12d.setOpaque(true);
                     p13d.setOpaque(true);
 
-p11d.setBackground(Color.WHITE);
+                    p11d.setBackground(Color.WHITE);
                     p12d.setBackground(Color.WHITE);
                     p13d.setBackground(Color.WHITE);
+
+                    p11f.setBackground(null);
+                    p12f.setBackground(null);
+                    p13f.setBackground(null);
+                    p11f.setOpaque(false);
+                    p12f.setOpaque(false);
+                    p13f.setOpaque(false);
+
+                    p21f.setBackground(null);
+                    p22f.setBackground(null);
+                    p23f.setBackground(null);
+                    p21f.setOpaque(false);
+                    p22f.setOpaque(false);
+                    p23f.setOpaque(false);
 
                 }
             }
@@ -6386,7 +6426,7 @@ p11d.setBackground(Color.WHITE);
         defendPane.setEnabled(false);
 
         defendPanelLabel.setVisible(true);
-        defendPanelLabel.setBounds(500, 50, 1200, 100);
+        defendPanelLabel.setBounds(200, 50, 1200, 100);
         defendPanelLabel.setFont(new Font("Press Start 2P", Font.BOLD, 60));
         defendPanelLabel.setForeground(new Color(255, 30, 0));
         
@@ -8016,11 +8056,9 @@ p23d.setOpaque(true);
                         ;
                         p2reset();
                         turn = 2;
-                        if (pvp){
-                            fa1.setEnabled(false);
-                            fa2.setEnabled(false);
-                            fa3.setEnabled(false);
-                        }
+                        fa1.setEnabled(false);
+                        fa2.setEnabled(false);
+                        fa3.setEnabled(false);
                         if (p1.assassin!=null && p1.assassin.CutCount>0){
                             if (pvp){
                                 m2.get(D2).HP-= p1.assassin.Bleed;
@@ -8209,7 +8247,7 @@ p23d.setOpaque(true);
                                 m2.get(DC).HP = 0;
                                 computer.alive--;
                                 try{
-                                    killp2(A1, D2);
+                                    killp2(A1, DC);
                                     p1hit(A1);
                                 }
                                 catch(IOException ex){
@@ -8232,6 +8270,10 @@ p23d.setOpaque(true);
                                     fightPane.setVisible(false);
                                     fightPane.setEnabled(false);
                                 }
+                                else{
+                                    DC = computer.getDef().Class;
+                                }
+                                
                             }
                             p2a1l.setText(String.valueOf(computer.chosen[0].HP));
                             p2a2l.setText(String.valueOf(computer.chosen[1].HP));
@@ -8702,7 +8744,7 @@ p23d.setOpaque(true);
                                         
                                     }
                                     if(!pvp){
-                                        r--;
+                                        //r--;
                                         if (limited && r == rounds+1){
                                             if (p1.alive>computer.alive){
                                                 winPanelLabel.setText("Player 1 won!");
@@ -8761,10 +8803,10 @@ p23d.setOpaque(true);
                             }
                         }
                     else{
+                        fa1.setEnabled(false);
+                        fa2.setEnabled(false);
+                        fa3.setEnabled(false);
                         if(pvp){
-                            fa1.setEnabled(false);
-                            fa2.setEnabled(false);
-                            fa3.setEnabled(false);
                             if (m2.get(HB1.getText()).HP>0){
                                 fb1.setEnabled(true);
                             }
@@ -8784,10 +8826,6 @@ p23d.setOpaque(true);
                                 fb3.setEnabled(false);
                             }
                         }
-                        /*else{
-                            timer4.start();
-                        }*/
-                                
                             }
                             if (pvp){
                                 System.out.println("Player 2 " + D2 + " had " +m2.get(D2).HP + " HP");
@@ -8885,12 +8923,6 @@ p23d.setOpaque(true);
 						        p2health3l.setText(String.valueOf(m2.get(HB3.getText()).HP));
 
                                 System.out.println("Player 2 " + D2 + " has " +m2.get(D2).HP + " HP");
-                                if(turn ==2){
-                                    
-                                    fa1.setEnabled(false);
-                                    fa2.setEnabled(false);
-                                    fa3.setEnabled(false);
-                                }
                                 fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
 
                             }
@@ -8929,7 +8961,7 @@ p23d.setOpaque(true);
                                     m2.get(DC).HP = 0;
                                     computer.alive--;
                                     try{
-                                        killp2(A1, D2);
+                                        killp2(A1, DC);
                                         p1hit(A1);
                                     }
                                     catch(IOException ex){
@@ -8963,6 +8995,7 @@ p23d.setOpaque(true);
                                         fightPane.setVisible(false);
                                         fightPane.setEnabled(false);
                                     }
+                                    DC = computer.getDef().Class;
                                 }
                                 p2a1l.setText(String.valueOf(computer.chosen[0].HP));
                                 p2a2l.setText(String.valueOf(computer.chosen[1].HP));
@@ -9282,7 +9315,6 @@ p23d.setOpaque(true);
                                 freeze2.setVisible(true);
                             }
                             r++;
-                            //fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
                         }
                         else {
                             if (m2.get(HB1.getText()).HP>0&& m2.get(HB1.getText()).HP< m2.get(HB1.getText()).cHP){
@@ -9414,8 +9446,7 @@ p23d.setOpaque(true);
                         winPane.setEnabled(true);
                         fightPane.setEnabled(false);
                         fightPane.setVisible(false);
-                    }
-                    
+                    } 
                 }
             }
     });
@@ -9674,24 +9705,24 @@ p23d.setOpaque(true);
                                     fa1.setEnabled(false);
                                     fa2.setEnabled(false);
                                     fa3.setEnabled(false);
-                                if (m2.get(HB1.getText()).HP>0){
-                                        fb1.setEnabled(true);
-                                    }
-                                    else{
-                                        fb1.setEnabled(false);
-                                    }
-                                    if (m2.get(HB2.getText()).HP>0){
-                                        fb2.setEnabled(true);
-                                    }
-                                    else{
-                                        fb2.setEnabled(false);
-                                    }
-                                    if (m2.get(HB3.getText()).HP>0){
-                                        fb3.setEnabled(true);
-                                    }
-                                    else{
-                                        fb3.setEnabled(false);
-                                    }
+                                    if (m2.get(HB1.getText()).HP>0){
+                                            fb1.setEnabled(true);
+                                        }
+                                        else{
+                                            fb1.setEnabled(false);
+                                        }
+                                        if (m2.get(HB2.getText()).HP>0){
+                                            fb2.setEnabled(true);
+                                        }
+                                        else{
+                                            fb2.setEnabled(false);
+                                        }
+                                        if (m2.get(HB3.getText()).HP>0){
+                                            fb3.setEnabled(true);
+                                        }
+                                        else{
+                                            fb3.setEnabled(false);
+                                        }
                                 }
                                 if(p1.FindSupport()&&p1.support.up>0){
                                     try{
@@ -9740,7 +9771,7 @@ p23d.setOpaque(true);
                                     m2.get(DC).HP = 0;
                                     computer.alive--;
                                     try{
-                                        killp2(A1, D2);
+                                        killp2(A1, DC);
                                     p1hit(A1);
                                     }
                                     catch(IOException ex){
@@ -9762,6 +9793,7 @@ p23d.setOpaque(true);
                                         fightPane.setVisible(false);
                                         fightPane.setEnabled(false);
                                     }
+                                    DC = computer.getDef().Class;
                                 }
                                 p2a1l.setText(String.valueOf(computer.chosen[0].HP));
                                 p2a2l.setText(String.valueOf(computer.chosen[1].HP));
@@ -9793,7 +9825,7 @@ p23d.setOpaque(true);
                                 }
                                 if (p1.support != null && p1.support.Skips>0){
                                     turn =1;
-                                    r--;
+                                    //r--;
                                     System.out.println(("computer was frozen"));
                                     freeze2.setText("frozen*");
                                     try{
@@ -9826,47 +9858,47 @@ p23d.setOpaque(true);
                                         if (p1.alive>computer.alive){
                                             winPanelLabel.setText("Player 1 won!");
                                             try{
-                                playWin();
-                            }
-                            catch(IOException ex){
-                                ex.getStackTrace();
-                            }
-                            catch(UnsupportedAudioFileException g){
-                                g.getStackTrace();
-                            }
-                            catch(LineUnavailableException f){
-                                f.getStackTrace();
-                            }
-                                        }
+                                                playWin();
+                                            }
+                                            catch(IOException ex){
+                                                ex.getStackTrace();
+                                            }
+                                            catch(UnsupportedAudioFileException g){
+                                                g.getStackTrace();
+                                            }
+                                            catch(LineUnavailableException f){
+                                                f.getStackTrace();
+                                            }
+                                                        }
                                         else if (p1.alive<computer.alive){
                                             winPanelLabel.setText("Computer won!");
                                             try{
-                                playWin();
-                            }
-                            catch(IOException ex){
-                                ex.getStackTrace();
-                            }
-                            catch(UnsupportedAudioFileException g){
-                                g.getStackTrace();
-                            }
-                            catch(LineUnavailableException f){
-                                f.getStackTrace();
-                            }
+                                                playWin();
+                                            }
+                                            catch(IOException ex){
+                                                ex.getStackTrace();
+                                            }
+                                            catch(UnsupportedAudioFileException g){
+                                                g.getStackTrace();
+                                            }
+                                            catch(LineUnavailableException f){
+                                                f.getStackTrace();
+                                            }
                                         }
                                         else{
                                             winPanelLabel.setText("Draw !");
                                             try{
-                                playDraw();
-                            }
-                            catch(IOException ex){
-                                ex.getStackTrace();
-                            }
-                            catch(UnsupportedAudioFileException g){
-                                g.getStackTrace();
-                            }
-                            catch(LineUnavailableException f){
-                                f.getStackTrace();
-                            }
+                                                playDraw();
+                                            }
+                                            catch(IOException ex){
+                                                ex.getStackTrace();
+                                            }
+                                            catch(UnsupportedAudioFileException g){
+                                                g.getStackTrace();
+                                            }
+                                            catch(LineUnavailableException f){
+                                                f.getStackTrace();
+                                            }
                                         }
                                         winPane.setVisible(true);
                                         winPane.setEnabled(true);
@@ -9875,6 +9907,9 @@ p23d.setOpaque(true);
                                     }
                                 }
                                 else{
+                                    fa1.setEnabled(false);
+                                    fa2.setEnabled(false);
+                                    fa3.setEnabled(false);
                                     timer4.start();
                                 }
                             }
@@ -9983,9 +10018,9 @@ p23d.setOpaque(true);
                             p2.support.up=0;
                             p2reset();
                             System.out.println("Player 2 " +A2+ " was buffed");
-                            freeze1.setText("buffed*");
-                            freeze1.setForeground(new Color(255,95,31));
-                            freeze1.setVisible(true);
+                            freeze2.setText("buffed*");
+                            freeze2.setForeground(new Color(255,95,31));
+                            freeze2.setVisible(true);
 
                         }
                         if(!m2.get(A2).Class.equals("healer")){
@@ -10005,11 +10040,6 @@ p23d.setOpaque(true);
                             p1reset();
                             System.out.println("Player 1 " + D1 + " had " +m1.get(D1).HP + " HP");
                             damage = m2.get(A2).Super();
-                            /*if (p2.FindSupport() && p2.support.up>0){
-                                freeze2.setText("buffed*");
-                                freeze2.setForeground(new Color(255,95,31));
-                                freeze2.setVisible(true);
-                            }*/
                             if (p2.FindSupport()&& p2.support.nerfs>0){
                                 freeze1.setText("nerfed*");
                                 freeze1.setForeground(new Color(3,75,3));
@@ -10043,26 +10073,7 @@ p23d.setOpaque(true);
                             }
                             else{
                                 m1.get(D1).HP -= damage;
-                            }
-                            
-                            if (m1.get(HA1.getText()).HP>0){
-                                fa1.setEnabled(true);
-                            }
-                            else{
-                                fa1.setEnabled(false);
-                            }
-                            if (m1.get(HA2.getText()).HP>0){
-                                fa2.setEnabled(true);
-                            }
-                            else{
-                                fa2.setEnabled(false);
-                            }
-                            if (m1.get(HA3.getText()).HP>0){
-                                fa3.setEnabled(true);
-                            }
-                            else{
-                                fa3.setEnabled(false);
-                            }
+                            }                   
                             if (D1.equals(fa1.getText())){
                                 p1d1l.setText(" -" +damage);
                                 p1d1l.setVisible(true);
@@ -10161,14 +10172,10 @@ p23d.setOpaque(true);
                                 catch(LineUnavailableException f){
                                     f.getStackTrace();
                                 }  
-                                
-                                //p2reset();
+
                                 freeze1.setForeground(new Color(0,255,255));
                                 freeze1.setVisible(true);
                                 p2.support.Skips = 0;
-                                fa1.setEnabled(false);
-                                fa2.setEnabled(false);
-                                fa3.setEnabled(false);
                                 if (p1.assassin!=null && p1.assassin.CutCount>0){
                                     m2.get(D2).HP-= p1.assassin.Bleed;
                                     System.out.println("Player 2 " + D2 + " is bleeding \t HP -"+p1.assassin.Bleed);
@@ -10185,23 +10192,6 @@ p23d.setOpaque(true);
                                 else{
                                     bleed2.setVisible(false);
                                 }
-                            }
-                            if(p2.FindSupport()&&p2.support.up>0){
-                                freeze2.setText("buffed*");
-                                freeze2.setForeground(new Color(255,95,31));
-                                freeze2.setVisible(true);
-                                try{
-                                    buffp2();
-                                }
-                                catch(IOException ex){
-                                    ex.getStackTrace();
-                                }
-                                catch(UnsupportedAudioFileException g){
-                                    g.getStackTrace();
-                                }
-                                catch(LineUnavailableException f){
-                                    f.getStackTrace();
-                                }  
                             }
                             else{
                                 fb1.setEnabled(false);
@@ -10221,11 +10211,27 @@ p23d.setOpaque(true);
                                 }
                                 if (m1.get(HA3.getText()).HP>0){
                                     fa3.setEnabled(true);
-                                    
                                 }
                                 else{
                                     fa3.setEnabled(false);
                                 }
+                            }
+                            if(p2.FindSupport()&&p2.support.up>0){
+                                freeze2.setText("buffed*");
+                                freeze2.setForeground(new Color(255,95,31));
+                                freeze2.setVisible(true);
+                                try{
+                                    buffp2();
+                                }
+                                catch(IOException ex){
+                                    ex.getStackTrace();
+                                }
+                                catch(UnsupportedAudioFileException g){
+                                    g.getStackTrace();
+                                }
+                                catch(LineUnavailableException f){
+                                    f.getStackTrace();
+                                }  
                             }
                             r++;
                             fightPanelLabel.setText("Round "+ r+ " Player "+ turn+ " turn");
@@ -10365,9 +10371,6 @@ p23d.setOpaque(true);
                         fightPane.setEnabled(false);
                         fightPane.setVisible(false);
                     }
-                    /*else if (!pvp && computer.FindAssassin()&& computer.assassin.CutCount==0){
-                        bleed1.setVisible(false);
-                    }*/
                 }
             }
         });
@@ -11223,20 +11226,42 @@ p23d.setOpaque(true);
                         fightPanelLabel.setText("       Round "+r );
                         computer = new Computer();
                         p2d1.setText(computer.chosen[0].Class);
-                        p2d2.setText(computer.chosen[1].Class);
-                        p2d3.setText(computer.chosen[2].Class);
-                        fb1.setText(computer.chosen[0].Class);
-                        fb2.setText(computer.chosen[1].Class);
-                        fb3.setText(computer.chosen[2].Class);
-                        HB1.setText(computer.chosen[0].Class);
-                        HB2.setText(computer.chosen[1].Class);
-                        HB3.setText(computer.chosen[2].Class);
-                        p2a1l.setText(String.valueOf(computer.chosen[0].HP));
-                        p2a2l.setText(String.valueOf(computer.chosen[1].HP));
-                        p2a3l.setText(String.valueOf(computer.chosen[2].HP));
-                        p2health1l.setText(String.valueOf(computer.chosen[0].HP));
-                        p2health2l.setText(String.valueOf(computer.chosen[1].HP));
-                        p2health3l.setText(String.valueOf(computer.chosen[2].HP));
+                    p2d2.setText(computer.chosen[1].Class);
+                    p2d3.setText(computer.chosen[2].Class);
+                    p2s1.setText(computer.chosen[0].Class);
+                    p2s2.setText(computer.chosen[1].Class);
+                    p2s3.setText(computer.chosen[2].Class);
+                    chardb1.setText(computer.chosen[0].Class);
+                    chardb2.setText(computer.chosen[1].Class);
+                    chardb3.setText(computer.chosen[2].Class);
+                    charfb1.setText(computer.chosen[0].Class);
+                    charfb2.setText(computer.chosen[1].Class);
+                    charfb3.setText(computer.chosen[2].Class);
+                    charhb1.setText(computer.chosen[0].Class);
+                    charhb2.setText(computer.chosen[1].Class);
+                    charhb3.setText(computer.chosen[2].Class);
+                    fb1.setText(computer.chosen[0].Class);
+                    fb2.setText(computer.chosen[1].Class);
+                    fb3.setText(computer.chosen[2].Class);
+                    HB1.setText(computer.chosen[0].Class);
+                    HB2.setText(computer.chosen[1].Class);
+                    HB3.setText(computer.chosen[2].Class);
+
+                    m2.put(computer.chosen[0].Class,computer.chosen[0]);
+                    m2.put(computer.chosen[1].Class,computer.chosen[1]);
+                    m2.put(computer.chosen[2].Class,computer.chosen[2]);
+                                        
+
+
+                    p2a1l.setText(String.valueOf(computer.chosen[0].HP));
+                    p2a2l.setText(String.valueOf(computer.chosen[1].HP));
+                    p2a3l.setText(String.valueOf(computer.chosen[2].HP));
+                    p2health1l.setText(String.valueOf(computer.chosen[0].HP));
+                    p2health2l.setText(String.valueOf(computer.chosen[1].HP));
+                    p2health3l.setText(String.valueOf(computer.chosen[2].HP));
+                    p2life1l.setText(String.valueOf(computer.chosen[0].HP));
+                    p2life2l.setText(String.valueOf(computer.chosen[1].HP));
+                    p2life3l.setText(String.valueOf(computer.chosen[2].HP));
                         sortButtons();
                     }
 
@@ -13348,6 +13373,20 @@ pauseLabel.setFont(new Font("Press Start 2P",Font.BOLD, 100));
                     p11d.setBackground(Color.WHITE);
                     p12d.setBackground(Color.WHITE);
                     p13d.setBackground(Color.WHITE);
+
+                    p11f.setBackground(null);
+                    p12f.setBackground(null);
+                    p13f.setBackground(null);
+                    p11f.setOpaque(false);
+                    p12f.setOpaque(false);
+                    p13f.setOpaque(false);
+
+                    p21f.setBackground(null);
+                    p22f.setBackground(null);
+                    p23f.setBackground(null);
+                    p21f.setOpaque(false);
+                    p22f.setOpaque(false);
+                    p23f.setOpaque(false);
 
                 }
             }
